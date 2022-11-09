@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json());
 app.use(morgan('dev'));
 
-//app.use(express.json);
+
 app.use("/api", routerProduct, routerProduct2);
 
 app.get('/', (req, res) => {
