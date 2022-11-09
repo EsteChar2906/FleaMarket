@@ -2,36 +2,40 @@ import mongoose from 'mongosee';
 const { Schema } = mongoose;
 
 const schema = new Schema({
-    fistname:{
-        type: String,
-        required: [true, 'name is required'],
-        trim: true
-    },
-    lastname:{
-        type:String,
-        required: true
+    name: {
+        fistname:{
+            type: String,
+            required: true,
+            trim: true
+        },
+        lastname:{
+            type:String,
+            required: true,
+            trim: true
+        }
     },
     password:{
         type: String,
         required: true,
         unique: true
     },
-    roles: [String],
     email:{
         type: String,
     },
-    typeDocument: {
+    country: {
         type: String,
         required: true
     },
-    numDocument: {
-        type: Number,
-        required: true,
-        unique: true
+    addres: {
+        city: {type: String},
+        codePostal: {type: Number},
+        street: {type: String},
+        required: true
     },
     telephone:{
         type: Number
-    }
+    },
+    roles: [String],
 });
 
 const Users = mongoose.model('Users', schema)
