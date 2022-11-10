@@ -1,0 +1,13 @@
+.contenedorCards{
+    width: 83%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transform: translateY(0px);
+    transition: .2s;
+    text-decoration: none;
+    background-color: rgb(231, 228, 228);
+    border-radius: 20px;
+
+}
