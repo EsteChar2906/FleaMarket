@@ -1,43 +1,41 @@
-import mongoose from 'mongosee';
-const { Schema } = mongoose;
+import mongoose from 'mongoose';
 
-const schema = new Schema({
-    name: {
-        fistname:{
-            type: String,
-            required: true,
-            trim: true
-        },
-        lastname:{
-            type:String,
-            required: true,
-            trim: true
-        }
-    },
-    password:{
-        type: String,
-        required: true,
-        unique: true
-    },
-    email:{
-        type: String,
-    },
-    country: {
-        type: String,
-        required: true
-    },
-    addres: {
-        city: {type: String},
-        codePostal: {type: Number},
-        street: {type: String},
-        required: true
-    },
-    telephone:{
-        type: Number
-    },
-    roles: [String],
+
+const userschema = new mongoose.Schema({
+  firstname: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+  },
+  addres: {
+    type: String,
+  },
+  telephone: {
+    type: Number,
+  },
+  roles: [String],
 });
 
-const Users = mongoose.model('Users', schema)
+ export default mongoose.model('Users', userschema)
 
-export default Users;
+
