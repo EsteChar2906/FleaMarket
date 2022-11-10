@@ -15,7 +15,7 @@ export  function Detail() {
   
  let params = useParams()
  console.log(params.id)
- 
+
   /* const dispatch = useDispatch()
     let {id} = useParams()
     const producto = useSelector((state) => state.detail)
@@ -34,25 +34,25 @@ export  function Detail() {
         <img src={p.image} width="250px" height="250px"/>
       </div>
       <div>
-        <a>Name: {product1.title}</a>
+        <a>Name: {p.title}</a>
       </div>
       <div>
-        <a>Category: {product1.category}</a>
+        <a>Category: {p.category}</a>
       </div>      
       <div>
-        <a>{product1.stock}</a>
+        <a>{p.stock}</a>
       </div>
       <div>
-        <a>Description: {product1.description}</a>
+        <a>Description: {p.description}</a>
       </div>
       <div>
-        <a>Price: {product1.price}</a>
+        <a>Price: {p.price}</a>
       </div>
       <div>
-        <a>{product1.condition}</a>
+        <a>{p.condition}</a>
       </div>
       <div>
-        <a>Rating: {product1.rating.rate}</a>
+        <a>Rating: {p.rating.rate}</a>
       </div>
     </>
   )
