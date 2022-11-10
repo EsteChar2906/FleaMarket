@@ -4,6 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 import {Detail} from './components/Detail/Detail.jsx'
+import "./App.css"
 
 
 // Dummy components (They should be delete later)
@@ -13,17 +14,21 @@ const Home = () => <h1>Home</h1>;
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/detail/:id">
-          <Detail />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+
+    <div className='App'>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/detail/:id">
+            <Detail />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
+    
   );
 }
 
