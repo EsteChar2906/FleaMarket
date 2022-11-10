@@ -16,7 +16,7 @@ export default () => {
                             title={e.title}
                             image={e.image}
                             price={e.price}
-                            
+                            id={e.id}
                             
                         />)
                     }) 
