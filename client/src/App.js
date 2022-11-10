@@ -3,11 +3,13 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import {Detail} from './components/Detail/Detail.jsx'
+
 
 // Dummy components (They should be delete later)
 const NavBar = () => <h1>NavBar</h1>;
 const Home = () => <h1>Home</h1>;
-const Detail = () => <h1>Detail</h1>;
+//const Detail = () => <h1>Detail</h1>;
 
 function App() {
   return (
