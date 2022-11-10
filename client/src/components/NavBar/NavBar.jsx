@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 
+// Dummy component
+const SearchBar = () => <input type="text" defaultValue="Buscar" />
+
 function NavBar() {
   return (
     <nav>
       <ul>
-        <li>LOGO</li>
         <li>
           <Link to="/">
-            Home
+            Logo
           </Link>
+        </li>
+        <li>
+          <SearchBar />
         </li>
         <li>CARRITO</li>
       </ul>
