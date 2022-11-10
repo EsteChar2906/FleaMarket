@@ -18,7 +18,7 @@ router.post("/product", async (req, res) => {
 router.get("/product/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const found = await Products.findById(id);
+        const found = await Products.findById(id).populate('user');
         if (found) {
             return res.json(found)
         } else {
@@ -49,7 +49,7 @@ router.get("/product", async (req, res) => {
 });
 
 // route que me trae todos los productos con su usuario
-router.get("/product&user", async (req, res) => {
+router.get("/productuser", async (req, res) => {
     try {
             const products_user = await Products.find().populate('user');
             return res.json(products_user);
