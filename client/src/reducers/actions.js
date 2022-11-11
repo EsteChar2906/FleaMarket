@@ -1,1 +1,3 @@
 export const LOAD_PRODUCTS = "LOAD_PRODUCTS";
+export const FILTER_CATEGORY = "FILTER_CATEGORY";
+export const FILTER_USED = "FILTER_USED";
