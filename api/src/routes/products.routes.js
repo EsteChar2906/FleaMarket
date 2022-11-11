@@ -17,14 +17,26 @@ router.post("/product", async (req, res) => {
 // ruta que me trae todos los productos con su usuario y su categoria
 // Tambien me bsuca por title del producto (query), utilizando la misma ruta con el query: http://localhost:3001/api/products?name=
 router.get("/products", async (req, res) => {
-    try {
-        const { name } = req.query; 
-        const products= await Products.find({ title: { $regex: name, $options: "i" } }).populate('user').populate('category');
-    
-        return res.status(200).json(products);
-    } catch (error) {
-        return res.status(500).json({ message: error.message })
+  try {
+    const { name } = req.query;
+    if (name) {
+      const productsQuery = await Products.find({
+        title: { $regex: name, $options: "i" },
+      })
+        .populate("user")
+        .populate("category")
+        .exec();
+      return res.status(200).json(productsQuery);
+    } else {
+      const products = await Products.find()
+        .populate("user")
+        .populate("category")
+        .exec();
+      return res.status(200).json(products);
     }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 });
 
 // ruta que me trae el detalle de un producto, incluyendo, user y category

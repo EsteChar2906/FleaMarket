@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "3af40281-d88e-496c-8dfd-437d0672ff11",
+		"name": "FleaMarket-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22126469"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "@ get obtener todos los products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "@ post crear product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"laptop lenovo\",\r\n     \"price\": 2000,\r\n     \"description\": \"lenovo thinkpad\",\r\n     \"image\": \"https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.lenovo.com%2Fmedias%2Flenovo-laptops-thinkpad-t-series-t15-gen2-intel-hero.png%3Fcontext%3DbWFzdGVyfHJvb3R8MzUzOTU1fGltYWdlL3BuZ3xoNTEvaGI3LzE0MDgxMzc3NTk5NTE4LnBuZ3w3NjYxYzRiMTViNGJhNzlmYzc4NmRmYjA0ODA1NmZlYTdhNjMxNmJkODAwMGU0ZDcxYjUxNTU0YTUxNmQ4MThl&imgrefurl=https%3A%2F%2Fwww.lenovo.com%2Fco%2Fes%2Flaptops%2Fthinkpad%2Fserie-t%2FThinkPad-T15-Gen-2-Intel%2Fp%2F20W5S38G00&tbnid=XUhasJjvPdGjxM&vet=12ahUKEwiN1JLn-Kb7AhUBneAKHX-TA5kQMygAegUIARCxAg..i&docid=TYRg5mbwdBE-gM&w=725&h=515&q=lenovo%20thinkpad&ved=2ahUKEwiN1JLn-Kb7AhUBneAKHX-TA5kQMygAegUIARCxAg\",\r\n     \"rating\": 4,\r\n     \"stock\": 10,\r\n     \"condition\": \"Nuevo\",\r\n     \"user\": \"636ea90a15b32e15d2e94eb9\",\r\n     \"category\": \"636ea71215b32e15d2e94eab\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "@post category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"watch\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "@ get obtiene todas las categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "@ delete category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "@get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "@post user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"kobe\",\r\n    \"lastname\": \"bryant\",\r\n    \"password\":1234589,\r\n    \"email\": \"jose-dld@hotmail.com\",\r\n    \"country\": \"colombia\",\r\n    \"city\": \"cartagena\",\r\n    \"addres\": \"xxxxxxxxxxx\",\r\n    \"telephone\": 12345678,\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
