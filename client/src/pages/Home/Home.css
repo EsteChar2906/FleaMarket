@@ -1,0 +1,14 @@
+.contenedor-filtros{
+    background-color:rgb(88, 167, 207);
+    width: 83%;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 120px;
+    color: white;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}

@@ -1,6 +1,7 @@
 import Cards from './../../components/Cards/Cards.jsx';
 import FilterCat from '../../components/FilterCategory/filtCat';
 import FilterUsed from '../../components/FilterUsed/FilterUsed';
+import "./Home.css"
 
 //Dummy components
 // const Filter1 = () => <h1>Filtro por categoria</h1>
@@ -9,8 +10,11 @@ import FilterUsed from '../../components/FilterUsed/FilterUsed';
 function Home() {
   return (
     <div>
-      <FilterCat />
-      <FilterUsed />
+      <div className='contenedor-filtros'>
+        <FilterCat />
+        <FilterUsed />
+      </div>
+      
       <Cards />
     </div>  
   )
