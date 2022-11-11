@@ -20,6 +20,11 @@ export default (props) => {
                     {props.price}
                    
                 </div>
+                <div className="Card-agregar">
+                    
+                    Agregar al carrito
+                   
+                </div>
             </div>
         
     )

@@ -1,5 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
+import "./filtCat.css"
 
 export default function FilterCategory(){
 
@@ -17,13 +18,14 @@ export default function FilterCategory(){
 
   return(
     <div>
-      <div>
-      <label >Filter by Category</label>
-        <select onChange={handleChange}>
-          <option value="All">All</option>
-          <option value="men">men's clothing</option>
-          <option value="jewelery">jewelery</option>
-        </select>
+      <div className="contenedorcategorias">
+      
+        <div className="contenedorcategorias" onChange={handleChange}>
+          <option className="optionuno"value="All">All</option>
+          <option className="option"value="men">Clothing</option>
+          <option className="option"value="jewelery">Jewelery</option> 
+          <option className="option"value="jewelery">Accessories</option>
+        </div>
       </div>
     </div>
   )

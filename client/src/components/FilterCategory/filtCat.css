@@ -1,0 +1,14 @@
+.contenedorcategorias{
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.option{
+    margin-left: 170px;
+    cursor: pointer;
+}
+.optionuno{
+    margin-left: 50px;
+    cursor: pointer;
+}
