@@ -1,32 +1,33 @@
 import mongoose, { Schema } from 'mongoose';
 import Users from './users.js';
+import category from './category.js';
 
 const productschema = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       requerid: true,
       trim: true,
     },
-    category: {
+    price: {
+      type: Number,
+      required: true,
+    },
+    description: {
       type: String,
+      maxlength: 500,
+    },
+    image: {
+      url: String,
+    },
+    rating: {
+      type: Number,
       requerid: true,
     },
     stock: {
       type: Number,
       requerid: true,
       min: [1, "At least one product is needed to publish it"],
-    },
-    description: {
-      type: String,
-      maxlength: 500,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    image: {
-      url: String,
     },
     condition: {
       type: String,
@@ -37,12 +38,10 @@ const productschema = new mongoose.Schema(
       require: true,
       ref: Users,
     },
-  },
-  {
-    query: {
-      byName(name) {
-        return this.where({ name: new RegExp(name, "i") });
-      },
+    category: {
+      type: Schema.Types.ObjectId,
+      require: true,
+      ref: category,
     },
   }
 );
