@@ -1,6 +1,6 @@
 import {
   LOAD_PRODUCTS,
-} from './actions.js';
+} from '../reducers/actions';
 
 import products from '../testData';
 
