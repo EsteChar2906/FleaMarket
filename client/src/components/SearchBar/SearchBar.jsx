@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getProductByName } from "../../actions/index";
+// import { useDispatch } from "react-redux";
+// import { getProductByName } from "../../actions/index";
+
+import products, {product1} from '../../testData';
  
 
 export  function SearchBar() {  
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+
+  const getProductByName = (name) => {
+    return products.find(product => product.title === name)
+  }
 
   const [name, setName] = useState("");
 
@@ -15,7 +21,8 @@ export  function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getProductByName(name));
+    // dispatch(getProductByName(name));
+    alert(getProductByName(name).title);
     document.getElementById("search").value = "";
      
   };
