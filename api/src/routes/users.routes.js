@@ -16,7 +16,7 @@ router.post("/user", async (req, res) => {
 
 
 // route que me trae todo los usuarios
-router.get("/alluser", async (req, res) => {
+router.get("/users", async (req, res) => {
     try {
             const users = await Users.find();
             return res.json(users);
