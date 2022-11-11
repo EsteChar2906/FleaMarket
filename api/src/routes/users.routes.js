@@ -4,7 +4,7 @@ import Users from '../models/users.js'
 const router = express();
 
 // route me crea un usuario
-router.post("/user", async (req, res) => {
+router.post("/users", async (req, res) => {
     try {
         const newUser = Users(req.body);
         await newUser.save()
@@ -22,6 +22,28 @@ router.get("/users", async (req, res) => {
             return res.json(users);
     } catch (error) {
         return res.status(500).json({ message: error.message })
+    }
+});
+
+// route que me actualiza los usuarios
+router.put("/users/:id", async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { firstname, lastname, password, email, country, city, addres, telephone, roles } = req.body;
+        await Users.updateOne({_id: id}, {$set: req.body})
+        res.status(200).send('Se actualizaron los datos correctamente')
+    }catch(error){
+        res.status(500).send({error: error.message})
+    }
+});
+
+router.delete("/users/:id", async (req, res) => {
+    try{
+        const { id } = req.params;
+        await Users.deleteOne({_id: id})
+        res.status(200).send("El usuario a sido eliminado correctamente")
+    }catch(error){
+         res.status(500).send({error: error.message});
     }
 });
 
