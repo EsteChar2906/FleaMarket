@@ -20,15 +20,17 @@ function App() {
 
     <div className='App'>
       <BrowserRouter>
-        <NavBar />
+        
         <Switch>
           <Route exact path="/">
             <Landing />
           </Route>
           <Route path="/home">
+            <NavBar />
             <Home />
           </Route>
           <Route path="/detail/:id">
+            <NavBar />
             <Detail />
           </Route>
         </Switch>

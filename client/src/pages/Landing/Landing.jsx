@@ -1,18 +1,17 @@
 import {Link} from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import {loadProducts} from '../../actions/index';
+import "./Landing.css"
+import foto from "../../images/logodos.png"
 
 function Landing(props) {
-  const dispatch = useDispatch();
   return (
-    <div>
+    <div className='landing'>
       <header>
-        <h1>Beinvenidos a FleaMarkek</h1>
-        <h3>Contribuye a la economía circular y ahorra como loco</h3>
+        <img className='logolanding' src={foto} alt="" />
+        <h1 className='bienvenidos'>Bienvenidos a FleaMarkek</h1>
+        <h3 className='contribuye'>¡Contribuye a la economía circular y ahorrá como loco!</h3>
       </header>
       <Link to="/home">
-        <button onClick={() => dispatch(loadProducts())}>Vamos</button>
+        <button className='botonvamos'>¡Vamos!</button>
       </Link>
     </div>
   )
