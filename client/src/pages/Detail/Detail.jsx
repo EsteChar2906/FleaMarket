@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import data, {product1} from '../../testData.js';
 
 export  function Detail() {
+  let params = useParams();
+  let id = parseInt(params.id);
 
- const getDetail= () => {
-    return product1
+  // Dummy function
+  const getDetail= (id) => {
+    return data.find(p => p.id === id)
   }
-    const p = getDetail()
-    console.log(p)
   
- let params = useParams()
- console.log(params.id)
+  const p = getDetail(id);
 
   /* const dispatch = useDispatch()
     let {id} = useParams()

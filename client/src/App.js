@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import {Detail} from './components/Detail/Detail.jsx'
+import {Detail} from './pages/Detail/Detail.jsx'
 import Landing from './pages/Landing/Landing.jsx';
 import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './pages/Home/Home.jsx';
