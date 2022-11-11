@@ -18,9 +18,9 @@ export default function FilterCategory(){
   return(
     <div>
       <div>
-        <label >Filtro por Categoria</label>
+      <label >Filter by Category</label>
         <select onChange={handleChange}>
-          <option value="Todo">Todo</option>
+          <option value="All">All</option>
           <option value="men">men's clothing</option>
           <option value="jewelery">jewelery</option>
         </select>
