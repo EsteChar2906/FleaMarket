@@ -8,11 +8,14 @@ import "./Cards.css"
 
 export default () => {
     const products = useSelector(state => state.products);
+    const filtered = useSelector(state => state.filtered);
+
+    const productsToShow = filtered.length === 0 ? products : filtered;
     
     return (
         <div className="contenedorCards">
              {   
-                    products.map((e, i) => {
+                    productsToShow.map((e, i) => {
                         return (<Card
                             key={i}
                             title={e.title}

@@ -3,7 +3,7 @@ import {
   LOAD_PRODUCT,
   FILTER_CATEGORY,
   FILTER_USED,
-
+  RESET_FILTERED,
 } from '../reducers/actions';
 
 import products from '../testData';
@@ -26,10 +26,19 @@ export function loadProduct(id, products) {
   }
 }
 
-export function filterCategory(payload){
+export function filterCategory(category, products){
   return{
     type: FILTER_CATEGORY,
-    payload
+    payload: {
+      category,
+      products
+    }
+  }
+}
+
+export function resetFiltered() {
+  return {
+    type: RESET_FILTERED
   }
 }
 
