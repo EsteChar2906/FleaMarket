@@ -2,7 +2,18 @@ import {Link} from 'react-router-dom';
 import "./Landing.css"
 import foto from "../../images/logodos.png"
 
+import {useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import {loadProducts} from '../../actions/index';
+
 function Landing(props) {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    
+    dispatch(loadProducts());
+  })
+
   return (
     <div className='landing'>
       <header>

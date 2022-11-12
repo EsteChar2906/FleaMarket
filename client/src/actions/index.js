@@ -1,9 +1,10 @@
 import {
   LOAD_PRODUCTS,
+  LOAD_PRODUCT,
+  FILTER_CATEGORY,
+  FILTER_USED,
+  RESET_FILTERED,
 } from '../reducers/actions';
-
-import {FILTER_CATEGORY} from '../reducers/actions';
-import { FILTER_USED } from '../reducers/actions';
 
 import products from '../testData';
 
@@ -15,10 +16,29 @@ export function loadProducts() {
   }
 }
 
-export function filterCategory(payload){
+export function loadProduct(id, products) {
+  return {
+    type: LOAD_PRODUCT,
+    payload: {
+      id,
+      products
+    },
+  }
+}
+
+export function filterCategory(category, products){
   return{
     type: FILTER_CATEGORY,
-    payload
+    payload: {
+      category,
+      products
+    }
+  }
+}
+
+export function resetFiltered() {
+  return {
+    type: RESET_FILTERED
   }
 }
 

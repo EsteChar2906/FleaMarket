@@ -7,24 +7,20 @@ import data, { product1 } from '../../testData.js'
 
 import { FaStar } from 'react-icons/fa'
 
+import { loadProduct } from '../../actions/index.js'
+
 export function Detail() {
-  const getDetail = () => {
-    return product1
-  }
-  const p = getDetail()
-  console.log(p)
+    const params = useParams();
+    const id = parseInt(params.id);
 
-  let params = useParams()
-  console.log(params.id)
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.products);
+    const p = useSelector(state => state.product);
 
-  /* const dispatch = useDispatch()
-    let {id} = useParams()
-    const producto = useSelector((state) => state.detail)
-
-     useEffect(()=> {
-        dispatch(getDetail(id))
-    },[dispatch]) */
-
+    useEffect(() => {
+      dispatch(loadProduct(id, products));
+    })
+    
   return (
     <div>
       <div class="grid  sm:grid-cols-2 p-8 ">

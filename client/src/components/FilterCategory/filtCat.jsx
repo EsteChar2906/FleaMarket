@@ -2,17 +2,20 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "./filtCat.css"
 
+import {filterCategory, resetFiltered} from '../../actions/index';
+
 export default function FilterCategory(){
 
-  // const dispatch = useDispatch();
-  
+  const dispatch = useDispatch();
+  const filtered = useSelector(state => state.filtered);
+  const products = useSelector(state => state.products);
 
-  const handleChange = (e) => {
-    e.preventDefault()
-    if(e.target.value === "Todo"){
-      //dispatch(getProducts()); [remplazar el nombre de la funcion];
+  const handleClick = (category) => {
+    console.log(category);
+    if(category === "all"){
+      dispatch(resetFiltered());
     }else{
-      //dispatch(filterCategory(e.target.value)); [remplazar el nombre de la funcion]
+      dispatch(filterCategory(category, products));
     }
   }
 
@@ -20,11 +23,10 @@ export default function FilterCategory(){
     <div>
       <div className="contenedorcategorias">
       
-        <div className="contenedorcategorias" onChange={handleChange}>
-          <option className="optionuno"value="All">All</option>
-          <option className="option"value="men">Clothing</option>
-          <option className="option"value="jewelery">Jewelery</option> 
-          <option className="option"value="jewelery">Accessories</option>
+        <div className="contenedorcategorias">
+          <button onClick={() => handleClick("all")} className="optionuno"value="All">All</button>
+          <button onClick={() => handleClick("men's clothing")} className="option"value="men">Clothing</button>
+          <button onClick={() => handleClick("jewelery")} className="option"value="jewelery">Jewelery</button> 
         </div>
       </div>
     </div>
