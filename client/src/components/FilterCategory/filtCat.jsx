@@ -2,9 +2,11 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "./filtCat.css"
 
+import {filterCategory} from '../../actions/index';
+
 export default function FilterCategory(){
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   
 
   const handleChange = (e) => {
@@ -12,7 +14,7 @@ export default function FilterCategory(){
     if(e.target.value === "Todo"){
       //dispatch(getProducts()); [remplazar el nombre de la funcion];
     }else{
-      //dispatch(filterCategory(e.target.value)); [remplazar el nombre de la funcion]
+      dispatch(filterCategory(e.target.value));
     }
   }
 

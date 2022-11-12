@@ -1,10 +1,10 @@
 import {
   LOAD_PRODUCTS,
   LOAD_PRODUCT,
-} from '../reducers/actions';
+  FILTER_CATEGORY,
+  FILTER_USED,
 
-import {FILTER_CATEGORY} from '../reducers/actions';
-import { FILTER_USED } from '../reducers/actions';
+} from '../reducers/actions';
 
 import products from '../testData';
 
