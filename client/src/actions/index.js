@@ -1,5 +1,6 @@
 import {
   LOAD_PRODUCTS,
+  LOAD_PRODUCT,
 } from '../reducers/actions';
 
 import {FILTER_CATEGORY} from '../reducers/actions';
@@ -12,6 +13,16 @@ export function loadProducts() {
   return {
     type: LOAD_PRODUCTS,
     payload: products,
+  }
+}
+
+export function loadProduct(id, products) {
+  return {
+    type: LOAD_PRODUCT,
+    payload: {
+      id,
+      products
+    },
   }
 }
 
