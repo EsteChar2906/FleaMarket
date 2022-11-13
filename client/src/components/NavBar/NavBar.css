@@ -9,12 +9,7 @@
     justify-content: space-between;
    
 }
-.usuario{
-    width: 25%;
-    margin-left: 120px;
-    margin-right: 20px;
-    cursor: pointer;
-}
+
 .navbardos{
     display: flex;
     justify-content: center;
@@ -27,11 +22,9 @@
     margin-left: 140px;
 }
 .carrito{
-    width: 65px;
-    margin-left: 100px;
+    width: 40px;
+    margin-left: 50px;
     cursor: pointer;
-   
-
 }
 
 .mensaje{
