@@ -1,25 +1,17 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-//import { getDetail} from '../../actions'
-import data, { product1 } from '../../testData.js'
-import './Detail.scss'
-import { FaStar } from 'react-icons/fa'
-import { loadProduct } from '../../actions/index.js'
+import { useParams } from 'react-router-dom'
+import  { product1 } from '../../testData.js'
+
 
 export function Detail() {
-    const params = useParams();
-    const id = parseInt(params.id);
-
-    const dispatch = useDispatch();
-    const products = useSelector(state => state.products);
-    const p = useSelector(state => state.product);
-
-    useEffect(() => {
-      dispatch(loadProduct(id, products));
-    })
-
+const getDetail = () => {
+      return product1
+    }
+    const p = getDetail()
+    console.log(p)
+  
+    let params = useParams()
+    console.log(params.id)
   return (
     <div>
     <div class="grid  sm:grid-cols-2 p-8 m-15 ">
