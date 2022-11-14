@@ -63,7 +63,8 @@ export function Detail() {
       <div class="bg-gray-100 border-solid border-2 rounded  border-gray-300 ml-2 ">
         <div class="bg-gray-200  rounded-md w-auto">
           <a>
-            <a class="rounded text-1xl text-blue-700  m-1">Category </a> {p.category}
+            <a class="rounded text-1xl text-blue-700  m-1">Category  </a> {p.category}   |
+            <a class="rounded text-1xl text-blue-700  m-1">Condition </a> {p.condition}
           </a>
         </div>
         <div class="m-0.1 p-3 text-4xl ">
