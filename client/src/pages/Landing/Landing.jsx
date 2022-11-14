@@ -4,14 +4,25 @@ import foto from "../../images/logodos.png"
 
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
-import {loadProducts} from '../../actions/index';
+import {loadProducts, loadCategories} from '../../actions/index';
+
+import axios from 'axios';
+const endPoint = 'http://localhost:3001';
 
 function Landing(props) {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    
+    // const fetchProducts = async () => {
+    //   const response = await axios.get(`${endPoint}/api/products`);
+    //   console.log(response.data);
+    // }
+    fetch(`${endPoint}/api/products`)
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    // fetchProducts();
     dispatch(loadProducts());
+    dispatch(loadCategories());
   })
 
   return (

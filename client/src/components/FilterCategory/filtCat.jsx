@@ -9,6 +9,8 @@ export default function FilterCategory(){
   const dispatch = useDispatch();
   const filtered = useSelector(state => state.filtered);
   const products = useSelector(state => state.products);
+  const categories = useSelector(state => state.categories);
+  console.log(categories);
 
   const handleClick = (category) => {
     console.log(category);
@@ -25,8 +27,9 @@ export default function FilterCategory(){
       
         <div className="contenedorcategorias">
           <button onClick={() => handleClick("all")} className="optionuno"value="All">All</button>
-          <button onClick={() => handleClick("men's clothing")} className="option"value="men">Clothing</button>
-          <button onClick={() => handleClick("jewelery")} className="option"value="jewelery">Jewelery</button> 
+          {categories.map(c => (
+            <button onClick={() => handleClick(c)} className="optionuno"value={c}>{c}</button>
+          ))}
         </div>
       </div>
     </div>
