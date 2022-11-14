@@ -15,7 +15,8 @@ function filterReducer(state = [], action) {
   }
 
   if (action.type === FILTER_USED) {
-    return [];
+    const {condition, products} = action.payload;
+    return products.filter(p => p.condition === condition);
   }
 
   return state;
