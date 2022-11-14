@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import  { product1 } from '../../testData.js'
-
+import './Detail.scss'
 import {useSelector, useDispatch} from 'react-redux';
 import {loadProduct} from '../../actions';
 import { useEffect } from 'react'
@@ -33,7 +33,7 @@ export function Detail() {
             <div class="tabs">
 
               <div class="tab">
-                <input type="checkbox" id="chck1" />
+                <input class="input-detalle" type="checkbox" id="chck1" />
                 <label class="tab-label" for="chck1">
                   Description
                 </label>
@@ -41,7 +41,7 @@ export function Detail() {
               </div>
 
               <div class="tab">
-                <input type="checkbox" id="chck2" />
+                <input class="input-detalle" type="checkbox" id="chck2" />
                 <label class="tab-label" for="chck2">
                 Caracterist     
                 </label>
@@ -63,7 +63,8 @@ export function Detail() {
       <div class="bg-gray-100 border-solid border-2 rounded  border-gray-300 ml-2 ">
         <div class="bg-gray-200  rounded-md w-auto">
           <a>
-            <a class="rounded text-1xl text-blue-700  m-1">Category </a> {p.category}
+            <a class="rounded text-1xl text-blue-700  m-1">Category  </a> {p.category}   |
+            <a class="rounded text-1xl text-blue-700  m-1">Condition </a> {p.condition}
           </a>
         </div>
         <div class="m-0.1 p-3 text-4xl ">
