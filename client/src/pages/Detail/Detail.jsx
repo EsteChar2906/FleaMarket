@@ -2,16 +2,21 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import  { product1 } from '../../testData.js'
 
+import {useSelector, useDispatch} from 'react-redux';
+import {loadProduct} from '../../actions';
+import { useEffect } from 'react'
 
 export function Detail() {
-const getDetail = () => {
-      return product1
-    }
-    const p = getDetail()
-    console.log(p)
+  const params = useParams();
+  const id = parseInt(params.id);
   
-    let params = useParams()
-    console.log(params.id)
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.products);
+  const p = useSelector(state => state.product);
+  
+  useEffect(() => {
+  dispatch(loadProduct(id, products));
+  })
   return (
     <div>
     <div class="grid  sm:grid-cols-2 p-8 m-15 ">
