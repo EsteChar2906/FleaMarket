@@ -3,12 +3,24 @@ import "./FilterUsed.css"
 // import { useDispatch } from "react-redux";
 //import filterUsed from [function de la action]
 
+import {useSelector, useDispatch} from 'react-redux';
+import { filterUsed } from "../../actions";
+
 export default function FiltUsed(){
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const filtered = useSelector(state => state.filtered);
+  const products = useSelector(state => state.products);
+  console.log(filtered);
   
   const handleUsed = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log(e.target.value);
+    if (filtered.length !== 0) {
+      dispatch(filterUsed(e.target.value, filtered));
+      return;
+    }
+    dispatch(filterUsed(e.target.value, products));
     // dispatch(filterUsed()) [remplazar con la function de action]
   }
   return(
@@ -16,8 +28,9 @@ export default function FiltUsed(){
 
     
         <select className="contenedorfiltrouser" onChange={handleUsed} >
-          <option className="option" value="new">New</option>
-          <option className="option"value="used">Used</option>
+          <option className="option" value="all">All</option>
+          <option className="option" value="Nuevo">New</option>
+          <option className="option"value="Usado">Used</option>
         </select>
 
     </div>

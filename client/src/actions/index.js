@@ -42,9 +42,12 @@ export function resetFiltered() {
   }
 }
 
-export function filterUsed(payload){
+export function filterUsed(condition, products){
   return{
     type: FILTER_USED,
-    payload 
+    payload: {
+      condition,
+      products
+    }
   }
 }
