@@ -8,7 +8,8 @@ import { useEffect } from 'react'
 
 export function Detail() {
   const params = useParams();
-  const id = parseInt(params.id);
+  // const id = parseInt(params.id);
+  const id = params.id;
   
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);

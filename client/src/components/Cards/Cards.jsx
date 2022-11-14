@@ -16,7 +16,7 @@ export default () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadProducts())
+        // dispatch(loadProducts())
     })
     
     return (
