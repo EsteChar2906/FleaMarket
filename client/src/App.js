@@ -9,6 +9,7 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './pages/Home/Home.jsx';
 import Profile from './components/Profile/Profile.jsx'
 import "./App.css"
+import { FormUser } from './components/FormUser/FormUser.jsx';
 
 
 // Dummy components (They should be delete later)
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/profileUser">
             <Profile />            
+          </Route>
+          <Route exact path="/FormUser">
+            <FormUser/>            
           </Route>
         </Switch>
       </BrowserRouter>
