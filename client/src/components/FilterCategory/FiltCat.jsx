@@ -1,22 +1,18 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./filtCat.css"
-
 import {filterCategory, resetFiltered} from '../../actions/index';
 
 export default function FilterCategory(){
 
   const dispatch = useDispatch();
-  const filtered = useSelector(state => state.filtered);
   const products = useSelector(state => state.products);
   const categories = useSelector(state => state.categories);
-  console.log(categories);
 
   const handleClick = (category) => {
-    console.log(category);
-    if(category === "all"){
+    if (category === "all"){
       dispatch(resetFiltered());
-    }else{
+    } else {
       dispatch(filterCategory(category, products));
     }
   }
@@ -24,7 +20,6 @@ export default function FilterCategory(){
   return(
     <div>
       <div className="contenedorcategorias">
-      
         <div className="contenedorcategorias">
           <button onClick={() => handleClick("all")} className="optionuno"value="All">All</button>
           {categories.map(c => (

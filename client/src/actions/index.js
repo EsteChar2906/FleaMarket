@@ -1,4 +1,3 @@
-import products from '../testData';
 import im from '../images/product.jpg';
 
 import {
@@ -8,11 +7,9 @@ import {
   FILTER_USED,
   RESET_FILTERED,
   LOAD_CATEGORIES,
-} from '../reducers/actions';
+} from '../actions';
 const host = 'http://localhost:3001';
 
-
-// Dummy function. To connect with the back make the http request to the route.
 export function loadProducts() {
   return function(dispatch) {
     return fetch(`${host}/api/products`)

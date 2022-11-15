@@ -1,4 +1,4 @@
-import { LOAD_PRODUCT } from "./actions";
+import { LOAD_PRODUCT } from "../actions";
 
 function productReducer(state = {}, action) {
   if (action.type === LOAD_PRODUCT) {
