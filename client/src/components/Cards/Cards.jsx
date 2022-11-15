@@ -1,11 +1,7 @@
-import axios from "axios"
-import React, {useEffect} from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { NavLink } from "react-router-dom"
-// import products, { product1 } from "../../testData.js"
-import Card from "./Card.jsx"
-import "./Cards.css"
-import {loadProducts} from "../../actions/index.js"
+import React from "react";
+import { useSelector } from "react-redux";
+import Card from "./Card.jsx";
+import "./Cards.css";
 
 export default () => {
     const products = useSelector(state => state.products);
@@ -13,15 +9,9 @@ export default () => {
 
     const productsToShow = filtered.length === 0 ? products : filtered;
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        // dispatch(loadProducts())
-    })
-    
     return (
         <div className="contenedorCards">
-             {   
+                {   
                     productsToShow.map((e, i) => {
                         return (<Card
                             key={i}
@@ -29,12 +19,10 @@ export default () => {
                             image={e.image}
                             price={e.price}
                             id={e.id}
-                            
                         />)
                     }) 
                     
                 }
-
         </div>
     )
 }

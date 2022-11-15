@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import {SearchBar} from '../SearchBar/SearchBar';
+import { Login } from "../Login/Login.jsx"
 import "./NavBar.css"
 import logo from "../../images/logouno.png"
 import carrito from "../../images/carrito.png"
-import { Login } from "../Login/Login.jsx"
-
-// Dummy component
-// const SearchBar = () => <input type="text" defaultValue="Buscar" />
 
 function NavBar() {
   return (
