@@ -2,7 +2,7 @@ import React, { useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import './Detail.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadProduct } from '../../actions';
+import { loadProduct } from '../../actions/index.js';
 
 export function Detail() {
   const params = useParams();
