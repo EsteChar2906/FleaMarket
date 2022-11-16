@@ -1,14 +1,11 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import  { product1 } from '../../testData.js'
-import './Detail.scss'
-import {useSelector, useDispatch} from 'react-redux';
-import {loadProduct} from '../../actions';
-import { useEffect } from 'react'
+import React, { useEffect }  from 'react';
+import { useParams } from 'react-router-dom';
+import './Detail.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadProduct } from '../../actions/index.js';
 
 export function Detail() {
   const params = useParams();
-  // const id = parseInt(params.id);
   const id = params.id;
   
   const dispatch = useDispatch();
@@ -16,22 +13,20 @@ export function Detail() {
   const p = useSelector(state => state.product);
   
   useEffect(() => {
-  dispatch(loadProduct(id, products));
-  })
+    dispatch(loadProduct(id, products));
+  });
+
   return (
     <div>
     <div class="grid  sm:grid-cols-2 p-8 m-15 ">
       {/*  col-Izq */}
-
       <div class="img-product" >
         <div class="p-8 m-3  rounded  border-gray-300" >
           <img src={p.image} width="550px" height="450px" />
         </div>
-
         <div>
           <div class="col">
             <div class="tabs">
-
               <div class="tab">
                 <input class="input-detalle" type="checkbox" id="chck1" />
                 <label class="tab-label" for="chck1">
@@ -39,7 +34,6 @@ export function Detail() {
                 </label>
                 <div class="tab-content">{p.description}</div>
               </div>
-
               <div class="tab">
                 <input class="input-detalle" type="checkbox" id="chck2" />
                 <label class="tab-label" for="chck2">
@@ -51,14 +45,10 @@ export function Detail() {
                   <p>With: 25cm</p>
                 </div>
               </div>
-
-             
-
             </div>
           </div>
         </div>
       </div>
-
       {/*  col-Derecha */}
       <div class="bg-gray-100 border-solid border-2 rounded  border-gray-300 ml-2 ">
         <div class="bg-gray-200  rounded-md w-auto">
@@ -71,7 +61,6 @@ export function Detail() {
           <a> {p.title}</a>
         </div>
         <div class="text-6xl font-semibold text-yellow-400 p-3">
-         
         <div class="flex items-center">
             <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -80,7 +69,6 @@ export function Detail() {
             <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
         </div>
             {p.rating?.rate}
-         
         </div>
         <div class="text-6xl font-semibold text-blue-700 p-3">
           <a>$ {p.price}</a>

@@ -2,7 +2,7 @@ import {
   FILTER_CATEGORY,
   FILTER_USED,
   RESET_FILTERED,
-} from './actions';
+} from '../actions';
 
 function filterReducer(state = [], action) {
   if (action.type === FILTER_CATEGORY) {

@@ -1,10 +1,13 @@
 import Cards from './../../components/Cards/Cards.jsx';
-import FilterCat from '../../components/FilterCategory/filtCat';
+import FilterCat from '../../components/FilterCategory/FiltCat';
 import FilterUsed from '../../components/FilterUsed/FilterUsed';
+
 import "./Home.css";
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
+import "./Home.css"
+
 
 function Home() {
 
@@ -35,7 +38,6 @@ conectApiByToken()
         <FilterCat />
         <FilterUsed />
       </div>
-      
       <Cards />
     </div>  
   )
