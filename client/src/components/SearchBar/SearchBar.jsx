@@ -1,31 +1,28 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { getProductByName } from "../../actions/index";
-
-import products, {product1} from '../../testData';
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
+import { loadProduct } from "../../actions/index";
 import "./SearchBar.css"
  
 
 export  function SearchBar() {  
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.products);
 
-  const getProductByName = (name) => {
-    return products.find(product => product.title === name)
-  }
+  const history = useHistory();
 
   const [name, setName] = useState("");
 
   const handleInputChange = (e) => {
-    e.preventDefault();
     setName(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // dispatch(getProductByName(name));
-    alert(getProductByName(name).title);
-    document.getElementById("search").value = "";
-     
+    const prod = products.find(p => p.title === name);
+    dispatch(loadProduct(prod.id, products));
+
+    setName('');
+    history.push(`/detail/${prod.id}`);
   };
 
   return (
@@ -37,6 +34,7 @@ export  function SearchBar() {
           placeholder="Search..."
           autoComplete="off"
           onChange={(e) => handleInputChange(e)}
+          value={name}
         />
         <button type="submit" onClick={(e) => handleSubmit(e)}> Search </button>
       </div>      
