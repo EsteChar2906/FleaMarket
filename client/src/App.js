@@ -5,12 +5,18 @@ import Home from "./pages/Home/Home.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import "./App.css";
 import { FormUser } from "./components/FormUser/FormUser.jsx";
+import Landing from "./pages/Landing/Landing.jsx";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
+
+        <Route exact path="/">
+            <Landing />
+          </Route>
+
           <Route exact path="/profileUser">
             <Profile />
           </Route>
