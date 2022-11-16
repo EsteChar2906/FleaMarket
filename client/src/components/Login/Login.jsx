@@ -5,17 +5,17 @@ import usuario from "../../images/usuario.png"
 import './Login.css'
 
 export function Login(){
-  const { loginWithPopup, isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   return (
     <div>
     {isAuthenticated? 
       <div>
-      {console.log(`${window.location.origin}/home`)}
-      <button onClick={() => logout({ returnTo: `${window.location.origin}/home` })}>logout</button>
+      {/* {console.log(`${window.location.origin}/home`)} */}
+      <button onClick={() => logout({ returnTo: `${window.location.origin}`})}>logout</button>
       <Link to="/profileUser"><img className="usuario" src={usuario} alt="usuario" /></Link>
       </div>:
-      <button className="button" type="button" onClick={loginWithPopup}>Login</button>
+      <button className="button" type="button" onClick={loginWithRedirect}>Login</button>
     }
     </div>
     )
