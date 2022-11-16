@@ -43,6 +43,21 @@ const productschema = new mongoose.Schema(
       require: true,
       ref: category,
     },
+    brand: {
+      type: String
+    },
+    ram: {
+      type: Number
+    },
+    processor: {
+      type: String
+    },
+    battery: {
+      type: Number
+    },
+    bluetooth: {
+      type: Boolean
+    }
   }
 );
 

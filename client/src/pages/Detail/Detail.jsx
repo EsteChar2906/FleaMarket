@@ -11,7 +11,7 @@ export function Detail() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
   const p = useSelector(state => state.product);
-  
+  console.log("detalles de producto", p)
   useEffect(() => {
     dispatch(loadProduct(id, products));
   });
@@ -40,9 +40,12 @@ export function Detail() {
                 Caracterist     
                 </label>
                 <div class="tab-content">
-                  <p>Product made of cotton</p>
-                  <p>Height: 30cm</p>
-                  <p>With: 25cm</p>
+                  { p.brand && <p>marca: {p.brand}</p> }
+                  { p.ram && <p>ram: {p.ram} GB</p> }
+                  { p.processor && <p>procesador: {p.processor}</p> }
+                  { p.battery && <p>uso continuo: {p.battery} horas</p> }
+                  { p.bluetooth && <p>bluetooth</p> }
+                  
                 </div>
               </div>
             </div>
