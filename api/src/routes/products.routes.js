@@ -1,82 +1,32 @@
 import express from "express";
-import Products from "../models/products.js";
+import verifyToken from "../../auth/verifyToken.js";
+import {
+  createProduct,
+  getAllProducts,
+  getProductById,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/products.controllers.js";
 
 const router = express();
 
-// ruta para crear un producto 
-router.post("/product", async (req, res) => {
-    try {
-        const newProduct = Products(req.body);
-        await newProduct.save()
-        return res.json(newProduct);
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-});
+// ruta para crear un producto
+// ruta protegida por el token (solo el user puede crear un producto)
+router.post("/product", verifyToken, createProduct);
 
 // ruta que me trae todos los productos con su usuario y su categoria
 // Tambien me bsuca por title del producto (query), utilizando la misma ruta con el query: http://localhost:3001/api/products?name=
-router.get("/products", async (req, res) => {
-  try {
-    const { name } = req.query;
-    if (name) {
-      const productsQuery = await Products.find({
-        title: { $regex: name, $options: "i" },
-      })
-        .populate("user")
-        .populate("category")
-        .exec();
-      return res.status(200).json(productsQuery);
-    } else {
-      const products = await Products.find()
-        .populate("user")
-        .populate("category")
-        .exec();
-      return res.status(200).json(products);
-    }
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
-});
+router.get("/products",  getAllProducts);
 
 // ruta que me trae el detalle de un producto, incluyendo, user y category
-router.get("/product/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const found = await Products.findById(id).populate('user').populate('category');
-        if (found) {
-            return res.json(found)
-        } else {
-            return res.status(500).send("No se encontraron datos");
-        }
+router.get("/product/:id", getProductById);
 
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-});
-
-
-// Route para actualizar un producto 
-router.put("/product/:id", async (req, res) => {
-    try {
-        const { id } = req.params
-        const { name, category, stock, description, price, image, condition } = req.body
-        await Products.updateOne({ _id: id }, {$set: {name, category, stock, description, price, image, condition}})
-        res.status(200).send("Producto actualizado!");
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-})
+// Route para actualizar un producto
+// ruta protegida por el token (solo el user puede actualizar un producto)
+router.put("/product/:id", verifyToken, updateProduct);
 
 // Route para eliminar un producto por id
-router.delete("/product/:id", async (req, res) => {
-    try {
-        let { id } = req.params
-        await Products.deleteOne({ _id: id })
-        res.status(200).send("Producto removido!");
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-})
+// ruta protegida por el token (solo el user puede eliminar un producto)
+router.delete("/product/:id", verifyToken, deleteProduct);
 
 export default router;

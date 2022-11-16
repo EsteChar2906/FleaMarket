@@ -1,9 +1,21 @@
 
+
+import React, {useEffect} from "react"
+import { useSelector, useDispatch } from "react-redux"
+import Card from "./Card.jsx"
+import "./Cards.css"
+import {loadProducts} from "../../actions/index.js"
+
+import React from "react";
+import { useSelector } from "react-redux";
+
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
+
 import Card from "./Card.jsx";
 import "./Cards.css";
 import Pagination from "../Pagination/Pagination.jsx"
+
 
 export default () => {
     const products = useSelector(state => state.products);
@@ -25,6 +37,14 @@ export default () => {
     const paginado = (pageNum) => {
         setCurrentPage(pageNum)
     }
+
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadProducts())
+    },[])
+    
 
     return (
         <div>
