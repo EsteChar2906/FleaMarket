@@ -5,8 +5,8 @@ import {loadProducts, loadCategories} from '../../actions/index';
 import "./Landing.css";
 import foto from "../../images/logodos.png";
 
-import axios from 'axios';
-const endPoint = 'http://localhost:3001';
+// import axios from 'axios';
+// const endPoint = 'http://localhost:3001';
 
 function Landing(props) {
   const dispatch = useDispatch();
