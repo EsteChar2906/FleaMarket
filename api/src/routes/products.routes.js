@@ -1,5 +1,5 @@
 import express from "express";
-import verifyToken from "../../auth/verifyToken.js";
+import verifyToken from "../auth/verifyToken.js";
 import {
   createProduct,
   getAllProducts,
@@ -16,7 +16,7 @@ router.post("/product", verifyToken, createProduct);
 
 // ruta que me trae todos los productos con su usuario y su categoria
 // Tambien me bsuca por title del producto (query), utilizando la misma ruta con el query: http://localhost:3001/api/products?name=
-router.get("/products",  getAllProducts);
+router.get("/products", getAllProducts);
 
 // ruta que me trae el detalle de un producto, incluyendo, user y category
 router.get("/product/:id", getProductById);

@@ -5,9 +5,10 @@ import {connectDB}  from './db.js';
 import routerProduct from './src/routes/products.routes.js';
 import routerUsers from './src/routes/users.routes.js'
 import routerCategory from '../api/src/routes/category.routes.js'
-import verifyToken from './auth/verifyToken.js';
+import verifyToken from './src/auth/verifyToken.js';
 import {PORT} from './config.js'
 import axios from 'axios'
+import verifyRole from './src/auth/verifyRole.js';
 
 const app = express();
 
@@ -22,8 +23,8 @@ app.use("/api", routerUsers);
 app.use("/api", routerCategory);
 
 
-
-app.get("/api/getToken",  verifyToken, async (req, res) => {
+// ruta de prueba
+app.get("/api/getToken",  verifyToken, verifyRole, async (req, res) => {
  const token = req.headers.authorization.split(' ')[1]
  const response = await axios.get('https://dev-xflh1nhmiqkhpil1.us.auth0.com/userinfo',{
   headers:{
@@ -36,6 +37,10 @@ res.send(userinfo)
  });
 
 
+//  app.get("/api/verifyRole",  verifyToken, verifyRole, async (req, res) => {
+//  res.send('role verificado')
+//   });
+ 
 // 404
 app.use((re,res,next)=>{
   const error = new Error('No found')

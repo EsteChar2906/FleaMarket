@@ -1,5 +1,6 @@
 import express from "express";
-import verifyToken from "../../auth/verifyToken.js";
+import verifyToken from "../auth/verifyToken.js";
+import verifyRole from "../auth/verifyRole.js";
 import {
   createUser,
   deleteUser,
@@ -19,6 +20,6 @@ router.get("/users", verifyToken, getUsers);
 router.put("/users/:id", verifyToken, updateUser);
 
 //ruta que elimina un usuario
-router.delete("/users/:id", verifyToken, deleteUser);
+router.delete("/users/:id", verifyToken, verifyRole, deleteUser);
 
 export default router;
