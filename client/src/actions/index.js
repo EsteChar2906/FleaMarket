@@ -23,6 +23,7 @@ export function loadProducts() {
             category,
             rating,
             image,
+            brand, ram, processor, battery, bluetooth
           } = p;
           return {
             id: _id,
@@ -35,6 +36,7 @@ export function loadProducts() {
               rate: rating
             },
             image,
+            brand, ram, processor, battery, bluetooth
           }
         });
         dispatch({

@@ -52,11 +52,11 @@ export const getProductById = async (req, res) => {
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, category, stock, description, price, image, condition } =
+    const { name, category, stock, description, price, image, condition, brand, ram, processor, battery, bluetooth } =
       req.body;
     await Products.updateOne(
       { _id: id },
-      { $set: { name, category, stock, description, price, image, condition } }
+      { $set: { name, category, stock, description, price, image, condition, brand, ram, processor, battery, bluetooth } }
     );
     res.status(200).send("Producto actualizado!");
   } catch (error) {

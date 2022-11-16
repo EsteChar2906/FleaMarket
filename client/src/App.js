@@ -21,7 +21,7 @@ function App() {
             <Profile />
           </Route>
 
-          <Route path="/">
+          <Route path="/home">
             <NavBar />
             <Home />
           </Route>
