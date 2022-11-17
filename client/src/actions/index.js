@@ -36,9 +36,9 @@ export function loadProducts() {
               rate: rating,
             },
             image,
-          };
             brand, ram, processor, battery, bluetooth
-          }
+          };
+            
         });
         dispatch({
           type: LOAD_PRODUCTS,
