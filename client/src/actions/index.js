@@ -35,10 +35,8 @@ export function loadProducts() {
             rating: {
               rate: rating,
             },
-            image,
-            brand, ram, processor, battery, bluetooth
+            image,brand, ram, processor, battery, bluetooth
           };
-            
         });
         dispatch({
           type: LOAD_PRODUCTS,
