@@ -15,6 +15,7 @@ router.post("/users", createUser);
 
 // route que me trae todo los usuarios
 router.get("/users", verifyToken, getUsers);
+console.log(verifyToken)
 
 // route que me actualiza los datos de usuarios
 router.put("/users/:id", verifyToken, updateUser);
