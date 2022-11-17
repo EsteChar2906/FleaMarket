@@ -3,6 +3,7 @@ import { Detail } from "./pages/Detail/Detail.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import Payment from "./components/Payment/Payment.jsx";
 import "./App.css";
 import { FormUser } from "./components/FormUser/FormUser.jsx";
 import Landing from "./pages/Landing/Landing.jsx";
@@ -21,7 +22,7 @@ function App() {
             <Profile />
           </Route>
 
-          <Route path="/">
+          <Route path="/home">
             <NavBar />
             <Home />
           </Route>
@@ -34,6 +35,10 @@ function App() {
           <Route exact path="/FormUser">
             <FormUser />
           </Route>
+          <Route path='/payment'>
+            <Payment/>
+          </Route>
+
         </Switch>
       </BrowserRouter>
     </div>
