@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import users from "./users.js";
-import products from "./products.js";
+
 
 const carSchema = new mongoose.Schema(
   {
