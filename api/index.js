@@ -4,7 +4,7 @@ import cors from 'cors'
 import {connectDB}  from './db.js';
 import routerProduct from './src/routes/products.routes.js';
 import routerUsers from './src/routes/users.routes.js'
-import routerCategory from '../api/src/routes/category.routes.js'
+import routerCategory from './src/routes/category.routes.js'
 import routerShopingCar from "./src/routes/shopingCar.routes.js"
 import verifyToken from './src/auth/verifyToken.js';
 import {PORT} from './config.js'
