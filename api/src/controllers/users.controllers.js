@@ -9,15 +9,15 @@ export const getUsers = async (req, res) => {
     }
   }
 
-export const createUser = async (req, res) => {
-    try {
-      const newUser = Users(req.body);
-      await newUser.save();
-      return res.json(newUser);
-    } catch (error) {
-      return res.status(500).json({ message: error.message });
-    }
-  }
+// export const createUser = async (req, res) => {
+//     try {
+//       const newUser = Users(req.body);
+//       await newUser.save();
+//       return res.json(newUser);
+//     } catch (error) {
+//       return res.status(500).json({ message: error.message });
+//     }
+//   }
 
 export const updateUser = async (req, res) => {
     try {

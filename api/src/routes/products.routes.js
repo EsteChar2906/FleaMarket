@@ -1,5 +1,4 @@
 import express from "express";
-import verifyToken from "../auth/verifyToken.js";
 import {
   createProduct,
   getAllProducts,
@@ -7,6 +6,7 @@ import {
   updateProduct,
   deleteProduct,
 } from "../controllers/products.controllers.js";
+import {  verifyAdminRole, verifyToken } from "../middleware/auth.middlewares.js";
 
 const router = express();
 
@@ -23,10 +23,10 @@ router.get("/product/:id", getProductById);
 
 // Route para actualizar un producto
 // ruta protegida por el token (solo el user puede actualizar un producto)
-router.put("/product/:id", verifyToken, updateProduct);
+router.put("/product/:id",  [verifyToken, verifyAdminRole],  updateProduct);
 
 // Route para eliminar un producto por id
 // ruta protegida por el token (solo el user puede eliminar un producto)
-router.delete("/product/:id", verifyToken, deleteProduct);
+router.delete("/product/:id",  [verifyToken, verifyAdminRole], deleteProduct);
 
 export default router;
