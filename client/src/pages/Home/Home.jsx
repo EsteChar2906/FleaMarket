@@ -13,7 +13,7 @@ function Home() {
           <Header />
         </div>
       </section>
-      <section>
+      <section className="block__pagination">
         <Pagination />
       </section>
       <section>
