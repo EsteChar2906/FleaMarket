@@ -2,7 +2,7 @@ import React, { useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import './Detail.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadProduct } from '../../actions/index.js';
+import { loadProduct, shopingCar } from '../../actions/index.js';
 
 export function Detail() {
   const params = useParams();
@@ -11,10 +11,16 @@ export function Detail() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
   const p = useSelector(state => state.product);
-  console.log("detalles de producto", p)
+  console.log("detalles de producto", p);
+
   useEffect(() => {
     dispatch(loadProduct(id, products));
   });
+
+  function addToCar () {
+    console.log("In SHOPPING CAR")
+    dispatch(shopingCar("ADD", p))
+  }
 
   return (
     <div>
@@ -77,7 +83,7 @@ export function Detail() {
           <a>$ {p.price}</a>
         </div>
         <div>
-          <button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-9 rounded m-5">
+          <button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-9 rounded m-5" onClick={addToCar}>
             Add to my Car
           </button>
         </div>

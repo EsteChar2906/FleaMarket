@@ -6,6 +6,7 @@ import Payment from "./components/Payment/Payment.jsx";
 import Landing from "./pages/Landing/Landing.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
+import ShopCar from "./components/Shoping.js/Shoping.jsx";
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
           <Route path="/payment">
             <Payment />
           </Route>
+
+          <Route path="/shoping">
+            <ShopCar />
+          </Route>
+
         </Switch>
       </BrowserRouter>
     </div>
