@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { loadProduct } from "../../actions/index";
@@ -37,6 +38,9 @@ export  function SearchBar() {
           value={name}
         />
         <button type="submit" onClick={(e) => handleSubmit(e)}> Search </button>
+        <Link to="/shoping">
+          <p>carrito</p>
+        </Link>
       </div>      
     </>
   );

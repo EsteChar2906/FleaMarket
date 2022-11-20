@@ -38,7 +38,7 @@ export function loadProducts() {
             rating: {
               rate: rating,
             },
-            image,brand, ram, processor, battery, bluetooth
+            image, brand, ram, processor, battery, bluetooth
           };
         });
         dispatch({
@@ -107,3 +107,12 @@ export const postFormPay = (payload) => {
     }
   }
 }
+
+export function shopingCar(opt, data) {
+  return function (dispatch) {
+    dispatch({
+      type: opt,
+      payload: data
+    })
+  }
+};
