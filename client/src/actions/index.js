@@ -99,9 +99,10 @@ export function loadCategories() {
 }
 
 export const postFormPay = (payload) => {
-  return function(){
+  return async function(){
     try {
-      const json = axios.post('http://loaclhost:3000/sendMail',payload)
+      const json = await axios.post('http://localhost:3001/api/payment',payload);
+      return json
     } catch (e) {
       console.log(e);
     }
