@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Detail } from "./pages/Detail/Detail.jsx";
-import NavBar from "./components/NavBar/NavBar.jsx";
+import Header from "./components/Header/Header.jsx";
 import Home from "./pages/Home/Home.jsx";
-import Payment from "./components/Payment/Payment.jsx"; 
+import Payment from "./components/Payment/Payment.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
@@ -13,14 +13,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-         
           <Route exact path="/">
-             
             <Home />
           </Route>
 
           <Route path="/detail/:id">
-          
             <Detail />
           </Route>
 
@@ -40,11 +37,10 @@ function App() {
             <Payment />
           </Route>
 
-
           <Route path="/shoping">
             <ShopCar />
           </Route>
-
+          
         </Switch>
       </BrowserRouter>
     </div>

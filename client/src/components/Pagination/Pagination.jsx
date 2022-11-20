@@ -1,26 +1,11 @@
-import React from "react";
-import "./Pagination.css"
+import React from 'react';
 
-export default ({ productsPerPage, products, paginado, currentPage }) => {
-    const pageNum = [];
-
-    for (let i = 1; i <= Math.ceil(products / productsPerPage); i++) {
-        pageNum.push(i)
-    }
-    
-
-
-    return (
-        <div className="paginado">
-            
-               
-                    {pageNum && pageNum.map((num, i) => (
-                        
-                            <a className={`${num === (currentPage) ? "paginado-actual": "paginado-off"}`} key={i} onClick={() => paginado(num)}>{num}</a>
-                        
-                    ))}
-                
-           
-        </div>
-    )
+const Pagination = () => {
+  return (
+    <div>
+      <h1>Component Pagination</h1>
+    </div>
+  );
 }
+
+export default Pagination;
