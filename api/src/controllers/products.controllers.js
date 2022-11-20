@@ -1,4 +1,5 @@
 import Products from "../models/products.js";
+import Category from '../models/category.js';
 
 export const createProduct = async (req, res) => {
   try {
@@ -13,7 +14,8 @@ export const createProduct = async (req, res) => {
 
 export const getAllProducts = async (req, res) => {
   try {
-    const { name } = req.query;
+    /*const { name } = req.query;*/
+/*
     if (name) {
       const productsQuery = await Products.find({
         title: { $regex: name, $options: "i" },
@@ -22,13 +24,44 @@ export const getAllProducts = async (req, res) => {
         .populate("category")
         .exec();
       return res.status(200).json(productsQuery);
-    } else {
-      const products = await Products.find()
-        .populate("user")
-        .populate("category")
-        .exec();
-      return res.status(200).json(products);
-    }
+    } else {*/
+      let page = parseInt(req.query.page) - 1 || 0;
+      let limit = parseInt(req.query.limit) || 8;
+      let condition = req.query.condition || "";
+      let category = req.query.category || "All";
+      let name = req.query.name || "";
+      let sort = req.query.sort;
+
+      const findCategories = await Category.find()
+      
+      let allCategories = findCategories.map((c) => c.name)
+      
+      category === "All"? category = [...allCategories]: category = req.query.category.split(",");
+
+      let sortBy = {};
+      if(sort === "asc"){
+        sortBy["price"] = 1;
+      }
+      if(sort === "desc") {
+        sortBy["price"] = -1;
+      }
+                      
+      const products = await Products.find({ title: {$regex: name, $options: 'i'}, condition: {$regex:condition, $options: 'i'}})
+      .sort(sortBy)
+      .populate("user")
+      .populate({
+        path: 'category',
+        match: {name: category},
+        select: "name"
+
+      })
+      .exec();
+
+      const total = await Products.countDocuments({
+
+      })
+        return res.status(200).json(products);
+    /*}*/
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
