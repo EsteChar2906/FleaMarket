@@ -6,6 +6,7 @@ import Payment from "./components/Payment/Payment.jsx";
 import Landing from "./pages/Landing/Landing.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 
 function App() {
   return (
@@ -34,9 +35,15 @@ function App() {
             <Login />
           </Route>
 
+          <Route path="/profile">
+            <Profile />
+          </Route>
+
           <Route path="/payment">
             <Payment />
           </Route>
+
+
         </Switch>
       </BrowserRouter>
     </div>
