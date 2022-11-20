@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./login.module.css";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import AuthContext from "../../context/authContex";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const { setAuth } = useContext(AuthContext);
+  const history = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-  const history = useHistory();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ const Login = () => {
       const url = "http://localhost:3001/api/login";
       const res = await axios.post(url, data);
       localStorage.setItem("user", JSON.stringify(res.data));
+      setAuth(data)
       history.push("/");
     } catch (error) {
       setError(error.response.data.message);
