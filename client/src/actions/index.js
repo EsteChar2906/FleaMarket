@@ -6,7 +6,10 @@ import {
   RESET_FILTERED,
   LOAD_CATEGORIES,
 } from "../actions";
+import axios from 'axios';
 const host = "http://localhost:3001";
+
+
 
 export function loadProducts() {
   return function (dispatch) {
@@ -95,6 +98,16 @@ export function loadCategories() {
   };
 }
 
+export const postFormPay = (payload) => {
+  return function(){
+    try {
+      const json = axios.post('http://loaclhost:3000/sendMail',payload)
+    } catch (e) {
+      console.log(e);
+    }
+  }
+}
+
 export function shopingCar(opt, data) {
   return function (dispatch) {
     dispatch({
@@ -103,4 +116,3 @@ export function shopingCar(opt, data) {
     })
   }
 };
-

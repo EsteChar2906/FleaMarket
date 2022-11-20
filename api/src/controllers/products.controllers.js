@@ -4,6 +4,7 @@ export const createProduct = async (req, res) => {
   try {
     const newProduct = Products(req.body);
     await newProduct.save();
+    console.log(newProduct)
     return res.json(newProduct);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -58,6 +59,11 @@ export const updateProduct = async (req, res) => {
       { _id: id },
       { $set: { name, category, stock, description, price, image, condition, brand, ram, processor, battery, bluetooth } }
     );
+    const users = await Products.findById(id)
+    .populate('user');
+
+    console.log(users)
+
     res.status(200).send("Producto actualizado!");
   } catch (error) {
     res.status(500).json({ message: error.message });
