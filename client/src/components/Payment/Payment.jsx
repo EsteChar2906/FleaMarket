@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
-import { postFormPay } from "../../actions";
+import { postFormPay } from "../../actions/index";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
