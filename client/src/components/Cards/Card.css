@@ -1,57 +1,55 @@
-.Card {
+@import "../../index.css";
+.block__card{
     background-color: rgb(255, 255, 255);
-    width: 290px ;
-    height: 500px;
-    border-radius: 15px;
-    text-decoration: none;
+    width: 20rem ;
+    height: 23rem;
+    border: 1px solid var(--gray-border); 
+    border-radius: 5px;   
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    box-shadow: rgba(11, 11, 11, 0.142)  4px 4px 15px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    margin-left: 40px;
-    margin-right: 40px;
+    align-items: center;    
+    margin : 1rem   1rem 1rem 1rem;
+    font-size: 1rem; 
     
 }
-.Card-name{
-    font-size: 20px;
-    text-decoration-line: none;
-    color: rgb(69, 69, 87);
-    margin-bottom: 10px;
-    
+.block__card-name{
+    margin: 0px 0px 0px 20px;   
+    text-decoration-line: none;    
 }
-.Card-img {
-    width: 250px;
-    height: 300px;
+.block__card-img {
+    width: 200px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 20px;
-
+    margin:1rem;
 }
-.Card-contenedorprecio{
-    margin-top: 20px;
-    background-color: rgb(39, 110, 168);
-    border-radius: 15px;
-    font-weight: 500;
-    height: 55px;
-    width: 90%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.block__card-precio{
+    margin: 0.3rem 0rem 0px 1rem;   
+    align-items: center; 
     padding-top: 4px;
-    font-size: 30px;
-    color: white;
+    font-size: 1.5rem;
+    color:  var(--font-one);
+   
 }
 
-.Card-agregar{
+.block__card-agregar{
     width: 60%;
-    height: 30px;
-    color: rgb(39, 110, 168);
+    height: 30px; 
+    margin-left: 1rem;  
+}
+
+.block__name-precio{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+    flex-direction: column;
+    margin: 1rem 0rem 0rem 1rem;  
+}
+.block__details{
+    width: 100%;
+    height: 100%; 
+    background-color: var(--gray-one);   
+    display: flex;
+    flex-direction: row;
+ 
 }
