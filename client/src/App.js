@@ -6,7 +6,7 @@ import Payment from "./components/Payment/Payment.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
-import ShopCar from "./components/Shoping.js/Shoping.jsx";
+ import { shopingCar } from "./actions/index.js";
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
           </Route>
 
           <Route path="/shoping">
-            <ShopCar />
+            <shopingCar />
           </Route>
           
         </Switch>

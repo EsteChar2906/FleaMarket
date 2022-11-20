@@ -6,7 +6,7 @@ import { loadProduct } from "../../actions/index";
 import "./SearchBar.css"
  
 
-export  function SearchBar() {  
+const SearchBar = () => {  
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
 
@@ -46,4 +46,5 @@ export  function SearchBar() {
   );
 };
 
+ export default SearchBar
  

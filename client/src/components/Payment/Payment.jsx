@@ -13,7 +13,7 @@ function Validation(input){
 };
 
 
-export default function(){
+const Payment =()=>{
   // const dispatch = useDispatch();
 
   const [error, setError] = useState({});
@@ -87,3 +87,4 @@ export default function(){
     </div>
   )
 }
+export default Payment

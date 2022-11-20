@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { SearchBar } from '../SearchBar/SearchBar'
+import SearchBar from '../SearchBar/SearchBar'
 import FiltUsed from '../FilterUsed/FilterUsed'
 import FilterCategory from '../FilterCategory/FiltCat'
 
-function Header() {
+const Header =()=> {
   return (
     <header className="block__nav">
       <section>

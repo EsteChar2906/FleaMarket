@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./filtCat.css"
 import {filterCategory, resetFiltered, loadCategories} from '../../actions/index';
 
-export default function FilterCategory(){
+const FilterCategory=()=>{
 
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
@@ -34,3 +34,4 @@ export default function FilterCategory(){
     </div>
   )
 }
+export default FilterCategory;
