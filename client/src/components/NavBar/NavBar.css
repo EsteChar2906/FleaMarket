@@ -1,49 +1,8 @@
-.navbar {
-    background-color: rgb(16, 101, 161);
-    width: 100%;
-    height: 120px;
+ .block__nav{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    justify-content: space-between;
-   
-}
-
-.navbardos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-
-}
-.logonav{
-    width: 150px;
-    margin-left: 140px;
-}
-.carrito{
-    width: 40px;
-    margin-left: 50px;
-    cursor: pointer;
-}
-
-.mensaje{
-    color: white;
-    font-size: 20px;
-    margin-left: 0px;
-    cursor: pointer;
+ }
+ .block__nav__div-two{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 20%;
-    justify-content: center;
-
-
-}
-.searchbar{
-    width: 900px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px
-}
+    flex-direction: row;
+ }

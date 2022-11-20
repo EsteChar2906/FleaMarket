@@ -15,12 +15,12 @@ function App() {
         <Switch>
          
           <Route exact path="/">
-            <NavBar />
+             
             <Home />
           </Route>
 
           <Route path="/detail/:id">
-            <NavBar />
+          
             <Detail />
           </Route>
 

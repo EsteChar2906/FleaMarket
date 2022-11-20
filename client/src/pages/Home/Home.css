@@ -1,4 +1,4 @@
-.contenedor-filtros{
+.block__nav{
     background-color:rgb(88, 167, 207);
     width: 83%;
     margin-left: 150px;
@@ -11,4 +11,8 @@
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 30px;
+}
+.block__filters{
+    display: flex;
+    flex-direction: row;
 }
