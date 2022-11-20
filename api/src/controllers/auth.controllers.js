@@ -3,6 +3,7 @@ import  Jwt  from "jsonwebtoken";
 import Role from "../models/roles.js";
 import Users from "../models/users.js";
 import { SECRET } from "../../config.js";
+import { send_Mail } from "../nodemailer/mail.js"
 
 // registro de usuario, se comprueba email y password
 export const userRegister = async (req, res) => {
@@ -32,6 +33,8 @@ export const userRegister = async (req, res) => {
       telephone,
     });
 
+
+
     if (roles) {
       //si llega roles busca en el model de Roles el que coincida y asigna al usuario el id de ese role
       const findRole = await Role.find({ name: { $in: roles } });
@@ -42,6 +45,8 @@ export const userRegister = async (req, res) => {
     }
 
     const savedUser = await newUser.save(); // guarda el nuevo usuario con el respectivo role
+
+    await send_Mail(email, "registro", firstname, lastname)
 
     const token = Jwt.sign({ id: savedUser._id }, SECRET, { //encripta el token de acuerdo al id q tiene el usuario
       expiresIn: 86400, // 24 hours
