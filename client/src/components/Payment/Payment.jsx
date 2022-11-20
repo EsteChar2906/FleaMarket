@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import  ReactDOM  from "react-dom";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { postFormPay } from "../../actions";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -14,7 +15,7 @@ function Validation(input){
 
 
 const Payment =()=>{
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [error, setError] = useState({});
   const [price,setPrice] = useState(0);
@@ -35,6 +36,7 @@ const Payment =()=>{
     });
   };
   const onApprove = (data, actions) => {
+    dispatch(postFormPay(input));
     console.log(data);
     return actions.order.capture(alert("El pago ha si exioto"));
   };
@@ -43,7 +45,6 @@ const Payment =()=>{
   }
 
   const handleInput = (e) => {
-    
     setInput({
       ...input,
       [e.target.name]: e.target.value
