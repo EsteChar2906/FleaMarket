@@ -4,17 +4,23 @@ import "./Card.css";
 
 export default (props) => {
     return (
-            <div className="Card">
-                <Link to={`/detail/${props.id}`}>
-                    <h3 className="Card-name">{props.title}</h3>
-                </Link>
-                <img className="Card-img" src={props.image} alt="not found" />
-                <div className="Card-contenedorprecio">
-                    {props.price}
-                </div>
-                <div className="Card-agregar">
-                    Agregar al carrito
-                </div>
-            </div>
+        <div className="block__card">
+
+      
+        <Link to={`/detail/${props.id}`}>
+          <img className="block__card-img" src={props.image} alt="not found" />
+        </Link>
+        <div className="block__details">
+          <div className="block__name-precio">
+            <h3 className="block__card-name">{props.title}</h3>
+            <div className="block__card-precio">${props.price}</div>
+          </div>
+          <div className="block__description">
+            <div className="block__card-agregar">IconoCAr</div>
+          </div>
+        </div>
+  
+  
+      </div>
     )
 }
