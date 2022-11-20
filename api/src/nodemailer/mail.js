@@ -1,53 +1,28 @@
 import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
-import dotenv from 'dotenv'
-dotenv.config()
+import {EMAIL, PASS } from '../../config.js' 
 
-const oAuth2Client = new google.auth.OAuth2( process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI )
-
-oAuth2Client.setCredentials({
-		refresh_token: process.env.REFRESH_TOKEN,
-		 tls: {
-            rejectUnauthorized: false
+const createTransporter = () => {
+	var transport = nodemailer.createTransport({
+		host: "smtp.gmail.com",
+        auth: {
+        	user: EMAIL,
+        	pass: PASS
         }
-	});
-
-
-async function send_Mail(name, addressee){
-	try{
-		const accessToken = await oAuth2Client.getAccessToken();
-		const transport = nodemailer.createTransport({
-			host: "smtp.gmail.com",
-		    port: 465,
-		    service:"gmail",
-			secure: true,
-			auth: {
-				type: 'OAuht2',
-				clientId: process.env.CLIENT_ID,
-				clientSecret: process.env.CLIENT_SECRET,
-				user: process.env.EMAIL,
-				pass: process.env.PASS,
-				refreshToken: process.env.REFRESH_TOKEN,
-				accessToken: accessToken.token,
-				expires: 3600
-			}
-		});
-
-		const mailOptions = {
-			from: `Hola bienvenido a fleaMarket <${process.env.EMAIL}>`,
-			to: addressee,
-			subject: 'Asunto',
-			text: 'Hola bienvenido',
-			html: '<h3>Se ha registrado o ha actualizado su producto</h3>'
-		};
-		const result = await transport.sendMail(mailOptions);
-		return result;
-	} catch(error){
-		return error
-	}
+    });
+    return transport;
 };
 
+export const send_Mail = async (correo, tipo, firstname, lastname) => {
+	const transport = createTransporter()
+	if(tipo === "registro"){
+		const mail = await transport.sendMail({
+			from: `Hola bienvenido a fleaMarket <fleamarket.appservices@gmail.com>`,
+			to: correo,
+			subject: 'Se ha registrado correctamente',
+			text: 'Hola bienvenido al mejor sitio de comprar donde podras comprar ahorrando',
+			html: `<div><h3>Registro exitoso</h3><p>El usuario ${firstname} ${lastname} se ha registrado correctamente con el siguiento correo ${correo}. </p></div>`
+		})
+	}
 
-/*send_Mail(nombre, correo)
-.then(result => console.log(result))
-.catch(error => console.log(error))*/
+	console.log("message send")
+};
