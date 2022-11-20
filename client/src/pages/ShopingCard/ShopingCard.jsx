@@ -3,7 +3,7 @@ import { shopingCar } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 
-const ShopCar =()=> {
+const ShopingCard =()=> {
 
   const dispatch = useDispatch();
 
@@ -37,4 +37,6 @@ const ShopCar =()=> {
     </div>
   );
 };
+
+export default ShopingCard
 
