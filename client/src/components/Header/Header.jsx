@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
 import { SearchBar } from '../SearchBar/SearchBar'
-// import './NavBar.css'
-import logo from '../../images/logouno.png'
-import carrito from '../../images/carrito.png'
 import FiltUsed from '../FilterUsed/FilterUsed'
 import FilterCategory from '../FilterCategory/FiltCat'
+
 function Header() {
   return (
     <header className="block__nav">
@@ -17,7 +15,6 @@ function Header() {
         <div>
           <SearchBar />
         </div>
-
         <div>
           <img className="logocarrito" alt="" />
         </div>
