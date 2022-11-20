@@ -1,6 +1,6 @@
 import React, { useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
-import './Detail.scss';
+//import './Detail.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadProduct, shopingCar } from '../../actions/index.js';
 

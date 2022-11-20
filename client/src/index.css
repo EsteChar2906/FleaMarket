@@ -12,7 +12,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} 
 
 :root {
   --font-one: rgb(228, 148, 0);
@@ -20,6 +20,7 @@ code {
   --gray-one: rgb(245, 247, 248);
  --bg-nav:  linear-gradient(to top, #243B55, #141E30); 
  --bgg: linear-gradient(0.25turn, #243B55, #141E30, #f69d3c);
+ --blue-light:rgb(201, 224, 249)
  
 
 }

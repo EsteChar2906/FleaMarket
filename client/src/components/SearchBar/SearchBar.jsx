@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { loadProduct } from "../../actions/index";
-import "./SearchBar.css"
+import styles from "./SearchBar.module.css"
  
 
 const SearchBar = () => {  
@@ -28,8 +28,8 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="contenedorsearch">
-        <input  className="searcher"
+      <div className={styles.contenedor_search}>
+        <input  className={styles.contenedor_bar_search}
           id="search"
           type="text"
           placeholder="Search..."
@@ -37,10 +37,7 @@ const SearchBar = () => {
           onChange={(e) => handleInputChange(e)}
           value={name}
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}> Search </button>
-        <Link to="/shoping">
-          <p>carrito</p>
-        </Link>
+        <button type="submit" onClick={(e) => handleSubmit(e)}> Search </button>       
       </div>      
     </>
   );

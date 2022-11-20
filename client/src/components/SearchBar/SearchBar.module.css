@@ -1,0 +1,20 @@
+@import '../../index.css';
+
+.contenedor_search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.contenedor_bar_search {
+  height: 20px;
+  width: 15rem;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: --blue-light;
+  color: rgb(163, 198, 235);
+  background-color: aliceblue;
+}
