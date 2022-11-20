@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
 import {loadProducts, loadCategories} from '../../actions/index';
 import "./Landing.css";
@@ -11,6 +11,8 @@ import foto from "../../images/logodos.png";
 function Landing(props) {
   const dispatch = useDispatch();
   
+  const productos = useSelector(state => state.products);
+  
   useEffect(() => {
     // ---> It can be used to see what is coming from the api, don't delete please <---
     // const fetchProducts = async () => {
@@ -18,9 +20,10 @@ function Landing(props) {
     //   console.log(response.data);
     // }
     // fetchProducts();
-    dispatch(loadProducts());
-    dispatch(loadCategories());
+    if (productos.length === 0){ dispatch(loadProducts(), loadCategories()) }  
   });
+  
+  console.log("productos", productos)
 
   return (
     <div className='landing'>
