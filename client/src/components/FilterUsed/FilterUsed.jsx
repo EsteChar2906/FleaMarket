@@ -3,7 +3,7 @@ import "./FilterUsed.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { filterUsed } from "../../actions/index.js";
 
-export default function FiltUsed() {
+const FiltUsed =()=> {
   const dispatch = useDispatch();
 
   const filtered = useSelector(state => state.filtered);
@@ -27,3 +27,4 @@ export default function FiltUsed() {
     </div>
   )
 }
+export default   FiltUsed;

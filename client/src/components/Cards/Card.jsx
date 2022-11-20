@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Card.css'
 
-export default (props) => {
+const Card = (props) => {
   return (
     <div className="block__card">
       <Link to={`/detail/${props.id}`}>
@@ -20,3 +20,4 @@ export default (props) => {
     </div>
   )
 }
+export default Card;
