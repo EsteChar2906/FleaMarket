@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./filtCat.css";
+import styles from "./filtCat.module.css";
 import {
   filterCategory,
   resetFiltered,
@@ -25,27 +25,12 @@ const FilterCategory = () => {
   };
   return (
     <div>
-      <div className="contenedorcategorias">
-        <div className="contenedorcategorias">
-          <button
-            onClick={() => handleClick("all")}
-            className="optionuno"
-            value="All"
-          >
-            All
-          </button>
+      <div className={styles.contenedor_category}>         
+          <button className={styles.contenedor_button_all} onClick={() => handleClick("all")} value="All"> All</button>
           {categories.map((c, i) => (
-            <button
-              key={i}
-              onClick={() => handleClick(c)}
-              className="optionuno"
-              value={c}
-            >
-              {c}
-            </button>
+            <button className={styles.contenedor_button_category} key={i} onClick={() => handleClick(c)} value={c} > {c} </button>
           ))}
-        </div>
-      </div>
+     </div>      
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import Card from './Card.jsx'
-import './Cards.css'
+import styles from './Cards.module.css'
 import { loadProducts } from '../../actions/index.js'
 import { useEffect, useState } from 'react'
 import Pagination from '../Pagination/Pagination.jsx'
@@ -15,7 +15,7 @@ const Cards = () => {
 
    return (
     <div>
-      <div className="contenedorCards">
+      <div className={styles.contenedor_cards}>
         {products.map((e, i) => {
           return (
             <Card

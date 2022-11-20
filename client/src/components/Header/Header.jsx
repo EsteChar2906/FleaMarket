@@ -32,7 +32,7 @@ const Header = () => {
         <div>
           <SearchBar />
         </div>
-        <div>
+        <div className={styles.header_section_one_car}>
         <Link to="/shoping">
           <p>carrito</p>
         </Link>
@@ -54,12 +54,12 @@ const Header = () => {
             </>
           ) : (
             <>
-              <div>
+              <div className={styles.header_div_register}>
                 <Link to="/register">
                   <p>Register</p>
                 </Link>
               </div>
-              <div>
+              <div className={styles.header_div_login}>
                 <Link to="/login">
                   <p>Login</p>
                 </Link>
