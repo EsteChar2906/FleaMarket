@@ -1,12 +1,12 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Detail } from "./pages/Detail/Detail.jsx";
-import Header from "./components/Header/Header.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Payment from "./components/Payment/Payment.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
- import { shopingCar } from "./actions/index.js";
+import ShopingCard from "./pages/ShopingCard/ShopingCard.jsx";
+
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
           </Route>
 
           <Route path="/shoping">
-            <shopingCar />
+          <ShopingCard/>
           </Route>
           
         </Switch>

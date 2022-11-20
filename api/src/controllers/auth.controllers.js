@@ -89,7 +89,17 @@ export const userLogin = async (req, res) => {
       expiresIn: 96400, // 24 hours
     });
 
-    res.json({ token });
+    res.json({ 
+      token,
+      id: findUser._id,
+      name:findUser.firstname,
+      username: findUser.username,
+      email: findUser.email,
+      country: findUser.country,
+      city: findUser.city,
+      role: findUser.roles?findUser.roles.map(r=>r.name).toString():'user'
+    });
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
