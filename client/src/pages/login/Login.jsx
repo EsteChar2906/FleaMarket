@@ -19,7 +19,7 @@ const Login = () => {
       const url = "http://localhost:3001/api/login";
       const res = await axios.post(url, data);
       localStorage.setItem("user", JSON.stringify(res.data));
-      history.push("/home");
+      history.push("/");
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div>
-      <Link to="/home">
+      <Link to="/">
         <p>Back to Home</p>
       </Link>
       <form className={styles.form_container} onSubmit={handleSubmit}>

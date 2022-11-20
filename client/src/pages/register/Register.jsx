@@ -47,7 +47,7 @@ const Register = () => {
 
   return (
     <div>
-       <Link to='/home'>
+       <Link to='/'>
       <p>Back to Home</p>
       </Link>
       <form className={styles.form_container} onSubmit={handleSubmit}>
