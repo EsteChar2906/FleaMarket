@@ -1,5 +1,5 @@
 // import jwt from "jsonwebtoken";
-import  Jwt  from "jsonwebtoken";
+import Jwt from "jsonwebtoken";
 import Role from "../models/roles.js";
 import Users from "../models/users.js";
 import { SECRET } from "../../config.js";
@@ -9,9 +9,9 @@ import { send_Mail } from "../nodemailer/mail.js"
 export const userRegister = async (req, res) => {
   try {
     const {
-     firstname,
-     lastname,
-     username,
+      firstname,
+      lastname,
+      username,
       email,
       password,
       country,
@@ -46,9 +46,11 @@ export const userRegister = async (req, res) => {
 
     const savedUser = await newUser.save(); // guarda el nuevo usuario con el respectivo role
 
+
     await send_Mail(email, "registro", firstname, lastname)
 
     const token = Jwt.sign({ id: savedUser._id }, SECRET, { //encripta el token de acuerdo al id q tiene el usuario
+
       expiresIn: 86400, // 24 hours
     });
 
@@ -60,32 +62,35 @@ export const userRegister = async (req, res) => {
 
 // login para usuarios ya registrados, se comprueba email y password
 export const userLogin = async (req, res) => {
-
   try {
-    // se busca el user cuyo email coincida con el email q llega 
+    // se busca el user cuyo email coincida con el email q llega
     const findUser = await Users.findOne({ email: req.body.email }).populate(
       "roles"
     );
     // sino se encuentra el user arroja un error
-    if (!findUser) return res.status(400).json({ message: "Usuario no encontrado" });
+    if (!findUser)
+      return res.status(400).json({ message: "Usuario no encontrado" });
 
-    const matchPassword = await Users.comparePassword( // se comparan los password
+    const matchPassword = await Users.comparePassword(
+      // se comparan los password
       req.body.password,
       findUser.password
     );
 
-    if (!matchPassword) // sino coinciden los password, no le envio un token 
+    if (!matchPassword)
+      // sino coinciden los password, no le envio un token
       return res.status(401).json({
         token: null,
         message: "Password no es valido",
       });
 
-    const token = Jwt.sign({ id: findUser._id }, SECRET, { // pero si coinciden le envio el token
-      expiresIn: 86400, // 24 hours
+    const token = Jwt.sign({ id: findUser._id }, SECRET, {
+      // pero si coinciden le envio el token
+      expiresIn: 96400, // 24 hours
     });
 
     res.json({ token });
   } catch (error) {
-    res.status(500).json({message: error.message})
+    res.status(500).json({ message: error.message });
   }
 };

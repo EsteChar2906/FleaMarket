@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Register.module.css";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -16,7 +16,7 @@ const Register = () => {
     password: "",
   });
   const [error, setError] = useState("");
-  let history = useHistory();
+  const history = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -47,8 +47,11 @@ const Register = () => {
 
   return (
     <div>
+       <Link to='/home'>
+      <p>Back to Home</p>
+      </Link>
       <form className={styles.form_container} onSubmit={handleSubmit}>
-        <h1>Crea una cuenta</h1>
+        <h1>Create Account</h1>
         <input
           type="text"
           placeholder="First Name"
@@ -143,6 +146,11 @@ const Register = () => {
       </form>
 
       {error&&error}
+
+      <Link to='/login'>
+      <h2>Welcome Back</h2>
+      <p>Sing in</p>
+      </Link>
     </div>
   );
 };
