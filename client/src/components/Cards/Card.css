@@ -10,8 +10,7 @@
     justify-content: center;
     align-items: center;    
     margin : 1rem   1rem 1rem 1rem;
-    font-size: 1rem; 
-    
+    font-size: 1rem;     
 }
 .block__card-name{
     margin: 0px 0px 0px 20px;   
@@ -30,8 +29,7 @@
     align-items: center; 
     padding-top: 4px;
     font-size: 1.5rem;
-    color:  var(--font-one);
-   
+    color:  var(--font-one);   
 }
 
 .block__card-agregar{

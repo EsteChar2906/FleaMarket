@@ -1,4 +1,3 @@
- 
 .header_section_one {
   display: flex;
   flex-direction: row;
@@ -6,7 +5,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .header_div_logout_profile {
   display: flex;
   flex-direction: row;
@@ -22,6 +20,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
- justify-content: center;
-  
+  justify-content: center;
+}
+.header_section_one_car {
+  margin: 1rem;
+}
+.header_div_register {
+  margin : 1rem;
+}
+.header_div_login {
+  margin : 1rem;
 }
