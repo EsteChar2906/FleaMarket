@@ -8,6 +8,7 @@ import Pagination from '../Pagination/Pagination.jsx'
 const Cards = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
+  console.log(products)
 
   useEffect(() => {
     dispatch(loadProducts())
@@ -23,7 +24,7 @@ const Cards = () => {
               title={e.title}
               image={e.image}
               price={e.price}
-              id={e.id}
+              id={e._id}
             />
           )
         })}

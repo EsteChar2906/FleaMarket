@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { loadProduct } from '../../store/actions/index.js';
+import { getProductName } from '../../store/actions/index.js';
 import styles from "./SearchBar.module.css"
- 
 
 const SearchBar = () => {  
   const dispatch = useDispatch();
@@ -15,16 +14,19 @@ const SearchBar = () => {
   const [name, setName] = useState("");
 
   const handleInputChange = (e) => {
-    setName(e.target.value);
+    /*const prod = products.find(p => p.title === e.target.value);*/
+    dispatch(getProductName(e.target.value));
+    
   };
-
+  
+/*  
   const handleSubmit = (e) => {
     const prod = products.find(p => p.title === name);
-    dispatch(loadProduct(prod.id, products));
+    dispatch(getProductName(e.target.value));
 
     setName('');
     history.push(`/detail/${prod.id}`);
-  };
+  };*/
 
   return (
     <>
@@ -35,9 +37,8 @@ const SearchBar = () => {
           placeholder="Search..."
           autoComplete="off"
           onChange={(e) => handleInputChange(e)}
-          value={name}
         />
-        <button className={styles.contenedor_search_button} type="submit" onClick={(e) => handleSubmit(e)}> Search  </button>       
+        <button className={styles.contenedor_search_button} type="submit" > Search  </button>       
       </div>      
     </>
   );

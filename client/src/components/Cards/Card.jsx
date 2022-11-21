@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 import styles from './Card.module.css'
 import car from '../../assets/carrito.png'
 const Card = (props) => {
+
+
+
   return (
     <div className={styles.block__card}>
-      <Link to={`/detail/${props.id}`}>
+      <Link to={{ pathname: `/detail/${props.id}`}}>
         <img
           className={styles.block__card_img}
           src={props.image}

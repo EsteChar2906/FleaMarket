@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
-import FiltUsed from "../FilterUsed/FilterUsed";
-import FilterCategory from "../FilterCategory/FiltCat";
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import FiltUsed from "../FilterUsed/FilterUsed.jsx";
+import FilterCategory from "../FilterCategory/FiltCat.jsx";
+import Sort from "../Sort/Sort.jsx"
 import styles from "./Header.module.css";
 import { useEffect, useState } from "react";
 import fm from "../../assets/fm.png"
@@ -80,6 +81,9 @@ const Header = () => {
         </div>
         <div>
           <FiltUsed />
+        </div>
+        <div>
+          <Sort />
         </div>
       </section>
     </header>
