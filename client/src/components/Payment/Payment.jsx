@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
 import { postFormPay } from "../../actions";
@@ -88,4 +88,4 @@ const Payment =()=>{
     </div>
   )
 }
-export default Payment
+export default Payment*/
