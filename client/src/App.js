@@ -33,9 +33,9 @@ function App() {
             <Profile />
           </Route>
 
-          {/*<Route path="/payment">
+          <Route path="/payment">
             <Payment />
-          </Route>*/}
+          </Route>
 
           <Route path="/shoping">
           <ShopingCard/>
