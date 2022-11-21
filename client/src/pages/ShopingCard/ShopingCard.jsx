@@ -16,14 +16,16 @@ const ShopingCard =()=> {
 
   return (
     <div>
-      <p>Carrito de compras</p>
+      <h3>Carrito de compras</h3>
+
+      { carrito.length === 0 && <p>Sin Productos</p> }
+
       {
         carrito.map((e, i) => {
           return (
-            <div>
+            <div key={i}>
               <Card
-                key={i}
-                id={e.id}
+                id={e._id}
                 title={e.title}
                 image={e.image}
                 price={e.price}

@@ -1,9 +1,10 @@
-// /*import React, { useState } from "react";
+
 import React from 'react'
 import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
+import React, { useState } from "react";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -16,7 +17,7 @@ function Validation(input){
 };
 
 
-const Payment =()=>{
+export default function Payment(){
   const dispatch = useDispatch();
 
   const [error, setError] = useState({});
@@ -75,14 +76,15 @@ const Payment =()=>{
           {error.email && (
             <p>{error.email}</p>
           )}
-          <h4>El monto es: {price}$</h4>
-          {
-            price === 0 ? <p>Insert total pice</p>
+          <h4>Total Price: {price}$</h4>
+          <input type="text" onChange={handleChange} placeholder='price' />
+          {/* {
+            price === 0 ? <p>Insert total price</p>
             : <input type="text" onChange={handleChange} placeholder='price' />
-          }
+          } */}
+
         </form>
       </div>
-
       <PayPalButton
       createOrder={(data, actions) => createOrder(data, actions)}
       onApprove={(data, actions) => onApprove(data, actions)}
@@ -90,4 +92,6 @@ const Payment =()=>{
     </div>
   )
 }
+
 export default Payment
+
