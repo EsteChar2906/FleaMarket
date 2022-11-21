@@ -1,5 +1,5 @@
 import React from "react";
-import "./FilterUsed.css"
+import styles from "./FilterUsed.module.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { filterUsed } from '../../store/actions/index.js';
 
@@ -19,10 +19,10 @@ const FiltUsed =()=> {
 
   return(
     <div>
-        <select className="contenedorfiltrouser" onChange={handleUsed} >
-          <option className="option" value="all">All</option>
-          <option className="option" value="Nuevo">New</option>
-          <option className="option"value="Usado">Used</option>
+        <select className={styles.contenedor_select_condition} onChange={handleUsed} >
+          <option   value="all">All</option>
+          <option   value="Nuevo">New</option>
+          <option   value="Usado">Used</option>
         </select>
     </div>
   )

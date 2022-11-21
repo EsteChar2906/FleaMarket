@@ -37,7 +37,7 @@ const SearchBar = () => {
           onChange={(e) => handleInputChange(e)}
           value={name}
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}> Search </button>       
+        <button className={styles.contenedor_search_button} type="submit" onClick={(e) => handleSubmit(e)}> Search  </button>       
       </div>      
     </>
   );

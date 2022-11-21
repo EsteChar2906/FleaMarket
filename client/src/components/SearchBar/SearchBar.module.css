@@ -5,16 +5,36 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  margin: 1rem;
+ 
 }
 
 .contenedor_bar_search {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   height: 20px;
   width: 18rem;
   border: 1px solid;
   border-radius: 5px;
   border-color: --blue-light;
-  color: rgb(163, 198, 235);
+  color: rgb(65, 118, 174);
   background-color: aliceblue;
+}
+ 
+ 
+.contenedor_search_button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 30px;
+  width: 65px; 
+  text-align: center;
+  border-color: transparent;
+  border-radius: 5px; 
+  
+  background-color: transparent;
+  color: aliceblue;
+}
+
+.contenedor_search_button:hover {
+  margin-top: 1srem;
+  background-color: var(--bg-hover-register-login);
 }

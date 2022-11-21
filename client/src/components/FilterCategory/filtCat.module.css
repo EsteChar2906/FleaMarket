@@ -2,7 +2,29 @@
     align-items: center;
     align-content: center;
     width: 70px;
+    
 }
-.contenedor_button_all{
-    width: 70px;
-}
+
+.contenedor_button_all { 
+    text-align: center;
+    border-color: transparent;
+    border-radius: 5px;  
+    background-color: transparent;
+    color: aliceblue;
+  }
+  .contenedor_button_all:hover {
+    background-color: var( --bg-hover-register-login);
+  }
+
+   .contenedor_button_category {   
+    width: 60px; 
+    text-align: center;
+    border-color: transparent;
+    border-radius: 5px;  
+    background-color: transparent;
+    color: aliceblue;
+  }
+  .contenedor_button_categoryl:hover {
+    background-color: var( --bg-hover-register-login);
+  } 
+

@@ -1,33 +1,87 @@
+@import '../../index.css';
+ 
 .header_section_one {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: wrap;  
   justify-content: center;
+  height:auto;
+  width: 100%;
+  background: #141e30;  
+  background: -webkit-linear-gradient(
+    to right,
+    #243b55,
+    #141e30
+  );  
+  background: linear-gradient(
+    to right,
+    #243b55,
+    #141e30
+  );  
+
+  
 }
-.header_div_logout_profile {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.header_section_user {
-  width: 300px;
-  background-color: rgb(65, 193, 22);
-}
+
+ 
 .header_section_filters {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+ justify-content: center;
+ 
+  height: auto;
+  width: 100%;
+  background: #757F9A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to down, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to down, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
 }
+
+/** CARRITO REGISTER LOGIN*/
 .header_section_one_car {
-  margin: 1rem;
+  margin-left:2rem;
+  margin-right: 1rem;
+ 
 }
-.header_div_register {
-  margin : 1rem;
+ 
+.header_div_button_register {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 30px;
+  width: 65px; 
+  text-align: center;
+  border-color: transparent;
+  border-radius: 5px;   
+  background-color: transparent;
+  color: aliceblue;
 }
-.header_div_login {
-  margin : 1rem;
+.header_div_button_register:hover {
+    margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: var( --bg-hover-register-login);
+}
+
+.header_div_button_login {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 30px;
+  width: 65px; 
+  text-align: center;
+  border-color: transparent;
+  border-radius: 5px;   
+  background-color: transparent;
+  color: aliceblue;
+}
+
+.header_div_button_login:hover {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-hover-register-login);
+}
+.header_div_logout_profile {
+  display: flex;
+  flex-direction: row;
+ 
+  align-items: center;
 }
