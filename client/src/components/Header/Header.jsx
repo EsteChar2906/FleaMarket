@@ -48,27 +48,27 @@ const Header = () => {
           {user ? (
             <>
               
-              <div className={styles.header_section_user_logout}>
-                <p style={{ color: "red" }} onClick={handleLogout}>
+              <div >
+                <button className={styles.header_btns} onClick={handleLogout}>
                   Logout
-                </p>
+                </button>
               </div>
-              <div className={styles.header_section_user_profile}>
+              <div >
                 <Link to="/profile">
-                  <p>profile</p>
+                  <button className={styles.header_btns} >profile</button>
                 </Link>
               </div>
             </>
           ) : (
             <>
-              <div className={styles.header_div_register}>
+              <div >
                 <Link to="/register">
-                 <button className={styles.header_div_button_register}>Register </button>
+                 <button className={styles.header_btns}>Register </button>
                 </Link>
               </div>
-              <div className={styles.header_div_login}>
+              <div >
                 <Link to="/login">
-                   <button className={styles.header_div_button_login}>Login </button>
+                   <button className={styles.header_btns} >Login </button>
                 </Link>
               </div>
             </>
