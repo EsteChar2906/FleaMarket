@@ -17,10 +17,8 @@ code {
 :root {
   --font-one: rgb(228, 148, 0);
   --gray-border:rgb(240, 240, 240);
-  --gray-one: rgb(245, 247, 248);
- --bg-nav:  linear-gradient(to top, #243B55, #141E30); 
- --bgg: linear-gradient(0.25turn, #243B55, #141E30, #f69d3c);
- --blue-light:rgb(201, 224, 249)
- 
+  --gray-one: rgb(245, 247, 248); 
+ --blue-light-birder:rgb(230, 240, 250);
+ --bg-hover-register-login:rgba(198, 198, 202, 0.2);
 
 }

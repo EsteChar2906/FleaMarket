@@ -56,12 +56,12 @@ const Header = () => {
             <>
               <div className={styles.header_div_register}>
                 <Link to="/register">
-                  <p>Register</p>
+                 <button className={styles.header_div_button_register}>Register </button>
                 </Link>
               </div>
               <div className={styles.header_div_login}>
                 <Link to="/login">
-                  <p>Login</p>
+                   <button className={styles.header_div_button_login}>Login </button>
                 </Link>
               </div>
             </>

@@ -1,0 +1,11 @@
+.contenedor_select_condition {
+  width: 100px;
+  margin-bottom: 0.2rem;
+  margin-top: 0.2rem;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(68, 52, 125);
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: 4px;
+}
