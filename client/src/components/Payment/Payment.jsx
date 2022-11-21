@@ -1,7 +1,9 @@
-/*import React, { useState } from "react";
+// /*import React, { useState } from "react";
+import React from 'react'
 import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
+import { useState } from "react";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -88,4 +90,4 @@ const Payment =()=>{
     </div>
   )
 }
-export default Payment*/
+export default Payment
