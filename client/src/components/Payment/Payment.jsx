@@ -4,7 +4,6 @@ import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
-import React, { useState } from "react";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -17,7 +16,7 @@ function Validation(input){
 };
 
 
-export default function Payment(){
+function Payment(){
   const dispatch = useDispatch();
 
   const [error, setError] = useState({});
