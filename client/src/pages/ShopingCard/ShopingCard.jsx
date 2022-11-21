@@ -1,5 +1,5 @@
 import React from "react";
-import { shopingCar } from "../../actions/index.js";
+import { shopingCar } from '../../store/actions/index.js';
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 

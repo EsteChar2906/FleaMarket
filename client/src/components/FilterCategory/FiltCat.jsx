@@ -5,7 +5,7 @@ import {
   filterCategory,
   resetFiltered,
   loadCategories,
-} from "../../actions/index";
+} from '../../store/actions/index.js';
 
 const FilterCategory = () => {
   const dispatch = useDispatch();

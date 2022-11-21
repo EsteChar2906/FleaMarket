@@ -1,15 +1,6 @@
-import {
-  LOAD_PRODUCTS,
-  LOAD_PRODUCT,
-  FILTER_CATEGORY,
-  FILTER_USED,
-  RESET_FILTERED,
-  LOAD_CATEGORIES,
-} from "../actions";
 import axios from 'axios';
+
 const host = "http://localhost:3001";
-
-
 
 export function loadProducts() {
   return function (dispatch) {
@@ -42,7 +33,7 @@ export function loadProducts() {
           };
         });
         dispatch({
-          type: LOAD_PRODUCTS,
+          type: "LOAD_PRODUCTS",
           payload: productsToSend,
         });
       });
@@ -51,7 +42,7 @@ export function loadProducts() {
 
 export function loadProduct(id, products) {
   return {
-    type: LOAD_PRODUCT,
+    type: "LOAD_PRODUCT",
     payload: {
       id,
       products,
@@ -61,7 +52,7 @@ export function loadProduct(id, products) {
 
 export function filterCategory(category, products) {
   return {
-    type: FILTER_CATEGORY,
+    type: "FILTER_CATEGORY",
     payload: {
       category,
       products,
@@ -71,13 +62,13 @@ export function filterCategory(category, products) {
 
 export function resetFiltered() {
   return {
-    type: RESET_FILTERED,
+    type: "RESET_FILTERED",
   };
 }
 
 export function filterUsed(condition, products) {
   return {
-    type: FILTER_USED,
+    type: "FILTER_USED",
     payload: {
       condition,
       products,
@@ -91,7 +82,7 @@ export function loadCategories() {
       .then((resp) => resp.json())
       .then((data) => {
         dispatch({
-          type: LOAD_CATEGORIES,
+          type: "LOAD_CATEGORIES",
           payload: data,
         });
       });

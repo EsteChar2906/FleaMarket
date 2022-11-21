@@ -1,7 +1,5 @@
-import { LOAD_CATEGORIES } from '../actions';
-
 function categoryReducer(state = [], action) {
-  if (action.type === LOAD_CATEGORIES) {
+  if (action.type === "LOAD_CATEGORIES") {
     return action.payload.map(c => c.name);
   }
 

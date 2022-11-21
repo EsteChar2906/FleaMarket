@@ -1,7 +1,7 @@
 import React from "react";
 import "./FilterUsed.css"
 import { useSelector, useDispatch } from 'react-redux';
-import { filterUsed } from "../../actions/index.js";
+import { filterUsed } from '../../store/actions/index.js';
 
 const FiltUsed =()=> {
   const dispatch = useDispatch();

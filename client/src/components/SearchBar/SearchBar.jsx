@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { loadProduct } from "../../actions/index";
+import { loadProduct } from '../../store/actions/index.js';
 import styles from "./SearchBar.module.css"
  
 

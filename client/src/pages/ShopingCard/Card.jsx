@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { shopingCar } from "../../actions/index.js";
+import { shopingCar } from '../../store/actions/index.js';
 import { useDispatch } from "react-redux";
 
 export default (props) => {
