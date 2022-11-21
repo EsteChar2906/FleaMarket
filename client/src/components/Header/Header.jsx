@@ -4,7 +4,8 @@ import FiltUsed from "../FilterUsed/FilterUsed";
 import FilterCategory from "../FilterCategory/FiltCat";
 import styles from "./Header.module.css";
 import { useEffect, useState } from "react";
-
+import fm from "../../assets/fm.png"
+import car from "../../assets/carrito.png"
 const Header = () => {
   const [user, setUser] = useState(null);
 
@@ -24,23 +25,28 @@ const Header = () => {
   return (
     <header className={styles.header_contenedor}>
       <section className={styles.header_section_one}>
-        <div>
-          <Link to="/">
-            <img className="logonav" alt="" />
+        <div className={styles.header_section_title_logo}>
+          <div>
+            <Link to="/">
+            <img className={styles.logo_fm}src={fm} />
           </Link>
+          </div>          
+          <div className={styles.header_section_title}>
+            FleaMarket 
+          </div>          
         </div>
         <div>
           <SearchBar />
         </div>
-
+        <div className={styles.header_section_one_car}>
+                <Link to="/shoping">
+                  <p ><img className={styles.icon_car} src={car}/> </p>
+                </Link>
+              </div>
         <div className={styles.header_div_logout_profile}>
           {user ? (
             <>
-              <div className={styles.header_section_one_car}>
-                <Link to="/shoping">
-                  <p>carrito</p>
-                </Link>
-              </div>
+              
               <div className={styles.header_section_user_logout}>
                 <p style={{ color: "red" }} onClick={handleLogout}>
                   Logout

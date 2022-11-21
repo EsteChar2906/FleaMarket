@@ -1,23 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Card.css'
-
+import styles from './Card.module.css'
+import car from '../../assets/carrito.png'
 const Card = (props) => {
   return (
-    <div className="block__card">
+    <div className={styles.block__card}>
       <Link to={`/detail/${props.id}`}>
-        <img className="block__card-img" src={props.image} alt="not found" />
+        <img
+          className={styles.block__card_img}
+          src={props.image}
+          alt="not found"
+        />
       </Link>
-      <div className="block__details">
-        <div className="block__name-precio">
-          <h3 className="block__card-name">{props.title}</h3>
-          <div className="block__card-precio">${props.price}</div>
+      <div className={styles.block__details}>
+        <div className={styles.block__name_precio}>
+          <h3 className={styles.block__card_name}>{props.title}</h3>
+          <div className={styles.block__card_precio}>${props.price}</div>
         </div>
-        <div className="block__description">
-          <div className="block__card-agregar">IconoCAr</div>
+        <div className={styles.block__description}>
+          <Link to="/shoping">
+            <p>
+              <img className={styles.icon_car} src={car} />{' '}
+            </p>
+          </Link>
         </div>
       </div>
     </div>
   )
 }
-export default Card;
+export default Card

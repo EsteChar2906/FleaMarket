@@ -1,4 +1,21 @@
 @import "../../index.css";
+
+
+ 
+.icon_car{
+   
+    background: #e65c00;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #F9D423, #e65c00);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      border-radius: 5px;
+      width:  2.5rem;
+      height: 2.5rem;
+      padding: 0.25rem;
+    
+      margin-top: 0.9rem;
+      margin-left:6rem;
+      margin-right: 0rem;  
+}
 .block__card{
     background-color: rgb(255, 255, 255);
     width: 20rem ;
@@ -10,13 +27,14 @@
     justify-content: center;
     align-items: center;    
     margin : 1rem   1rem 1rem 1rem;
-    font-size: 1rem;     
+    font-size: 1rem; 
+    
 }
-.block__card-name{
+.block__card_name{
     margin: 0px 0px 0px 20px;   
     text-decoration-line: none;    
 }
-.block__card-img {
+.block__card_img {
     width: 200px;
     height: 230px;
     display: flex;
@@ -24,21 +42,22 @@
     justify-content: center;
     margin:1rem;
 }
-.block__card-precio{
+.block__card_precio{
     margin: 0.3rem 0rem 0px 1rem;   
     align-items: center; 
     padding-top: 4px;
     font-size: 1.5rem;
-    color:  var(--font-one);   
+    color:  var(--font-one);
+   
 }
 
-.block__card-agregar{
+.block__card_icon{
     width: 60%;
     height: 30px; 
     margin-left: 1rem;  
 }
 
-.block__name-precio{
+.block__name_precio{
     display: flex;
     flex-direction: column;
     margin: 1rem 0rem 0rem 1rem;  
