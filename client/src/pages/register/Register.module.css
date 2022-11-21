@@ -41,7 +41,7 @@
 
 
 .register_welcome{
-    background-color: #141e30;
+    background-color: #243b55;
     height: auto;
     width: 100%;
     display: flex;
@@ -115,7 +115,7 @@
 
 
 .green_btn{
-    background-color: #243b55;
+    background-color: #e65c00;;
     height: 50px;
     border-radius: 15px;
     width: 200px;
@@ -134,7 +134,7 @@
 
 .green_btn:hover {
     transition: 0.2s;
-    background-color: #325277;
+    background-color: #f9d423
 }
 
 @media screen and (max-width: 1500px ) {
