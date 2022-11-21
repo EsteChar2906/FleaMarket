@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import Card from './Card.jsx'
 import styles from './Cards.module.css'
-import { loadProducts } from '../../actions/index.js'
+import { loadProducts } from '../../store/actions/index.js'
 import { useEffect, useState } from 'react'
 import Pagination from '../Pagination/Pagination.jsx'
 
