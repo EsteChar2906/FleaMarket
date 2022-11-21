@@ -8,6 +8,8 @@ import routerCategory from "./src/routes/category.routes.js";
 import routerShopingCar from "./src/routes/shopingCar.routes.js";
 import routerAuth from "./src/routes/auth.routes.js"
 import routerRoles from "./src/routes/roles.routes.js"
+import routerOrders from "./src/routes/orders.routes.js"
+import routerPayment from "./src/routes/payment.routes.js"
 import { PORT } from "./config.js";
 
 const app = express();
@@ -24,6 +26,8 @@ app.use("/api", routerProduct);
 app.use("/api", routerUsers);
 app.use("/api", routerCategory);
 app.use("/api", routerShopingCar);
+app.use("/api", routerOrders);
+app.use("/api", routerPayment);
 
 app.listen(PORT, () => {
   console.log(`% listening at ${PORT}`);
