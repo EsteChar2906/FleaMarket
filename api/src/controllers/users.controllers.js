@@ -19,6 +19,23 @@ export const getUsers = async (req, res) => {
 //     }
 //   }
 
+
+export const getUserByid = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const found = await Users.findById(id)
+  
+    if (found) {
+      return res.json(found);
+    } else {
+      return res.status(500).send("No se encontraron datos");
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+
 export const updateUser = async (req, res) => {
     try {
       const { id } = req.params;
