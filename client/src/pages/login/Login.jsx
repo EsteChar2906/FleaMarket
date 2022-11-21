@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../../context/authContex";
+import "./login.module.css"
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -30,41 +31,63 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Link to="/">
-        <p>Back to Home</p>
-      </Link>
-      <form className={styles.form_container} onSubmit={handleSubmit}>
-        <h1>Login to Your Account</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={handleChange}
-          value={data.email}
-          required
-          className={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={handleChange}
-          value={data.password}
-          required
-          className={styles.input}
-        />
+    <div className={styles.login_containercero}>
+      <div className={styles.login_container}>
+        
+        <div className={styles.login_singup}>
+          <Link to="/register" style={{textDecoration: "none" } } className={styles.login_welcome_textuno}>
+            <h2 className={styles.login_welcome_textuno}>New Here?</h2>  
+          </Link>
+          <div className={styles.login_welcome_texttres}>
+            <Link to="/" style={{textDecoration: "none" } }>
+              <p>Back to Home</p>
+            </Link>
+            <Link to='/login' style={{textDecoration: "none" } }>
+                <p >Sing in</p>
+            </Link>
 
-        <button type="submit" className={styles.green_btn}>
-          Sing In
-        </button>
-      </form>
-      {error}
+          </div>
 
-      <Link to="/register">
-        <h2>New Here?</h2>
-        <p>Sing Up</p>
-      </Link>
+          
+
+        </div>
+
+        <div className={styles.form_containercero}>
+        <h1 className={styles.form_container_mjs}>Login to Your Account</h1>
+        <form className={styles.form_container_formulario} onSubmit={handleSubmit}>
+          
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={handleChange}
+            value={data.email}
+            required
+            className={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            value={data.password}
+            required
+            className={styles.input}
+          />
+
+          <button type="submit" className={styles.green_btn}>
+            Sing In
+          </button>
+        </form>
+
+        </div>
+        
+        {error}
+    
+       
+
+      </div>
+      
     </div>
   );
 };

@@ -1,0 +1,123 @@
+.login_containercero{
+    width: 100%;
+    height: 930px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+
+.login_container{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    box-shadow: rgb(228, 148, 0)  6px 6px 20px;
+    border-radius: 15px;
+    z-index: 10;
+}
+.login_singup{
+    background-color: rgb(228, 148, 0);
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    flex-direction: column;
+}
+.login_welcome_textuno{
+    text-decoration: none;
+    color: white;
+    font-size: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.login_welcome_texttres{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    height: 20px;
+
+}
+.login_welcome_texttres p{
+    color:rgb(255, 255, 255);
+    font-size: 1.2rem;
+    
+}
+
+.form_containercero{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+}
+.form_container_mjs{
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(228, 148, 0);
+}
+.form_container_formulario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    justify-content: center;
+  
+}
+
+.input{
+    display:block;
+    margin: 20px;
+    border: 0;
+    font-size: 1.2rem;
+    display: flex;
+    width: 63%;
+    padding-top: 20px;
+    border-radius: 15px;
+    border: 0;
+    background-color: rgb(226, 231, 236);
+    z-index: 1;
+    text-align: center;
+    height: 30px;
+}
+.green_btn{
+    background-color: rgb(228, 148, 0);
+    height: 50px;
+    border-radius: 15px;
+    width: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border: 0;
+}
+@media screen and (max-width: 1500px ) {
+    .form_container_formulario{
+        grid-template-columns: 1fr;
+    }
+    
+}
