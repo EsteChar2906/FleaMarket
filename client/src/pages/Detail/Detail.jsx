@@ -8,13 +8,13 @@ export function Detail() {
   let { id } = useParams();
   
   const dispatch = useDispatch();
-  const products = useSelector(state => state.products);
+  //const products = useSelector(state => state.products);
   const p = useSelector(state => state.product);
   console.log("detalles de producto", p);
 
   useEffect(() => {
     dispatch(loadProduct(id));
-  });
+  }, []);
 
   function addToCar () {
     console.log("In SHOPPING CAR")
