@@ -46,111 +46,134 @@ const Register = () => {
   };
 
   return (
-    <div>
-       <Link to='/'>
-      <p>Back to Home</p>
-      </Link>
-      <form className={styles.form_container} onSubmit={handleSubmit}>
-        <h1>Create Account</h1>
-        <input
-          type="text"
-          placeholder="First Name"
-          name="firstname"
-          onChange={handleChange}
-          value={data.firstname}
-          required
-          className={styles.input}
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          name="lastname"
-          onChange={handleChange}
-          value={data.lastname}
-          required
-          className={styles.input}
-        />
+    <div className={styles.register_containercero}>
+        <div className={styles.register_container}>
 
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          onChange={handleChange}
-          value={data.username}
-          required
-          className={styles.input}
-        />
 
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={handleChange}
-          value={data.email}
-          required
-          className={styles.input}
-        />
 
-        <input
-          type="country"
-          placeholder="country"
-          name="country"
-          onChange={handleChange}
-          value={data.country}
-          required
-          className={styles.input}
-        />
+          <div className={styles.register_welcome} >
+            <Link to='/login' style={{textDecoration: "none" } } className={styles.register_welcome_textuno}>
+              <h2 className={styles.register_welcome_textuno} >Welcome Back</h2>
+            </Link>
+    
+            <div className={styles.register_welcome_texttres}>
+              <Link to='/login' style={{textDecoration: "none" } }>
+                <p >Sing in</p>
+              </Link>
+              <Link to='/' style={{textDecoration: "none" } } >
+                <p >Back to Home</p>
+              </Link>
+            </div>
+            
+    
+          </div>
+    
+    
+          <div className={styles.form_container}>
+            <h1 className={styles.form_container_mjs}>Create Account</h1>
+            <form className={styles.form_container_formulario} onSubmit={handleSubmit}>
+              
+                <input 
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={handleChange}
+                value={data.email}
+                required
+                className={styles.input}
+              />
+              
+              <input
+                type="text"
+                placeholder="First Name"
+                name="firstname"
+                onChange={handleChange}
+                value={data.firstname}
+                required
+                className={styles.input}
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lastname"
+                onChange={handleChange}
+                value={data.lastname}
+                required
+                className={styles.input}
+              />
+              <input
+                type="text"
+                placeholder="Username"
+                name="username"
+                onChange={handleChange}
+                value={data.username}
+                required
+                className={styles.input}
+              />
+  
+              <input
+                type="country"
+                placeholder="Country"
+                name="country"
+                onChange={handleChange}
+                value={data.country}
+                required
+                className={styles.input}
+              />
+              <input
+                type="city"
+                placeholder="City"
+                name="city"
+                onChange={handleChange}
+                value={data.city}
+                required
+                className={styles.input}
+              />
+              <input
+                type="addres"
+                placeholder="Addres"
+                name="addres"
+                onChange={handleChange}
+                value={data.addres}
+                required
+                className={styles.input}
+              />
+              <input
+                type="telephone"
+                placeholder="Telephone"
+                name="telephone"
+                onChange={handleChange}
+                value={data.telephone}
+                required
+                className={styles.input}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleChange}
+                value={data.password}
+                required
+                className={styles.input}
+              />
+  
+            </form>
+            <button type="submit" className={styles.green_btn}>
+                Registrarse
+            </button>
 
-        <input
-          type="city"
-          placeholder="city"
-          name="city"
-          onChange={handleChange}
-          value={data.city}
-          required
-          className={styles.input}
-        />
+        </div>
 
-        <input
-          type="addres"
-          placeholder="addres"
-          name="addres"
-          onChange={handleChange}
-          value={data.addres}
-          required
-          className={styles.input}
-        />
 
-        <input
-          type="telephone"
-          placeholder="telephone"
-          name="telephone"
-          onChange={handleChange}
-          value={data.telephone}
-          required
-          className={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={handleChange}
-          value={data.password}
-          required
-          className={styles.input}
-        />
+        {error&&error}
 
-        <button type="submit" className={styles.green_btn}>
-          Registrarse
-        </button>
-      </form>
 
-      {error&&error}
 
-      <Link to='/login'>
-      <h2>Welcome Back</h2>
-      <p>Sing in</p>
-      </Link>
+
+
+
+
+      </div>
     </div>
   );
 };
