@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './Detail.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadProduct, shopingCar } from '../../store/actions/index.js';
+import Header from '../../components/Header/Header';
 
 export function Detail() {
   let { id } = useParams();
@@ -22,16 +23,18 @@ export function Detail() {
   }
 
   return (
-    <div>
-    <div class="grid  sm:grid-cols-2 p-8 m-15 ">
+    <div className='tododetalle'>
+      <Header className="headerdetail"></Header>
+    
       
-      <div class="img-product" >
+      <div className='contenedordetalle' >
         <div className='imagenprod' >
           
           <img  className='foto' src={p.image} width="550px" height="450px" />
         </div>
         <div className='todolootro'>
-          <div className='nombre'>
+          
+          <div className='todolootro-nombre'>
             {p.title}
           </div>
           
@@ -86,14 +89,17 @@ export function Detail() {
 
 
 
+          </div>
+          
+
 
 
 
           
         </div>
-      </div>
       
-    </div>
+      
+    
   </div>
   )
 }
