@@ -1,4 +1,4 @@
-function filterReducer(state = [], action) {
+/*function filterReducer(state = [], action) {
   if (action.type === "FILTER_CATEGORY") {
     const {category, products} = action.payload;
     return products.filter(p => p.category === category);
@@ -16,4 +16,4 @@ function filterReducer(state = [], action) {
   return state;
 }
 
-export default filterReducer;
+export default filterReducer;*/

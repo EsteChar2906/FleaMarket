@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const host = "http://localhost:3001";
 
-export function loadProducts() {
+/*export function loadProducts() {
   return function (dispatch) {
     return fetch(`${host}/api/products`)
       .then((resp) => resp.json())
@@ -38,25 +38,45 @@ export function loadProducts() {
         });
       });
   };
+}*/
+
+export function loadProducts(){
+  return async function(dispatch){
+    const response = await axios.get(`${host}/api/products`)
+    dispatch({
+      type: "LOAD_PRODUCTS",
+      payload: response.data
+    })
+  }
 }
 
-export function loadProduct(id, products) {
-  return {
+export function loadProduct(id) {
+  return async function(dispatch){
+    const response = await axios.get(`${host}/api/product/${id}`)
+    dispatch({
     type: "LOAD_PRODUCT",
-    payload: {
-      id,
-      products,
-    },
-  };
-}
+    payload: response.data
+    })
+  }
+};
 
-export function filterCategory(category, products) {
-  return {
-    type: "FILTER_CATEGORY",
-    payload: {
-      category,
-      products,
-    },
+export function getProductName(name){
+  return async function(dispatch){
+      const response = await axios.get(`${host}/api/products?name=${name}`)
+      dispatch({
+        type: "GET_PRODUCT_NAME",
+        payload: response.data 
+      })
+    }
+};
+
+export function filterCategory(category) {
+  return async function(dispatch){
+    const response = await axios.get(`${host}/api/products?category=${category}`)
+    dispatch({
+      type: "FILTER_CATEGORY",
+      payload: response.data 
+    })
   };
 }
 
@@ -66,13 +86,23 @@ export function resetFiltered() {
   };
 }
 
-export function filterUsed(condition, products) {
-  return {
-    type: "FILTER_USED",
-    payload: {
-      condition,
-      products,
-    },
+export function sortByPrice(sort){
+  return async function(dispatch){
+    const response = await axios.get(`${host}/api/products?sort=${sort}`);
+    dispatch({
+      type: "SORT_PRICE",
+      payload: response.data
+    })
+  }
+}
+
+export function filterUsed(condition) {
+  return async function(dispatch){
+    const response = await axios.get(`${host}/api/products?condition=${condition}`)
+    dispatch({
+      type: "FILTER_CONDITION",
+      payload: response.data 
+    })
   };
 }
 
