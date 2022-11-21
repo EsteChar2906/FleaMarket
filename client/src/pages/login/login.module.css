@@ -1,6 +1,6 @@
 .login_containercero{
-    width: 100%;
-    height: 930px;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -8,17 +8,19 @@
 }
 
 .login_container{
-    width: 60%;
+    width: 850px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 70%;
-    box-shadow: rgb(228, 148, 0)  6px 6px 20px;
+    box-shadow: #141e305f  6px 6px 20px;
     border-radius: 15px;
     z-index: 10;
+    margin: 15px;
+
 }
 .login_singup{
-    background-color: rgb(228, 148, 0);
+    background-color: #141e30;
     height: 120px;
     width: 100%;
     display: flex;
@@ -27,20 +29,23 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     flex-direction: column;
+    text-align: center;
+   
 }
 .login_welcome_textuno{
     text-decoration: none;
     color: white;
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 0px;
     margin-top: 0px;
+   
 }
 .login_welcome_texttres{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
+    width: 200px;
     height: 20px;
 
 }
@@ -70,10 +75,10 @@
 
 }
 .form_container_mjs{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 500;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(228, 148, 0);
+    color:  #243b55;
 }
 .form_container_formulario{
     display: flex;
@@ -100,7 +105,7 @@
     height: 30px;
 }
 .green_btn{
-    background-color: rgb(228, 148, 0);
+    background-color: #243b55;
     height: 50px;
     border-radius: 15px;
     width: 200px;
@@ -114,6 +119,12 @@
     margin-top: 30px;
     margin-bottom: 15px;
     border: 0;
+    cursor: pointer;
+}
+
+.green_btn:hover {
+    transition: 0.2s;
+    background-color: #325277;
 }
 @media screen and (max-width: 1500px ) {
     .form_container_formulario{
