@@ -6,41 +6,20 @@ import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import ShopingCard from "./pages/ShopingCard/ShopingCard.jsx";
-
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route path="/detail/:id">
-            <Detail />
-          </Route>
-
-          <Route path="/register">
-            <Register />
-          </Route>
-
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route path="/profile">
-            <Profile />
-          </Route>
-
-          <Route path="/payment">
-            <Payment />
-          </Route>
-
-          <Route path="/shoping">
-          <ShopingCard/>
-          </Route>
-          
+          <Route exact path="/" component={Home} />
+          <Route exact path="/detail/:id" component={Detail} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/payment" component={Payment} />
+          <PrivateRoute path="/shoping" component={ShopingCard} />
         </Switch>
       </BrowserRouter>
     </div>
