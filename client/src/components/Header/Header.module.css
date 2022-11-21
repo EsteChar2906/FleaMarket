@@ -24,6 +24,7 @@
   background: #141e30;
   background: -webkit-linear-gradient(to right, #243b55, #141e30);
   background: linear-gradient(to right, #243b55, #141e30);
+  padding: 15px;
 }
 
 .header_section_filters {
@@ -31,7 +32,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
+  padding: 15px;
   height: auto;
   width: 100%;
   background: #757f9a; /* fallback for old browsers */
@@ -47,6 +48,10 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.header_section_filters div {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /** CARRITO REGISTER LOGIN*/
 
 .header_section_one_car {

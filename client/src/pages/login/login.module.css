@@ -20,7 +20,7 @@
 
 }
 .login_singup{
-    background-color: #141e30;
+    background-color:#243b55;
     height: 120px;
     width: 100%;
     display: flex;
@@ -34,7 +34,7 @@
 }
 .login_welcome_textuno{
     text-decoration: none;
-    color: white;
+    color:  white;
     font-size: 3rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 0px;
@@ -105,7 +105,7 @@
     height: 30px;
 }
 .green_btn{
-    background-color: #243b55;
+    background-color: #e65c00;
     height: 50px;
     border-radius: 15px;
     width: 200px;
@@ -124,7 +124,7 @@
 
 .green_btn:hover {
     transition: 0.2s;
-    background-color: #325277;
+    background-color: #f9d423
 }
 @media screen and (max-width: 1500px ) {
     .form_container_formulario{

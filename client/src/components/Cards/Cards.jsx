@@ -15,7 +15,7 @@ const Cards = () => {
   },[])
 
    return (
-    <div>
+    <div className={styles.contenedor_cardscero}>
       <div className={styles.contenedor_cards}>
         {products.map((e, i) => {
           return (
