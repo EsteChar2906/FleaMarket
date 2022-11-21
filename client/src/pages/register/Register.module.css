@@ -17,21 +17,22 @@
 
 
 .register_containercero{
-    width: 100%;
-    height: 930px;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     display: flex;
     position: relative;
+    margin: 15px;
     
 }
 .register_container{
-    max-width: 65%;
+    width: 850px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 90%;
-    box-shadow: rgb(228, 148, 0)  6px 6px 20px;
+    height: auto;
+    box-shadow: #141e305f  6px 6px 20px;
     border-radius: 15px;
     z-index: 10;
 
@@ -40,8 +41,8 @@
 
 
 .register_welcome{
-    background-color: rgb(228, 148, 0);
-    height: 120px;
+    background-color: #141e30;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -66,8 +67,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 30%;
+    width: 200px;
     height: 20px;
+    padding-bottom: 15px;
     
 }
 .register_welcome_texttres p{
@@ -85,6 +87,7 @@
     flex-direction: column;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+   
 
 
     
@@ -107,12 +110,12 @@
     font-size: 4rem;
     font-weight: 500;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(228, 148, 0);
+    color:  #243b55;
 }
 
 
 .green_btn{
-    background-color: rgb(228, 148, 0);
+    background-color: #243b55;
     height: 50px;
     border-radius: 15px;
     width: 200px;
@@ -126,8 +129,13 @@
     margin-top: 30px;
     margin-bottom: 15px;
     border: 0;
+    cursor: pointer;
 }
 
+.green_btn:hover {
+    transition: 0.2s;
+    background-color: #325277;
+}
 
 @media screen and (max-width: 1500px ) {
     .form_container_formulario{
