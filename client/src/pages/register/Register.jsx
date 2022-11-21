@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Register.module.css";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -46,7 +47,9 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.register_containercero}>
+    <div>
+      <Header></Header>
+      <div className={styles.register_containercero}>
         <div className={styles.register_container}>
 
 
@@ -174,6 +177,7 @@ const Register = () => {
 
 
       </div>
+    </div>
     </div>
   );
 };

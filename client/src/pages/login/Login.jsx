@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./login.module.css";
+import Header from "../../components/Header/Header";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -26,7 +27,10 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.login_containercero}>
+    <div >
+      <Header></Header>
+      <div className={styles.login_containercero}>
+      
       <div className={styles.login_container}>
         <div className={styles.login_singup}>
           <Link
@@ -79,6 +83,7 @@ const Login = () => {
 
         {error}
       </div>
+    </div>
     </div>
   );
 };
