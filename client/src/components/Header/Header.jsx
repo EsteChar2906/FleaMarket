@@ -2,15 +2,13 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import FiltUsed from "../FilterUsed/FilterUsed.jsx";
 import FilterCategory from "../FilterCategory/FiltCat.jsx";
-import Sort from "../Sort/Sort.jsx"
+import Sort from "../Sort/Sort.jsx";
 import styles from "./Header.module.css";
-import fm from "../../assets/fm.png"
-import car from "../../assets/carrito.png"
+import fm from "../../assets/fm.png";
+import car from "../../assets/carrito.png";
 import { useEffect, useState } from "react";
 
-
 const Header = () => {
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -23,72 +21,77 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    // window.location.reload();
-    setUser(null)
+    setUser(null);
   };
 
-
   return (
-    <header className={styles.header_contenedor}>
-      <section className={styles.header_section_one}>
-        <div className={styles.header_section_title_logo}>
+    <header className={styles.container}>
+      <div className={styles.container_position}>
+        <section className={styles.section_navbar}>
+          <div className={styles.container_logo_and_title}>
+            <div>
+              <Link to="/">
+                <img className={styles.logo} src={fm} />
+              </Link>
+            </div>
+            <div>
+              <h1 className={styles.title}> FleaMarket </h1>
+            </div>
+          </div>
+
           <div>
-            <Link to="/">
-            <img className={styles.logo_fm}src={fm} />
-          </Link>
-          </div>          
-          <div className={styles.header_section_title}>
-            FleaMarket 
-          </div>          
-        </div>
-        <div>
-          <SearchBar />
-        </div>
-        <div className={styles.header_section_one_car}>
-                <Link to="/shoping">
-                  <p ><img className={styles.icon_car} src={car}/> </p>
-                </Link>
-              </div>
-        <div className={styles.header_div_logout_profile}>
-          {user ? (
-            <>
-              
-              <div >
-                <button className={styles.header_btns} onClick={handleLogout}>
-                  Logout
-                </button>
-              </div>
-              <div >
-                <Link to="/profile">
-                  <button className={styles.header_btns} >profile</button>
-                </Link>
-              </div>
-            </>
-          ) : (
-            <>
-              <div >
-                <Link to="/register">
-                 <button className={styles.header_btns}>Register </button>
-                </Link>
-              </div>
-              <div >
-                <Link to="/login">
-                   <button className={styles.header_btns} >Login </button>
-                </Link>
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-      <section className={styles.header_section_filters}>
-        <div>
-          <FilterCategory />
-        </div>
-        <div>
-          <FiltUsed />
-        </div>
-        <div>
-          <Sort />
+            <SearchBar />
+          </div>
+
+          <div>
+            <Link to="/shoping">
+              <img className={styles.shoping_car} src={car} />{" "}
+            </Link>
+          </div>
+
+          <div className={styles.container_links}>
+            {user ? (
+              <>
+                <div>
+                  <button className={styles.header_btns} onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+                <div>
+                  <Link to="/profile">
+                    <button className={styles.header_btns}>profile</button>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <Link to="/register">
+                    <button className={styles.header_btns}>Register </button>
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/login">
+                    <button className={styles.header_btns}>Login </button>
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      </div>
+
+      <section className={styles.section_filters}>
+        <div className={styles.sections_position}>
+          <div>
+            <FilterCategory />
+          </div>
+          <div>
+            <FiltUsed />
+          </div>
+          <div>
+            <Sort />
+          </div>
         </div>
       </section>
     </header>
