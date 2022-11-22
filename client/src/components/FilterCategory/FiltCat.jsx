@@ -53,10 +53,6 @@ const FilterCategory = () => {
         )
         )}
       </select>      
-          {/*<button className={styles.contenedor_button_all} onClick={() => handleClick("all")} value="All"> All</button>
-          {categories.map((c, i) => (
-            <button className={styles.contenedor_button_category} key={i} onClick={() => handleClick(c)} value={c} > {c} </button>
-          ))}*/}
          <button type="submit">Filter</button> 
         </form> 
         <div>

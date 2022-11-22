@@ -1,24 +1,24 @@
 import Cards from './../../components/Cards/Cards.jsx'
-import './Home.css'
 import Header from '../../components/Header/Header.jsx'
 import Footer from '../../components/Footer/Footer.jsx'
 import Pagination from '../../components/Pagination/Pagination.jsx'
+// import styles from './Home.module.css'
 
 
 function Home() {
   return (
     <main>
       <section>
-        <div className="block__nav">
+        <div>
           <Header />
         </div>
       </section>
-      <section className="block__pagination">
+      <section>
         <Pagination />
       </section>
       <section>
         <div>
-          <Cards className="block__cards" />
+          <Cards />
         </div>
       </section>
       <section>

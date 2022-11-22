@@ -1,79 +1,50 @@
-.logo_fm {
-  margin-top: 0.7rem;
+/* SECCION DEL NAVBAR: LOGO, TITULO, CAR, REGISTER, LOGIN, LOGOUT Y PROFILE */
+.container {
+  background: linear-gradient(to right, #243b55, #141e30);
+}
+
+.container_position {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section_navbar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  aling-items: center;
+}
+
+.container_logo_and_title{
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  padding-top:20px;
   width: 2.5rem;
   height: 2.5rem;
 }
-.header_section_title_logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: flex-start;
-  margin-right: 4rem;
-}
-.header_section_title {
+
+.title {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--font-one);
 }
-.header_section_one {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: auto;
-  background: #141e30;
-  background: -webkit-linear-gradient(to right, #243b55, #141e30);
-  background: linear-gradient(to right, #243b55, #141e30);
-  padding: 15px;
-}
 
-.header_section_filters {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 15px;
-  height: auto;
-  width: 100%;
-  background: #757f9a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to down,
-    #d7dde8,
-    #757f9a
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to down,
-    #d7dde8,
-    #757f9a
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.header_section_filters div {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-/** CARRITO REGISTER LOGIN*/
-
-.header_section_one_car {
-  margin-left: 2rem;
-  margin-right: 1rem;
-}
-.icon_car {
-  background: #e65c00; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f9d423,
-    #e65c00
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f9d423,
-    #e65c00
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.shoping_car {
+  background: linear-gradient(to right, #f9d423, #e65c00);
   border-radius: 5px;
   width: 1.3rem;
   height: 1.3rem;
   padding: 0.25rem;
+  margin-top:23px
+}
+
+.container_links {
+  display: flex;
+  align-items: center;
 }
 
 .header_btns {
@@ -94,7 +65,15 @@
   background-color: var(--bg-hover-register-login);
 }
 
-.header_div_logout_profile {
+/* SECCCION DE FILTROS Y ORDENAMIENTOS */
+.section_filters {
+  background: #757f9a;
+}
+
+.sections_position {
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
