@@ -2,13 +2,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import Card from './Card.jsx'
 import styles from './Cards.module.css'
 import { loadProducts } from '../../store/actions/index.js'
-import { useEffect, useState } from 'react'
-import Pagination from '../Pagination/Pagination.jsx'
+import { useEffect} from 'react'
 
 const Cards = () => {
   const dispatch = useDispatch()
   const products = useSelector((state) => state.products)
-  console.log(products)
 
   useEffect(() => {
     dispatch(loadProducts())

@@ -14,7 +14,6 @@ const Profile = () => {
     }
   }, []);
 
-
   return (
     <div>
       {user && <h1>Username: {user.username}</h1>}

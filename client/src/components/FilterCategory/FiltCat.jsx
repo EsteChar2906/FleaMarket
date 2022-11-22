@@ -3,13 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./filtCat.module.css";
 import {
   filterCategory,
-  /*resetFiltered,*/
   loadCategories,
 } from '../../store/actions/index.js';
 
 const FilterCategory = () => {
   const dispatch = useDispatch();
-  /*const products = useSelector((state) => state.products);*/
   const categories = useSelector((state) => state.categories);
   let [category, setCategory] = useState([]);
   if (categories.length === 0) {
@@ -40,8 +38,6 @@ const FilterCategory = () => {
     setCategory([])
   };
 
-
-  console.log(category)
   return (
     <div>
       <div className={styles.contenedor_category}>  
