@@ -4,10 +4,13 @@ import FiltUsed from "../FilterUsed/FilterUsed.jsx";
 import FilterCategory from "../FilterCategory/FiltCat.jsx";
 import Sort from "../Sort/Sort.jsx"
 import styles from "./Header.module.css";
-import { useEffect, useState } from "react";
 import fm from "../../assets/fm.png"
 import car from "../../assets/carrito.png"
+import { useEffect, useState } from "react";
+
+
 const Header = () => {
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -20,8 +23,10 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    window.location.reload();
+    // window.location.reload();
+    setUser(null)
   };
+
 
   return (
     <header className={styles.header_contenedor}>

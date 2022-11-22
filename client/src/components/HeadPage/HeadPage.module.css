@@ -1,0 +1,32 @@
+.header_container {
+  background: #141e30;
+  height: 80px;
+}
+
+.header_container_position {
+    margin: 0 auto;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_container_logo_title {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  padding-top: 20px;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.title {
+  color: white;
+}
+
+.link_home {
+  color: white;
+}
