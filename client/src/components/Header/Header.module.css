@@ -32,20 +32,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 15px;
   height: auto;
   width: 100%;
   background: #757f9a; /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(
-    to down,
+  background: -webkit-linear-gradient(
+    to bottom,
     #d7dde8,
     #757f9a
-  );*/ /* Chrome 10-25, Safari 5.1-6 */
-  /*background: linear-gradient(
-    to down,
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
     #d7dde8,
     #757f9a
-  ); *//* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 15px;
 }
 
 .header_section_filters div {

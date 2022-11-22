@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = "http://localhost:3001";
+const host = "https://fleamarketdeploy-production.up.railway.app";
 
 /*export function loadProducts() {
   return function (dispatch) {
