@@ -2,7 +2,7 @@ import React, { useEffect }  from 'react';
 import { useParams } from 'react-router-dom';
 import './Detail.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadProduct, shopingCar } from '../../store/actions/index.js';
+import { loadProduct, shopingCar, subTotal } from '../../store/actions/index.js';
 import Header from '../../components/Header/Header';
 
 export function Detail() {
