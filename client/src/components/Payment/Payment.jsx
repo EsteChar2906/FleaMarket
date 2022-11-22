@@ -16,7 +16,7 @@ function Validation(input){
 };
 
 
-function Payment(){
+function Payment( props ){
   const dispatch = useDispatch();
 
   const [error, setError] = useState({});
@@ -31,7 +31,7 @@ function Payment(){
       purchase_units: [
         {
           amount: {
-            value: price,
+            value: props.price,
           },
         },
       ],
@@ -75,8 +75,8 @@ function Payment(){
           {error.email && (
             <p>{error.email}</p>
           )}
-          <h4>Total Price: {price}$</h4>
-          <input type="text" onChange={handleChange} placeholder='price' />
+          <h4>Total Price: {props.total}$</h4>
+          <input type="text" onChange={handleChange} value={props.total} />
           {/* {
             price === 0 ? <p>Insert total price</p>
             : <input type="text" onChange={handleChange} placeholder='price' />

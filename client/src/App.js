@@ -17,9 +17,9 @@ function App() {
           <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          {/* <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/payment" component={Payment} />
-          <PrivateRoute path="/shoping" component={ShopingCard} /> */}
+          <PrivateRoute path="/shoping" component={ShopingCard}/>
         </Switch>
       </BrowserRouter>
     </div>
