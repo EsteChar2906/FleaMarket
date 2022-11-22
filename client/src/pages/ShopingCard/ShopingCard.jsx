@@ -11,7 +11,7 @@ const ShopingCard = () => {
   console.log("carrito:", carrito);
 
   function reset() {
-    dispatch(shopingCar("REST"), subTot("REST"));
+    dispatch(shopingCar("REST"), subTotal("REST"));
   }
 
   const subTot = useSelector((state) => state.subTotal);
