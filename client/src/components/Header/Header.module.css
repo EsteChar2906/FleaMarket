@@ -36,16 +36,16 @@
   height: auto;
   width: 100%;
   background: #757f9a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
+  /*background: -webkit-linear-gradient(
     to down,
     #d7dde8,
     #757f9a
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
+  );*/ /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(
     to down,
     #d7dde8,
     #757f9a
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); *//* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .header_section_filters div {
