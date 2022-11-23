@@ -1,8 +1,8 @@
-const Reviews = require('../models/reviews');
+import Review from '../models/reviews.js';
 
-export const postReviews = async (req, res) => {
+export const createReview = async (req, res) => {
   try {
-    const newReview = Reviews(req.body);
+    const newReview = Review(req.body);
     await newReview.save();
     console.log(newReview);
     return res.json(newReview);
@@ -13,9 +13,9 @@ export const postReviews = async (req, res) => {
 
 export const getReview = async (req, res) => {
   try {
-    const findreview = await Reviews.find();
-    
+    const findreview = await Review.find();
+    return res.status(200).json(findreview);
   } catch (e) {
-    
+    return res.status(500).json({message: e.message});
   }
 }
