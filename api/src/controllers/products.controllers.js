@@ -1,11 +1,9 @@
 import Products from "../models/products.js";
-import Category from '../models/category.js';
 
 export const createProduct = async (req, res) => {
   try {
     const newProduct = Products(req.body);
     await newProduct.save();
-    console.log(newProduct)
     return res.json(newProduct);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -14,17 +12,7 @@ export const createProduct = async (req, res) => {
 
 export const getAllProducts = async (req, res) => {
   try {
-    /*const { name } = req.query;*/
-/*
-    if (name) {
-      const productsQuery = await Products.find({
-        title: { $regex: name, $options: "i" },
-      })
-        .populate("user")
-        .populate("category")
-        .exec();
-      return res.status(200).json(productsQuery);
-    } else {*/
+
       let page = parseInt(req.query.page) - 1 || 0;
       let limit = parseInt(req.query.limit) || 8;
       let condition = req.query.condition || "";
@@ -36,7 +24,7 @@ export const getAllProducts = async (req, res) => {
       
       let allCategories = findCategories.map((c) => c.name)
       
-      category === "All"? category = [...allCategories]: category = req.query.category.split(",").toString();
+      category === "All"? category = [...allCategories] : category = req.query.category.split(",").toString();
 
       let sortBy = {};
       if(sort === "asc"){
@@ -48,16 +36,19 @@ export const getAllProducts = async (req, res) => {
       
       const products = await Products.find({ title: {$regex: name, $options: 'i'}, condition: {$regex:condition, $options: 'i'} })
       .sort(sortBy)
-      .populate("user")
+      .populate('user')
       .populate({
         path: 'category',
-        match: {name: category},
-        select: "name"
+        match: { name: category }
       })
       .exec();
 
-        return res.status(200).json(products);
-    /*}*/
+      const categoryProducts = products.filter((p) => p.category !== null);
+
+      const result = category ? categoryProducts : products;
+
+      return res.status(200).json(result);
+
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -88,12 +79,9 @@ export const updateProduct = async (req, res) => {
       { _id: id },
       { $set: { name, category, stock, description, price, image, condition, brand, ram, processor, battery, bluetooth } }
     );
-    const users = await Products.findById(id)
-    .populate('user');
-
-    console.log(users)
 
     res.status(200).send("Producto actualizado!");
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
