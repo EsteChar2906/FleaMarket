@@ -1,0 +1,17 @@
+
+.block__carousel_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+.block__carousel_img_contenido {
+    width: 80%;
+}
+
