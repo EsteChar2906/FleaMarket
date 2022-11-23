@@ -1,17 +1,17 @@
-
 import React from 'react'
 import  ReactDOM  from "react-dom";
 import { useDispatch } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
+import s from "./estiloPay.css";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 function Validation(input){
   let error={};
-  if(!input.lastName) error.lastName = "Insert last name...!"
-  if(!input.firstName) error.firstName = "Insert name...!"
-  if(!input.email) error.email = "Insert email...!"
+  if(!input.lastName) error.lastName = "Enter last name...!"
+  if(!input.firstName) error.firstName = "Enter name...!"
+  if(!input.email) error.email = "Enter email...!"
   return error;
 };
 
@@ -20,7 +20,6 @@ function Payment( props ){
   const dispatch = useDispatch();
 
   const [error, setError] = useState({});
-  const [price,setPrice] = useState(0);
   const [input, setInput] = useState({
     lastName: '',
     firstName: '',
@@ -42,9 +41,7 @@ function Payment( props ){
     console.log(data);
     return actions.order.capture(alert("El pago ha si exioto"));
   };
-  const handleChange = (e) => {
-    setPrice(e.target.value);
-  }
+  
 
   const handleInput = (e) => {
     setInput({
@@ -57,37 +54,46 @@ function Payment( props ){
     }));
   }
   return(
-    <div>
-      <div>
-        <form action="" className="px-4 my-32 max-w-3xl mx-auto space-y-6">
-          <label htmlFor="">First Name:</label>
-          <input className="border border-gray-400 block py-2 px-4 w-full rounded" type="text" onChange={handleInput} value={input.firstName} name='firstName' placeholder="firstName"/>
-          {error.lastName && (
-            <p>{error.firstName}</p>
-          )}
-          <label htmlFor="">Last Name:</label>
-          <input type="text" onChange={handleInput} value={input.name} name='lastName' placeholder="lastName"/>
-          {error.lastName && (
-            <p>{error.lastName}</p>
-          )}
-          <label htmlFor="">E-Mail:</label>
-          <input type="text" onChange={handleInput} value={input.email} name='email' placeholder="email"/>
-          {error.email && (
-            <p>{error.email}</p>
-          )}
-          <h4>Total Price: {props.total}$</h4>
-          <input type="text" onChange={handleChange} value={props.total} />
-          {/* {
-            price === 0 ? <p>Insert total price</p>
-            : <input type="text" onChange={handleChange} placeholder='price' />
-          } */}
+    <div className='body'>
+      <form  className="form">
+        <h2 className='form_title'>Enter Your Data: </h2>
+        <h4 className='form_paragraph'>Total Price: {props.price}$</h4>
 
-        </form>
-      </div>
-      <PayPalButton
-      createOrder={(data, actions) => createOrder(data, actions)}
-      onApprove={(data, actions) => onApprove(data, actions)}
-    />
+        <div className='form_container'>
+          <div className='form_group'>
+            <input className="form_input" type="text" onChange={handleInput} value={input.firstName} name='firstName' placeholder=" "/>
+            <label className='form_label'>First Name:</label>
+            <span className='form_line'></span>
+            {error.lastName && (
+              <p className='form_error'>{error.firstName}</p>
+            )}
+          </div>
+
+          <div className='form_group'>
+            <input className="form_input" type="text" onChange={handleInput} value={input.name} name='lastName' placeholder=" "/>
+            <label className='form_label'>Last Name:</label>
+            <span className='form_line'></span>
+            {error.lastName && (
+              <p className='form_error'>{error.lastName}</p>
+              )}
+          </div>
+
+          <div className='form_group'>
+            <input className="form_input" type="text" onChange={handleInput} value={input.email} name='email' placeholder=" "/>
+            <label className='form_label' >E-Mail:</label>
+            <span className='form_line'></span>
+            {error.email && (
+              <p className='form_error'>{error.email}</p>
+              )}
+          </div>
+        </div>
+        <br />
+        <PayPalButton
+        createOrder={(data, actions) => createOrder(data, actions)}
+        onApprove={(data, actions) => onApprove(data, actions)}
+      />
+      </form>
+      
     </div>
   )
 }
