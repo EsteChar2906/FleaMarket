@@ -1,0 +1,36 @@
+@import '../../index.css';
+
+.footer_contenedor {
+  background: var(--header-bg-color);
+  max-width: 100%;
+  height: auto;
+  color: #ffff;
+}
+.footer_general_sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: auto;
+}
+.container_sections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 215px;
+}
+.sub_sections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin: 20px;
+  width: 200px;
+  height: 210px;
+}
+.section_terminos {
+  display: flex;
+  flex-direction: row;
+
+  margin: 8px;
+}
