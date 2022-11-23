@@ -45,7 +45,7 @@ export const getAllProducts = async (req, res) => {
 
       const categoryProducts = products.filter((p) => p.category !== null);
 
-      const result = category ? categoryProducts : products;
+      const result = category !== "All" ? categoryProducts : products;
 
       return res.status(200).json(result);
 
