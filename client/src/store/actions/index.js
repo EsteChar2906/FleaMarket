@@ -130,6 +130,17 @@ export const postFormPay = (payload) => {
   }
 }
 
+export const postReviews = (payload) => {
+  return async function(){
+    try {
+      const json = await axios.post('http://localhost:3001/api/reviews',payload);
+      return json
+    }catch(e){
+      console.log(e);
+    }
+  }
+}
+
 export function shopingCar(opt, data) {
   return function (dispatch) {
     dispatch({
