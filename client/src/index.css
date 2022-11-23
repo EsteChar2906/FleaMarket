@@ -39,7 +39,7 @@ code {
 
  --inputs-border-general: 1px solid;
  --inputs-border-radius-general: 5px;
- --inputs-color:rgb(230, 240, 250);
+ --inputs-color:rgb(230, 240, 250, 0,2);
  --inputs-max-width: 400px;
  --inputs-max-height: 25px;
 
