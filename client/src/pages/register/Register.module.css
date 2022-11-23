@@ -55,12 +55,13 @@
 }
 
 .input {
+  font-size: 0.7rem;
 }
 
 .green_btn {
   background-color: #e65c00;
-  height: 50px;
-  width: 200px;
+  height: 3rem;
+  width: 10rem;
   color: white;
   display: flex;
   align-items: center;
