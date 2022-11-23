@@ -45,6 +45,8 @@ code {
 
  --form-inputs-border-general: 1px solid;
  --form-inputs-border-radius-general: 5px;
+ --form-button-border-general: 1px solid;
+ --form-button-border-radius-general: 5px;
  --form-input-font-size: 0.7rem;
  --forms-max-font-size-welcome-login:2rem;
  --forms-max-font-size-title:2rem;
