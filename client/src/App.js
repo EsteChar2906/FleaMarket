@@ -7,7 +7,6 @@ import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import ShopingCard from "./pages/ShopingCard/ShopingCard.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
-import {validate} from "../src/Helpers/Validations.js"
 
 function App() {
   return (
