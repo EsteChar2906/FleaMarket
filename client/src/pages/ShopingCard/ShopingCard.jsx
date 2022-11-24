@@ -3,6 +3,8 @@ import { shopingCar, subTotal } from "../../store/actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 import Payment from "../../components/Payment/Payment.jsx";
+import HeadPage from "../../components/HeadPage/HeadPage";
+import styles from './ShoppingCard.module.css'
 
 const ShopingCard = () => {
   const dispatch = useDispatch();
@@ -33,31 +35,56 @@ const ShopingCard = () => {
 
   return (
     <div>
-      <h3>Carrito de compras</h3>
+      <HeadPage />
+      <div className={styles.block__shoping}>
+        <div className={styles.block__shopingcontenedor}>
+          <div className={styles.block__shopingcontenedoruno}>
+            <h3>Carrito de compras</h3>
+            
+          </div>
+          <div className={styles.block__profile_contendordosdiv}  ></div>
 
-      {carrito.length === 0 && <p>Sin Productos</p>}
+          <div className={styles.block__shopingcontenedordos}>
+            {carrito.length === 0 && <p>Sin Productos</p>}
+              {carrito &&
+                carrito.map((e, i) => {
+                  return  (
+                    <div className={styles.block__shopingcontendortres} key={i}>
+                      
+                      <Card
+                       
+                        id={e._id}
+                        title={e.title}
+                        image={e.image}
+                        price={e.price}
+                      />
+                      
+                    </div>
+                  );
+                })}
 
-      {carrito &&
-        carrito.map((e, i) => {
-          return (
-            <div key={i}>
-              <Card
-                id={e._id}
-                title={e.title}
-                image={e.image}
-                price={e.price}
-              />
-            </div>
-          );
-        })}
+              
+              
+              
+              
+              
+              {suiche && <Payment price={subTot} />}
 
-      {carrito.length > 0 && <button onClick={reset}>Reset carrito</button>}
+          </div>
+          <div className={styles.block__profile_contendordosdiv}  ></div>
+          
 
-      <button onClick={pago}>PAGAR</button>
+          <div className={styles.block__shopingcontenedorseis}>
+            {carrito.length > 0 && <button onClick={reset}>Reset carrito</button>}
+            <button  onClick={pago}>PAGAR</button>
 
-      <hr />
-
-      {suiche && <Payment price={subTot} />}
+          </div>
+          
+        </div>
+        
+          
+      </div>
+      
     </div>
   );
 };
