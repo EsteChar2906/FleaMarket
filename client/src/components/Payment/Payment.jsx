@@ -4,27 +4,20 @@ import { useDispatch } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
 import s from "./estiloPay.css";
-
+import { Validation } from '../../Helpers/Validations.js';
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-
-function Validation(input){
-  let error={};
-  if(!input.lastName) error.lastName = "Enter last name...!"
-  if(!input.firstName) error.firstName = "Enter name...!"
-  if(!input.email) error.email = "Enter email...!"
-  return error;
-};
-
 
 function Payment( props ){
   const dispatch = useDispatch();
 
   const [error, setError] = useState({});
+
   const [input, setInput] = useState({
     lastName: '',
     firstName: '',
     email: '',
   });
+
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
@@ -64,7 +57,7 @@ function Payment( props ){
             <input className="form_input" type="text" onChange={handleInput} value={input.firstName} name='firstName' placeholder=" "/>
             <label className='form_label'>First Name:</label>
             <span className='form_line'></span>
-            {error.lastName && (
+            {error.firstName && (
               <p className='form_error'>{error.firstName}</p>
             )}
           </div>
@@ -88,7 +81,7 @@ function Payment( props ){
           </div>
         </div>
         <br />
-        <PayPalButton
+        <PayPalButton disabled={ Object.keys(error).length<1 ? false : true}
         createOrder={(data, actions) => createOrder(data, actions)}
         onApprove={(data, actions) => onApprove(data, actions)}
       />

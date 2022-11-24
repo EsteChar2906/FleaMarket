@@ -63,3 +63,9 @@
   transition: 0.2s;
   background-color: #f9d423;
 }
+.errors {
+  font-size: 9px;
+  margin: 0px 0px 0px 0px;
+  font-weight: lighter;
+  color: rgba(250, 59, 59, 0.667);
+}
