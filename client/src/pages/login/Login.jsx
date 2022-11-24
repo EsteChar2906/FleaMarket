@@ -6,6 +6,7 @@ import "./login.module.css";
 import { validate } from "../../Helpers/Validations";
 import HeadPage from "../../components/HeadPage/HeadPage";
 import { useAuth0 } from "@auth0/auth0-react";
+import { BACK_DOMINIO } from "../../config.js"
 
 const Login = () => {
   const { loginWithRedirect } = useAuth0();
@@ -21,7 +22,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:3001/api/login";
+      const url = `${BACK_DOMINIO}/api/login`;
       const res = await axios.post(url, data);
       localStorage.setItem("user", JSON.stringify(res.data));
       window.location = "/";
