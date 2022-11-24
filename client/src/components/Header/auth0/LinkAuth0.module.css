@@ -1,0 +1,10 @@
+.header_btns {
+  margin-top: 22.5px;
+  height: 30px;
+  width: 65px;
+  text-align: center;
+  border-color: transparent;
+  border-radius: 5px;
+  background-color: transparent;
+  color: aliceblue;
+}

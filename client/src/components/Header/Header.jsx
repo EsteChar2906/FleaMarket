@@ -6,28 +6,17 @@ import Sort from "../Sort/Sort.jsx";
 import styles from "./Header.module.css";
 import fm from "../../assets/fm.png";
 import car from "../../assets/carrito.png";
-import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import LinkAuth0 from "./auth0/LinkAuth0.jsx";
+import LinkJwt from "./jwt/LinkJwt.jsx";
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const userLocalStorageJSON = window.localStorage.getItem("user");
-    if (userLocalStorageJSON) {
-      const user = JSON.parse(userLocalStorageJSON);
-      setUser(user);
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-  };
+  const { user } = useAuth0();
 
   return (
     <header className={styles.container}>
-      <div className={styles.container_position}>
-        <section className={styles.section_navbar}>
+      <section className={styles.container_position}>
+        <div className={styles.section_navbar}>
           <div className={styles.container_logo_and_title}>
             <div>
               <Link to="/">
@@ -48,38 +37,11 @@ const Header = () => {
               <img className={styles.shoping_car} src={car} />{" "}
             </Link>
           </div>
+          {user ? <LinkAuth0 /> : <LinkJwt />}
 
-          <div className={styles.container_links}>
-            {user ? (
-              <>
-                <div>
-                  <button className={styles.header_btns} onClick={handleLogout}>
-                    Logout
-                  </button>
-                </div>
-                <div>
-                  <Link to="/profile">
-                    <button className={styles.header_btns}>profile</button>
-                  </Link>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <Link to="/register">
-                    <button className={styles.header_btns}>Register </button>
-                  </Link>
-                </div>
-                <div>
-                  <Link to="/login">
-                    <button className={styles.header_btns}>Login </button>
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
-        </section>
-      </div>
+          <div className={styles.container_links}></div>
+        </div>
+      </section>
 
       <section className={styles.section_filters}>
         <div className={styles.sections_position}>

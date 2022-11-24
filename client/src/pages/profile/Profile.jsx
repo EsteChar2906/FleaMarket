@@ -1,29 +1,25 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import JSONPretty from "react-json-pretty";
+import { useContext } from "react";
+import AuthContext from "../../context/authProvider";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const userLocalStorageJSON = window.localStorage.getItem("user");
-    if (userLocalStorageJSON) {
-      const user = JSON.parse(userLocalStorageJSON);
-      setUser(user);
-    }
-  }, []);
+  const { user } = useAuth0();
+  const { userStorage } = useContext(AuthContext);
 
   return (
     <div>
-      {user && <h1>Username: {user.username}</h1>}
-      {user && <h1>Name: {user.name}</h1>}
-      {user && <h1>Email: {user.email}</h1>}
-      {user && <h1>Country: {user.country}</h1>}
-      {user && <h1>City: {user.city}</h1>}
-      {user && <h1>Role: {user.role}</h1>}
-      <Link to='/'>
-      <p>Back to Home</p>
+      <JSONPretty data={user} />
+      {userStorage && <h1>Username: {userStorage.username}</h1>}
+      {userStorage && <h1>Name: {userStorage.name}</h1>}
+      {userStorage && <h1>Email: {userStorage.email}</h1>}
+      {userStorage && <h1>Country: {userStorage.country}</h1>}
+      {userStorage && <h1>City: {userStorage.city}</h1>}
+      {userStorage && <h1>Role: {userStorage.role}</h1>}
+      <Link to="/">
+        <p>Back to Home</p>
       </Link>
     </div>
   );
