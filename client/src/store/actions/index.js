@@ -40,8 +40,8 @@ const host = "http://localhost:3001";
   };
 }*/
 
-export function loadProducts(){
-  return async function(dispatch){
+export function loadProducts() {
+  return async function (dispatch) {
     const response = await axios.get(`${host}/api/products`)
     dispatch({
       type: "LOAD_PRODUCTS",
@@ -51,31 +51,38 @@ export function loadProducts(){
 }
 
 export function loadProduct(id) {
-  return async function(dispatch){
-    const response = await axios.get(`${host}/api/product/${id}`)
+  return async function (dispatch) {
+    if (id) {
+      const response = await axios.get(`${host}/api/product/${id}`)
+      dispatch({
+        type: "LOAD_PRODUCT",
+        payload: response.data
+      })
+    }else{
+      dispatch({
+        type: "void"
+      })
+    }
+
+  }
+};
+
+export function getProductName(name) {
+  return async function (dispatch) {
+    const response = await axios.get(`${host}/api/products?name=${name}`)
     dispatch({
-    type: "LOAD_PRODUCT",
-    payload: response.data
+      type: "GET_PRODUCT_NAME",
+      payload: response.data
     })
   }
 };
 
-export function getProductName(name){
-  return async function(dispatch){
-      const response = await axios.get(`${host}/api/products?name=${name}`)
-      dispatch({
-        type: "GET_PRODUCT_NAME",
-        payload: response.data 
-      })
-    }
-};
-
 export function filterCategory(category) {
-  return async function(dispatch){
+  return async function (dispatch) {
     const response = await axios.get(`${host}/api/products?category=${category}`)
     dispatch({
       type: "FILTER_CATEGORY",
-      payload: response.data 
+      payload: response.data
     })
   };
 }
@@ -86,8 +93,8 @@ export function resetFiltered() {
   };
 }
 
-export function sortByPrice(sort){
-  return async function(dispatch){
+export function sortByPrice(sort) {
+  return async function (dispatch) {
     const response = await axios.get(`${host}/api/products?sort=${sort}`);
     dispatch({
       type: "SORT_PRICE",
@@ -97,11 +104,11 @@ export function sortByPrice(sort){
 }
 
 export function filterUsed(condition) {
-  return async function(dispatch){
+  return async function (dispatch) {
     const response = await axios.get(`${host}/api/products?condition=${condition}`)
     dispatch({
       type: "FILTER_CONDITION",
-      payload: response.data 
+      payload: response.data
     })
   };
 }
@@ -120,9 +127,9 @@ export function loadCategories() {
 }
 
 export const postFormPay = (payload) => {
-  return async function(){
+  return async function () {
     try {
-      const json = await axios.post('http://localhost:3001/api/payment',payload);
+      const json = await axios.post('http://localhost:3001/api/payment', payload);
       return json
     } catch (e) {
       console.log(e);
@@ -131,11 +138,11 @@ export const postFormPay = (payload) => {
 }
 
 export const postReviews = (payload) => {
-  return async function(){
+  return async function () {
     try {
       const json = await axios.post('http://localhost:3001/api/review',payload);
       return json
-    }catch(e){
+    } catch (e) {
       console.log(e);
     }
   }

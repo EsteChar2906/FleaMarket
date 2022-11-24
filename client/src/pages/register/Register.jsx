@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Register.module.css";
 import axios from "axios";
-import {Formik} from "formik"
-import {validate} from "../../Helpers/Validations.js"
+import { validate } from "../../Helpers/Validations.js";
 import { Link, useHistory } from "react-router-dom";
 import HeadPage from "../../components/HeadPage/HeadPage";
-
 
 const Register = () => {
   const [data, setData] = useState({
@@ -20,23 +18,22 @@ const Register = () => {
     password: "",
   });
   const [error, setError] = useState("");
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState({});
   const history = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
-    setErrors(validate({...data,[input.name]:input.value}))  
-    console.log(data)
+    setErrors(validate({ ...data, [input.name]: input.value }));
+    console.log(data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = "http://localhost:3001/api/register";
-      const formPost = await axios.post(url, data);
-      console.log(formPost);
+      await axios.post(url, data);
       history.push("/login");
-      setErrors(validate(data))
+      setErrors(validate(data));
       setData({
         firstname: "",
         lastname: "",
@@ -74,9 +71,7 @@ const Register = () => {
 
           <div className={styles.form_container}>
             <h1 className={styles.form_title}>Create Account</h1>
-            <Formik>
-              {({validate,handleSubmit,  handleBlur } ) => (
-                
+
             <form className={styles.form_register} onSubmit={handleSubmit}>
               <input
                 type="email"
@@ -86,7 +81,10 @@ const Register = () => {
                 value={data.email}
                 required
                 className={styles.input}
-              />{  errors.email && <div className={styles.errors}>{errors.email}</div>} 
+              />
+              {errors.email && (
+                <div className={styles.errors}>{errors.email}</div>
+              )}
 
               <input
                 type="text"
@@ -96,7 +94,10 @@ const Register = () => {
                 value={data.firstname}
                 required
                 className={styles.input}
-              />{ errors.firstname && (<div className={styles.errors}>{errors.firstname}</div>)} 
+              />
+              {errors.firstname && (
+                <div className={styles.errors}>{errors.firstname}</div>
+              )}
 
               <input
                 type="text"
@@ -106,7 +107,10 @@ const Register = () => {
                 value={data.lastname}
                 required
                 className={styles.input}
-              />{( errors.lastname && <p className={styles.errors}>{errors.lastname}</p>)} 
+              />
+              {errors.lastname && (
+                <p className={styles.errors}>{errors.lastname}</p>
+              )}
 
               <input
                 type="text"
@@ -116,7 +120,10 @@ const Register = () => {
                 value={data.username}
                 required
                 className={styles.input}
-              />{( errors.username && <p className={styles.errors}>{errors.username}</p>)} 
+              />
+              {errors.username && (
+                <p className={styles.errors}>{errors.username}</p>
+              )}
 
               <input
                 type="country"
@@ -126,7 +133,10 @@ const Register = () => {
                 value={data.country}
                 required
                 className={styles.input}
-              />{(  errors.country && <p className={styles.errors}>{errors.country}</p>)} 
+              />
+              {errors.country && (
+                <p className={styles.errors}>{errors.country}</p>
+              )}
 
               <input
                 type="city"
@@ -136,7 +146,8 @@ const Register = () => {
                 value={data.city}
                 required
                 className={styles.input}
-              />{(errors.city && <p className={styles.errors}>{errors.city}</p>)} 
+              />
+              {errors.city && <p className={styles.errors}>{errors.city}</p>}
 
               <input
                 type="addres"
@@ -146,7 +157,10 @@ const Register = () => {
                 value={data.addres}
                 required
                 className={styles.input}
-              />{(  errors.addres && <p className={styles.errors}>{errors.addres}</p>)} 
+              />
+              {errors.addres && (
+                <p className={styles.errors}>{errors.addres}</p>
+              )}
 
               <input
                 type="telephone"
@@ -156,7 +170,10 @@ const Register = () => {
                 value={data.telephone}
                 required
                 className={styles.input}
-              />{(errors.telephone && <p className={styles.errors}>{errors.telephone}</p>)} 
+              />
+              {errors.telephone && (
+                <p className={styles.errors}>{errors.telephone}</p>
+              )}
 
               <input
                 type="password"
@@ -166,17 +183,22 @@ const Register = () => {
                 value={data.password}
                 required
                 className={styles.input}
-              />{(  errors.password && <p className={styles.errors}>{errors.password}</p>)} 
-
-            <button type="submit" className={styles.green_btn}>
-              Registrarse
-            </button>
-            </form>
+              />
+              {errors.password && (
+                <p className={styles.errors}>{errors.password}</p>
               )}
-              </Formik>
+
+              <button type="submit" className={styles.green_btn}>
+                Registrarse
+              </button>
+            </form>
           </div>
 
-          {error&& <div><p>{error}</p></div>}
+          {error && (
+            <div>
+              <p>{error}</p>
+            </div>
+          )}
         </div>
       </section>
     </div>
