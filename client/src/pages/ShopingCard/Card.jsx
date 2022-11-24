@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { shopingCar, subTotal } from '../../store/actions/index.js';
 import { useDispatch } from "react-redux";
+import styles from './Card.module.css'
 
 const Card = (props) => {
 
@@ -26,17 +27,32 @@ const Card = (props) => {
   }
 
   return (
-    <div>
-      <h2>titulo: {props.title}</h2>
-      <img src={props.image} alt="not found" height="300px" />
-      <h4>price: {props.price}</h4>
-      <button onClick={less}>-</button>
-      <button>{quatity}</button>
-      <button onClick={plus}>+</button>
-      <h3>total: {props.price * quatity}</h3>
-      <br />
-      <button onClick={deletToCar}>Quit</button>
-      <hr />
+    
+    <div className={styles.block__shopingcontendortres}>
+      
+      <div className={styles.block__shopingcontendorcuatro}>
+        
+        <img src={props.image} alt="not found" height="170px" />
+        <div>
+        <h2> {props.title}</h2>
+        <button styles={{ outline: `none`}} onClick={deletToCar}>Delete</button>
+
+        </div>
+        
+
+      </div>
+      
+      <div className={styles.block__shopingcontendorcinco}>
+        <button  styles={{ outline: "none"}}  onClick={less}>-</button>
+        <button  styles={{ outline: "none"}} >{quatity}</button>
+        <button  styles={{ outline: "none"}} onClick={plus}>+</button>
+
+      </div>
+      
+
+      <h3 className={styles.block__shopingprecio}>${props.price * quatity}</h3>
+
+      
     </div>
 
   )
