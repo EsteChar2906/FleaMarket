@@ -1,14 +1,15 @@
 import styles from "./login.module.css";
 import axios from "axios";
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./login.module.css";
 import HeadPage from "../../components/HeadPage/HeadPage";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
+  const { loginWithRedirect } = useAuth0();
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const history = useHistory();
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -19,12 +20,11 @@ const Login = () => {
       const url = "http://localhost:3001/api/login";
       const res = await axios.post(url, data);
       localStorage.setItem("user", JSON.stringify(res.data));
-      history.push("/");
+      window.location = "/";
     } catch (error) {
       setError(error.response.data.message);
     }
   };
-  console.log(error)
 
   return (
     <div className={styles.container}>
@@ -32,25 +32,18 @@ const Login = () => {
       <section className={styles.container_position}>
         <div className={styles.login_container}>
           <div className={styles.login_container_title}>
-            <Link
-              to="/register"
-              style={{ textDecoration: "none" }}
-            >
+            <Link to="/register" style={{ textDecoration: "none" }}>
               <h2 className={styles.title}>New Here?</h2>
             </Link>
-          
+
             <Link to="/register" style={{ textDecoration: "none" }}>
-                <p className={styles.subtitle}>Sing up</p>
-              </Link>
-            
+              <p className={styles.subtitle}>Sing up</p>
+            </Link>
           </div>
 
           <div className={styles.container_form}>
             <h1 className={styles.form_title}>Login to Your Account</h1>
-            <form
-              className={styles.form}
-              onSubmit={handleSubmit}
-            >
+            <form className={styles.form} onSubmit={handleSubmit}>
               <input
                 type="email"
                 placeholder="Email"
@@ -73,13 +66,18 @@ const Login = () => {
               <button type="submit" className={styles.green_btn}>
                 Sing In
               </button>
-              
             </form>
+            <button onClick={loginWithRedirect} className={styles.green_btn}>
+              Sing In with Auth0 and Google
+            </button>
 
-            {error&& <div><p>{error}</p></div>}
+            {error && (
+              <div>
+                <p>{error}</p>
+              </div>
+            )}
           </div>
         </div>
-       
       </section>
     </div>
   );

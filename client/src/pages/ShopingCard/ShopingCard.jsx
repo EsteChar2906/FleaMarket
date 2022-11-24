@@ -15,6 +15,7 @@ const ShopingCard = () => {
   }
 
   const subTot = useSelector((state) => state.subTotal);
+  console.log("pagar:", subTot);
 
   if (carrito.length > 0) {
     const prices = carrito.map((e) => e.price);
@@ -56,7 +57,7 @@ const ShopingCard = () => {
 
       <hr />
 
-      {suiche && <Payment total={subTot} />}
+      {suiche && <Payment price={subTot} />}
     </div>
   );
 };

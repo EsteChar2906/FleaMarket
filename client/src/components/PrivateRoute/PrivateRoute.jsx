@@ -1,10 +1,15 @@
 import { Redirect, Route } from "react-router";
-
-const user = window.localStorage.getItem("user");
+import { useAuth0 } from "@auth0/auth0-react";
+import AuthContext from "../../context/authProvider";
+import { useContext } from "react";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { userStorage } = useContext(AuthContext);
+  const { user } = useAuth0();
   return (
-    <Route {...rest}>{user ? <Component /> : <Redirect to="/" />}</Route>
+    <Route {...rest}>
+      {userStorage || user ? <Component /> : <Redirect to="/" />}
+    </Route>
   );
 };
 

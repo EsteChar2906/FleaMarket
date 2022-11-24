@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { shopingCar, subTotal } from '../../store/actions/index.js';
 import { useDispatch } from "react-redux";
 
-export default (props) => {
+const Card = (props) => {
 
   const [quatity, setQuantity] = useState(1);
-  
+
   const dispatch = useDispatch()
 
   function deletToCar() {
@@ -13,14 +13,12 @@ export default (props) => {
   }
 
   function plus() {
-    return (
-      setQuantity(quatity + 1)),
-      dispatch(subTotal("plus", props.price)
-    )
+    setQuantity(quatity + 1)
+    dispatch(subTotal("plus", props.price))
   }
 
   function less() {
-    if(quatity === 1) return setQuantity(1)
+    if (quatity === 1) return setQuantity(1)
     return (
       setQuantity(quatity - 1),
       dispatch(subTotal("less", props.price))
@@ -43,3 +41,5 @@ export default (props) => {
 
   )
 }
+
+export default Card;
