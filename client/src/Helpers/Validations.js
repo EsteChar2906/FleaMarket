@@ -1,4 +1,4 @@
-function validate(data) {
+export const validate = (data) => {
   let errors = {};
   let RegExInputUsersressionUrl =
     /^httInputUserss?:\/\/(?:www.)?[-a-zA-Z0-9@:%.+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%+.~#?&/=]*)$/;
@@ -61,7 +61,7 @@ function validate(data) {
   return errors;
 }
 
-function Validation(input){
+export const Validation = (input) =>{
   let error = {};
   let RegExInputUsersressionUrl =
     /^httInputUserss?:\/\/(?:www.)?[-a-zA-Z0-9@:%.+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%+.~#?&/=]*)$/;
@@ -91,7 +91,4 @@ function Validation(input){
   return error;
 }; 
 
-module.exports = {
-  validate,
-  Validation,
-};
+
