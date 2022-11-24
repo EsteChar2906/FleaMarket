@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
-import { postReviews } from "../../store/actions";
+import { getReview, postReviews } from "../../store/actions/index.js";
+import './reviewStyle.css';
 
 const colors = {
   orange: "#FFBA5A",
@@ -31,16 +32,31 @@ const style = {
 
 }
 
-export default function Comment(){
 
-  const stars = Array(5).fill(0);
+
+export default function Review(){ //por props recibe el nombre del producto para filtrar y mostrar solo ese review
+
+  const stars = Array(5).fill(0); //para 
+  
 
   const dispatch = useDispatch();
-  const reviews = useSelector(state => state.products);
+  const reviews = useSelector(state => state.reviews);
 
+  let i = 0
+  // const reviewStar = reviews[i].star
+  // console.log(reviews)
+  // const starRev = Array(reviewStar).fill(0);
+  // console.log(reviewStar)
+  
+  
+  
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [input, setInput] = useState('');
+
+  useEffect(() => {
+    dispatch(getReview());
+  },[dispatch])
 
 
   const handleClick = value => {
@@ -58,18 +74,19 @@ export default function Comment(){
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Se envio el feedback del cliente");
-    dispatch(postReviews(input));
+    const dataPost = {star: currentValue, comment:input}
+    dispatch(postReviews(dataPost));
     setInput('');
   }
   const handleCambio = (e) => {
     e.preventDefault();
     setInput(e.target.value);
-    console.log(input)
   }
 
   return(
     <div style={style.container}>
-      <h2>Puntuacion de estrellas</h2>
+      <h2>Rating Star</h2>
+      <p>Rating stars: {currentValue}</p>
       <div style={style.stars}>
         {stars.map((_, index) =>{
           return(
@@ -96,13 +113,29 @@ export default function Comment(){
       />
       <button style={style.button} onClick={handleSubmit}>Submit</button>
       <hr />
-      <div>
+      <div className="container_review">
         {
-          reviews.map((i, reviews) => {
+          reviews.map(e => {
             return (
-              <div>
-                
-                <p>{reviews}</p>
+              <div key={e._id}>
+                <div>
+                  {/* {
+                    starRev.map(index => {
+                      return(
+                        <FaStar
+                          key={index}
+                          size={10}
+                          style={{
+                            marginRight: 10,
+                          }}
+                          color={colors.orange}
+                        />
+                      )
+                    })
+                  } */}
+                </div>
+                <p>{e.comment}</p>
+                <hr />
               </div>
             )
           })

@@ -140,8 +140,19 @@ export const postFormPay = (payload) => {
 export const postReviews = (payload) => {
   return async function () {
     try {
-      const json = await axios.post('http://localhost:3001/api/reviews', payload);
+      const json = await axios.post('http://localhost:3001/api/review',payload);
       return json
+    } catch (e) {
+      console.log(e);
+    }
+  }
+}
+
+export const getReview = () => {
+  return async function(dispatch){
+    try {
+      const json = await axios.get('http://localhost:3001/api/review');
+      return dispatch({type:"GET_REVIEW", payload: json.data});
     } catch (e) {
       console.log(e);
     }
