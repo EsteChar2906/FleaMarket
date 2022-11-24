@@ -7,6 +7,7 @@ import Login from "./pages/login/Login.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import ShopingCard from "./pages/ShopingCard/ShopingCard.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
+import Review from "./components/Reviews/Reviews.jsx"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/review" component={Review}/>
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/payment" component={Payment} />
           <PrivateRoute path="/shoping" component={ShopingCard}/>
