@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link} from "react-router-dom";
 import "./login.module.css";
+import { validate } from "../../Helpers/Validations";
 import HeadPage from "../../components/HeadPage/HeadPage";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -10,8 +11,13 @@ const Login = () => {
   const { loginWithRedirect } = useAuth0();
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
+
+
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+    setErrors(validate({ ...data, [input.name]: input.value }));
+    console.log(data);
   };
 
   const handleSubmit = async (e) => {
@@ -19,6 +25,7 @@ const Login = () => {
     try {
       const url = "http://localhost:3001/api/login";
       const res = await axios.post(url, data);
+      setErrors(validate(data));
       localStorage.setItem("user", JSON.stringify(res.data));
       window.location = "/";
     } catch (error) {
@@ -52,7 +59,10 @@ const Login = () => {
                 value={data.email}
                 required
                 className={styles.input}
-              />
+              /> {errors.email && (
+                <div className={styles.errors}>{errors.email}</div>
+              )}
+
               <input
                 type="password"
                 placeholder="Password"
@@ -62,6 +72,9 @@ const Login = () => {
                 required
                 className={styles.input}
               />
+              {errors.password && (
+                <p className={styles.errors}>{errors.password}</p>
+              )}
 
               <button type="submit" className={styles.green_btn}>
                 Sing In

@@ -29,6 +29,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!data.firstname) {
+      alert("Please fill in the registration details.")
+   }
+   else{
     try {
       const url = "http://localhost:3001/api/register";
       await axios.post(url, data);
@@ -48,6 +52,7 @@ const Register = () => {
     } catch (error) {
       setError(error.response.data.message);
     }
+  }
   };
 
   return (

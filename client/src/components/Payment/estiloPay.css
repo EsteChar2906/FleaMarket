@@ -80,7 +80,7 @@
   font-size: 15px;
 }
 
-.form_line{
+/* .form_line{
   position: absolute;
   bottom: 0;
   left:0;
@@ -90,7 +90,7 @@
   transform: scale(0);
   transform: left bottom;
   transition: transform .4s;
-}
+} */
 
 .form_input:focus ~ .form_line,
 .form_input:not(:placeholder-shown) ~ .form_line{

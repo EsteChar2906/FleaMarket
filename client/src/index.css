@@ -51,8 +51,9 @@ code {
  --forms-max-font-size-welcome-login:2rem;
  --forms-max-font-size-title:2rem;
  --forms-max-font-size:1.2rem;
+ --forms-max-font-size-errors: 0.5rem;
  --form-header-font-color-general: #ffffff ;
  --form-header-bg-color: linear-gradient(to right, #243b55, #141e30);
- --button-max-height: 3rem;
- --button-max-width: 10rem;
+ --form-button-max-height: 3rem;
+ --form-button-max-width: 10rem;
 }

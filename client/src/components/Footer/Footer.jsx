@@ -69,7 +69,7 @@ const Footer = () => {
           </section>
         </section>
 
-        <section className={styles.container_sections}>
+      
           <section className={styles.sub_sections}>
             <div className={styles.section_terminos}>
               <h5>Terminos y condiciones</h5>
@@ -79,7 +79,7 @@ const Footer = () => {
               <h5>Copyrigth@ 2022 FleaMarket</h5>
             </div>
           </section>
-        </section>
+   
 
          
       </div>
