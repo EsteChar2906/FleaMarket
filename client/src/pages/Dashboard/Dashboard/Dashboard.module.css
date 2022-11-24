@@ -1,0 +1,18 @@
+.header {
+  border-bottom: 1px solid black;
+  height: 90px;
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  height: calc(100vh - 91px);
+  display: flex;
+}
+
+.aside {
+  border-right: 1px solid black;
+}
