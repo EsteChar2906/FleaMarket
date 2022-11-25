@@ -2,7 +2,7 @@
 .contenedor_select_condition {
   width: 100px;
   margin-bottom: 0.2rem;
-  margin-top: 0.2rem;
+  
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   color: var(--selects-font-color);
