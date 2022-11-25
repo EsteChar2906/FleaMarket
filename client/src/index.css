@@ -53,7 +53,8 @@ code {
 
  --selects-font-color: rgb(230, 230, 230);
  --selects-max-width: 8rem;
-
+ --selects-border-radius-general-buttons: 10px;
+ 
  --form-inputs-border-general: 1px solid;
  --form-inputs-border-radius-general: 5px;
  --form-button-border-general: 1px solid;

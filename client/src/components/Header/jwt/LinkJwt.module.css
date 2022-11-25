@@ -11,7 +11,19 @@
   width: 1.8rem;
   height: 1.8rem;
 }
+.logo_profile:hover {
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 1.8rem;
+  height: 1.8rem;
+}
 .logo_register {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.logo_register:hover {
+  border-radius: 50px;
+  background-color: #ffff;
   width: 1.8rem;
   height: 1.8rem;
 }
@@ -19,3 +31,10 @@
   width: 1.8rem;
   height: 1.8rem;
 }
+.logo_login:hover {
+  border-radius: 50px;
+  background-color: #ffff;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+

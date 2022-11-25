@@ -8,7 +8,7 @@
   color: var(--selects-font-color);
   border: 1px solid;
   border-color: transparent;
-  border-radius: var(--inputs-border-radius-general);
+  border-radius: var(--selects-border-radius-general-buttons);
   height: var( --inputs-max-height);
   width: var(--selects-max-width) ; 
   background-color: var(--inputs-selects-color);
