@@ -83,12 +83,3 @@ export function shopingCar(opt, data) {
     })
   }
 };
-
-export function subTotal(opt, value) {
-  return function (dispatch) {
-    dispatch({
-      type: opt,
-      payload: value
-    })
-  }
-};

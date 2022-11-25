@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { shopingCar, subTotal } from "../../store/actions/index.js";
+import { shopingCar } from "../../store/actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 import Payment from "../../components/Payment/Payment.jsx";
@@ -13,24 +13,22 @@ const ShopingCard = () => {
   console.log("carrito:", carrito);
 
   function reset() {
-    dispatch(shopingCar("REST"), subTotal("REST"));
+    let resp = window.confirm("¿Esta seguro de querer vaciar el carrito?")
+    if (resp === true){
+      dispatch(shopingCar("REST"));
+      setSuiche(false)
+    }
   }
 
-  const subTot = useSelector((state) => state.subTotal);
+  console.log("prices", JSON.parse(sessionStorage.getItem("prices")))
+
+  const p = JSON.parse(sessionStorage.getItem("prices"))
+  const subTot = p.reduce((a, b) => a + b, 0)
   console.log("pagar:", subTot);
-
-  if (carrito.length > 0) {
-    const prices = carrito.map((e) => e.price);
-    var total = prices.reduce((a, b) => a + b, 0);
-  }
-
-  useEffect(() => {
-    if (carrito.length > 0) dispatch(subTotal("Add", total));
-  }, [carrito.length, total, dispatch]);
 
   const [suiche, setSuiche] = useState(false);
   function pago() {
-    if (suiche === false) setSuiche(true);
+    setSuiche(true);
   }
 
   return (
@@ -52,11 +50,12 @@ const ShopingCard = () => {
                     <div className={styles.block__shopingcontendortres} key={i}>
                       
                       <Card
-                       
+                        index={i}
                         id={e._id}
                         title={e.title}
                         image={e.image}
                         price={e.price}
+                        stock={e.stock}
                       />
                       
                     </div>
