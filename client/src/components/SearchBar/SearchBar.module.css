@@ -6,19 +6,23 @@
 }
 .contenedor_input_search {
   border-radius: 50px;
-  border-color: transparent;
+  border: 1px solid;
+  border-color: var(--inputs-boder-color);
   height: var(--inputs-max-height);
   width: var(--inputs-max-width);
-  background-color: rgb(77, 100, 136);
+  background-color: transparent;
   color: var(--font-one);
 }
-
+ 
 .contenedor_search_button {
-  filter: opacity(60%);
+  filter: opacity(55%);
   margin-left: -2rem;
+  position: absolute;
   background-color: transparent;
   border-color: transparent;
+  
 }
+ 
 .icon_search {
   width: 1rem;
   height: 1rem;

@@ -35,6 +35,7 @@ code {
  --main-font-color-general: #ffffff ;
  --main-font-color-naranja: rgb(228, 148, 0);
 
+ --boder-color: rgb(228, 148, 0);
  --border-general: 1px solid;
  --border-radius-general: 5px;
  --border-radius-general-buttons: 10px;
@@ -42,10 +43,11 @@ code {
 
  --pagination-bg-color: rgb(223, 223, 227);
 
+ --inputs-boder-color: rgba(228, 148, 0, 0.59);
  --inputs-border-general: 1px solid;
  --inputs-border-radius-general: 5px;
  --inputs-color:rgb(230, 240, 250, 0,2);
- --inputs-selects-color:  rgb(77, 100, 136);;
+ --inputs-selects-color:  rgb(129, 148, 179);;
  --inputs-max-width: 22rem;
  --inputs-max-height: 1.3rem;
 
