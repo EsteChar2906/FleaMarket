@@ -48,7 +48,7 @@ const Header = () => {
         </div>
 
         <div>
-          <a className={styles.search_bar}><SearchBar /></a>
+          <a className={styles.search_bar}><SearchBar setName={(name) => setName(name)} /></a>
         </div>
 
         <div>
