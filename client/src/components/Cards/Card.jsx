@@ -29,7 +29,7 @@ const Card = (props) => {
           <div className={styles.block__card_precio}>${props.price}</div>
         </div>
         <div className={styles.block__description}>
-            <button className={styles.icon_car} type='button' onClick={addToCar}>
+            <button className={styles.icon_car} type='button' onClick={addToCar} style={{cursor: "pointer"}} >
               <img src="https://w7.pngwing.com/pngs/380/261/png-transparent-computer-icons-shopping-cart-add-to-cart-button-text-logo-monochrome-thumbnail.png" alt="add shopping" width="30px" height="30px" />{' '}
             </button>
         </div>

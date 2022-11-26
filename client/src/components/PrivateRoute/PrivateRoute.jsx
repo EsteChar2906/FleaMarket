@@ -16,7 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   return (
     <Route {...rest}>
-      {userStorage || user ? <Component /> : (modal(), <Redirect to="/" />)}
+      {userStorage || user ? <Component /> : <Redirect to="/access" />}
     </Route>
   );
 };
