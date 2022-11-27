@@ -7,6 +7,7 @@ import {
 } from "../../store/actions/index.js";
 import styles from "./Detail.module.css";
 import HeadPage from "../../components/HeadPage/HeadPage";
+import Reviews from '../../components/Reviews/Reviews';
 
 export function Detail() {
   let { id } = useParams();
@@ -127,7 +128,6 @@ export function Detail() {
         <button className={styles.green_btn} onClick={addToCar}>Add to my Car</button>
 
         <div>
-        
 
        
 
@@ -137,6 +137,7 @@ export function Detail() {
         
       </div>
 
+      <Reviews/>
     </div>
     </div>
   );
