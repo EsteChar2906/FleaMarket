@@ -57,8 +57,9 @@ code {
  
  --form-border-radius-general: 10px;
  --form-inputs-border-general: 1px solid;
+ --form-inputs-border-color: rgb(193, 213, 241);
  --form-inputs-border-radius-general: 5px;
- --form-inputs-width: 20rem;
+ --form-inputs-width: 18rem;
  --form-inputs-height: 2rem;
  --form-input-font-size: 0.7rem;
  --forms-input-margin: 0.4rem 0rem 0rem 0rem; 
