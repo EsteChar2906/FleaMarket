@@ -27,7 +27,7 @@ export const getAllProducts = async (req, res) => {
       
       category === "All"? category = [...allCategories] : category = req.query.category.split(",").toString();
 
-      req.query.category === "All" ? limit = 9 : limit = 31;
+      req.query.category === "All" ? limit = 10 : limit = 31;
       
       let sortBy = {};
       if(sort === "asc"){
@@ -69,11 +69,21 @@ export const getAllProducts = async (req, res) => {
         filterProducts
       }
 
-      return res.status(200).json(result);
-
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
+      
+      if(result.filterProducts.length === 0){
+        const nameProducts = await Products.find({title: {$regex: name, $options: "i"}});
+        if(!nameProducts){
+          res.status(400).json({ message: "En el momento no existen productos con la categoria seleccionada"})
+        } else {
+          res.status(400).json({ message: "No se encontro ningun producto con la descripcion de la busqueda"})
+        }
+      }else {
+        res.status(200).json(result);
+      }
+    }
+    catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
 };
 
 export const getProductById = async (req, res) => {
