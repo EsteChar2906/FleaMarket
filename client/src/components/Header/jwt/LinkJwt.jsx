@@ -31,16 +31,18 @@ const LinkJwt = () => {
             <div>
               <Link to="/register">
               <button className={styles.header_btns}>
-              <img className={styles.logo_register} src={register} /></button>              
+              <img className={styles.logo_register}  style={{ cursor: 'pointer' }} src={register} /></button>              
             </Link>
             </div>
-            <div>Register </div>
+            <div> <Link  className={styles.labels} style={{ textDecoration: "none" }} to="/register">Register</Link> </div> 
              <div><Link to="/login">
               <button className={styles.header_btns}>
-              <img className={styles.logo_profile} src={login} /> </button>
+              <img className={styles.logo_profile} style={{ cursor: 'pointer' }}src={login} /> </button>
             </Link>
             </div>
-            <div>Login</div>
+            <div >
+              <Link className={styles.labels} style={{ textDecoration: "none" }}  to="/login" >Login</Link>
+            </div>
 
             
           </div>
