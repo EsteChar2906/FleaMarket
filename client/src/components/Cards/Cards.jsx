@@ -23,6 +23,7 @@ const Cards = () => {
               image={e.image}
               price={e.price}
               id={e._id}
+              allProduct={e}
             />
           )
         })}
