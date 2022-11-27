@@ -27,18 +27,23 @@ const LinkJwt = () => {
             </Link>
           </>
         ) : (
-          <>
-             <Link to="/register">
+          <div className={styles.container_register_login}>
+            <div>
+              <Link to="/register">
               <button className={styles.header_btns}>
-              <img className={styles.logo_register} src={register} />
-              </button>
+              <img className={styles.logo_register} src={register} /></button>              
             </Link>
-
-            <Link to="/login">
+            </div>
+            <div>Register </div>
+             <div><Link to="/login">
               <button className={styles.header_btns}>
               <img className={styles.logo_profile} src={login} /> </button>
             </Link>
-          </>
+            </div>
+            <div>Login</div>
+
+            
+          </div>
         )
       }
     </>
