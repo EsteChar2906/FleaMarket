@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';  //instalar npm i reat-data-table-component styled-components bootstrap
+//import 'bootstrap/dist/css/bootstrap.min.css';  //instalar npm i reat-data-table-component styled-components bootstrap
 import DataTable from 'react-data-table-component';
 //instalar: npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -125,7 +125,7 @@ const Users = () => {
   
 
   return (
-    <div className='table-responsive'>
+    <div className='container_box'>
       <div className='barraSearch'>
       <input 
         type="text"
