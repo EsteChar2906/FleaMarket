@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { shopingCar } from "../../store/actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
@@ -77,8 +77,7 @@ const ShopingCard = () => {
 
           <div className={styles.block__shopingcontenedorseis}>
             {carrito.length > 0 && <button onClick={reset}>Reset carrito</button>}
-            <button onClick={pago}>PAGAR</button>
-
+            {carrito.length > 0 && <button onClick={pago}>PAGAR</button>}
           </div>
 
         </div>
