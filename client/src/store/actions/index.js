@@ -51,6 +51,17 @@ export const getReview = () => {
       console.log(e);
     }
   }
+};
+
+export const getUsers = () => {
+  return async function(dispatch){
+    try {
+      const json = await axios.get(`${host}/api/usersData`);
+      return dispatch({type:"GET_USER", payload: json.data});
+    } catch (e) {
+      console.log(e)
+    }
+  }
 }
 
 export function shopingCar(opt, data) {

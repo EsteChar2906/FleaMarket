@@ -36,10 +36,6 @@ export default function Review(){ //por props recibe el nombre del producto para
   const reviews = useSelector(state => state.reviews);
   console.log(reviews)
   
-  
-
-  
-  
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const [input, setInput] = useState('');
