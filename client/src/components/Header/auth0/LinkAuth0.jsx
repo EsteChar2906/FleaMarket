@@ -19,8 +19,7 @@ const LinkAuth0 = () => {
                 <a className={styles.header_btns} onClick={logout}>
                   <img
                     className={styles.logo_profile}
-                    style={{ cursor: 'pointer' }}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer' }}                  
                     src={logouticon}
                   />
                 </a>
@@ -28,9 +27,9 @@ const LinkAuth0 = () => {
               <div>
                 <a
                   className={styles.labels}
-                  style={{ textDecoration: 'none' }}
+                  style={{ textDecoration: 'none', cursor: 'pointer' }}
                   onClick={logout}
-                  style={{ cursor: 'pointer' }}
+                  
                 >
                   Logout
                 </a>
