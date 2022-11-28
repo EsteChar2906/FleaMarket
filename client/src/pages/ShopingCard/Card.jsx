@@ -8,13 +8,14 @@ const Card = (props) => {
   const [prices, setPrices] = useState(JSON.parse(sessionStorage.getItem("prices")))
 
   const dispatch = useDispatch()
+  useEffect(() => dispatch(shopingCar("")), []);
 
   function deletToCar() {
-    dispatch(shopingCar("DEL", props.id))
     const copyPrices = JSON.parse(sessionStorage.getItem("prices"))
     copyPrices.splice(props.index, 1)
     sessionStorage.setItem("prices", JSON.stringify(copyPrices))
     setPrices(JSON.parse(sessionStorage.getItem("prices")))
+    dispatch(shopingCar("DEL", props.id))
   }
 
   function plus() {
