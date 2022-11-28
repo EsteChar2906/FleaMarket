@@ -21,6 +21,11 @@ code {
  --blue-light-birder:rgb(230, 240, 250);
  --bg-hover-register-login:rgba(198, 198, 202, 0.2);
  
+ --font-size-tittle-grandes:20px;
+ --font-size-title:16px;
+ --font-size-normal:12px;
+ --font-size-button:15px;
+ 
  --header-margin-top-bottom: 0.6rem;
  --header-margin-right-left: 2rem;
  --header-bg-color: linear-gradient(to right, #243b55, #141e30);
@@ -60,15 +65,14 @@ code {
  --form-inputs-border-color: rgb(193, 213, 241);
  --form-inputs-border-radius-general: 5px;
  --form-inputs-width: 18rem;
- --form-inputs-height: 2rem;
+ --form-inputs-height: 1.8rem;
  --form-input-font-size: 0.7rem;
  --forms-input-margin: 0.4rem 0rem 0rem 0rem; 
  --forms-max-font-size-welcome-login:2rem; 
  --form-header-font-color-general: #ffffff ;
  --form-inputs-bg-color:rgb(229, 239, 253);
  --form-header-bg-color: linear-gradient(to right, #243b55, #141e30);
- --form-button-max-height: 3rem;
- --form-button-max-width: 10rem;
+ 
  --form-button-border-general: 1px solid;
  --form-button-border-radius-general: 50px;
  

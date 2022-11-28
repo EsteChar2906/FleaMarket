@@ -35,7 +35,8 @@ const LinkJwt = () => {
             </Link>
             </div>
             <div> <Link  className={styles.labels} style={{ textDecoration: "none" }} to="/register">Register</Link> </div> 
-             <div><Link to="/login">
+             <div>
+              <Link to="/login">
               <button className={styles.header_btns}>
               <img className={styles.logo_profile} style={{ cursor: 'pointer' }}src={login} /> </button>
             </Link>
