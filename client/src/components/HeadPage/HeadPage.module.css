@@ -4,7 +4,7 @@
 }
 
 .header_container_position {
-    margin: 0 auto;
+  margin: 0 auto;
   max-width: 1300px;
   display: flex;
   flex-direction: row;
@@ -18,15 +18,18 @@
 }
 
 .logo {
+  margin-left: 2rem;
   padding-top: 20px;
   width: 2.5rem;
   height: 2.5rem;
 }
 
 .title {
-  color: white;
+  color: var(--font-one);
+   
 }
 
 .link_home {
+  margin-right: 2rem;
   color: white;
 }
