@@ -10,7 +10,7 @@ import Profile from "../profile/Profile";
 
 const Dashboard = () => {
   return (
-    <div >
+    <div className={styles.container} >
       <header className={styles.header}>
         <nav>
           <ul className={styles.ul}>
