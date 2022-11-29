@@ -13,7 +13,7 @@ const ShopingCard = () => {
   console.log("carrito:", carrito);
 
   function reset() {
-    let resp = window.confirm("¿Esta seguro de querer vaciar el carrito?")
+    let resp = window.confirm("Are you sure you want to reset the car ?")
     if (resp === true) {
       dispatch(shopingCar("REST"));
       setSuiche(false)
@@ -39,13 +39,13 @@ const ShopingCard = () => {
       <div className={styles.block__shoping}>
         <div className={styles.block__shopingcontenedor}>
           <div className={styles.block__shopingcontenedoruno}>
-            <h3>Carrito de compras</h3>
+            <h3>Shopping car</h3>
 
           </div>
           <div className={styles.block__profile_contendordosdiv}  ></div>
 
           <div className={styles.block__shopingcontenedordos}>
-            {carrito.length === 0 && <p>Sin Productos</p>}
+            {carrito.length === 0 && <p>No products</p>}
             {carrito.length > 0 &&
               carrito.map((e, i) => {
                 return (
@@ -76,8 +76,8 @@ const ShopingCard = () => {
 
 
           <div className={styles.block__shopingcontenedorseis}>
-            {carrito.length > 0 && <button onClick={reset}>Reset carrito</button>}
-            {carrito.length > 0 && <button onClick={pago}>PAGAR</button>}
+            {carrito.length > 0 && <button onClick={reset}>Reset car</button>}
+            {carrito.length > 0 && <button onClick={pago}>pay</button>}
           </div>
 
         </div>
