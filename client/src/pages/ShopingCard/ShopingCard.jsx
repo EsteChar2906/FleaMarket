@@ -76,8 +76,8 @@ const ShopingCard = () => {
 
 
           <div className={styles.block__shopingcontenedorseis}>
-            {carrito.length > 0 && <button onClick={reset}>Reset car</button>}
-            {carrito.length > 0 && <button onClick={pago}>pay</button>}
+            {carrito.length > 0 && <button className={styles.block__shopingboton} onClick={reset}>Reset car</button>}
+            {carrito.length > 0 && <button className={styles.block__shopingboton} onClick={pago}>Pay</button>}
           </div>
 
         </div>
