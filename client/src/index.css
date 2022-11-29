@@ -14,6 +14,21 @@ code {
     monospace;
 } 
 
+.rdt_TableCol{
+  background: #243b55;
+  color:white;
+  font-weight: bold;
+  font-size:15px;
+  text-transform: uppercase;
+}
+
+.rdt_TableCell{
+ color:#243b55;
+ font-size:17px;
+ font-weight: bold;
+ text-transform: uppercase;
+}
+
 :root {
   --font-one: rgb(228, 148, 0);
   --gray-border:rgb(240, 240, 240);
@@ -82,17 +97,3 @@ code {
  --footer-font-size:14px;
 }
 
-.rdt_TableCol{
-  background: #243b55;
-  color:white;
-  font-weight: bold;
-  font-size:15px;
-  text-transform: uppercase;
-}
-
-.rdt_TableCell{
- color:#243b55;
- font-size:17px;
- font-weight: bold;
- text-transform: uppercase;
-}

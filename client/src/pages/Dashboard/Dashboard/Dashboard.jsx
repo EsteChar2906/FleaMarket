@@ -10,7 +10,7 @@ import logousers from "../../../assets/users.png"
 import logoprofile from "../../../assets/profile.png"
 const Dashboard = () => {
   return (
-    <div >
+    <div className={styles.container} >
       <header className={styles.header}>
         <nav>
           <ul className={styles.ul}>

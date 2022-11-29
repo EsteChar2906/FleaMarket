@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../../config";
-// import styles from "./Products.module.css";
+import styles from "./Products.module.css";
 import Table from "../table/Table";
 import FormProducts from "../FormProducts";
 import FormEditProduct from "../FormEditProduct";
@@ -61,31 +61,36 @@ const Products = () => {
   };
 
   return (
-    <div>
-      <button onClick={openModal1}>Agregar un Producto</button>
+    <div className={styles.container}>
+      <div className={styles.container_products}>
+        <h1 className={styles.title}>ADMINISTRA TODOS LOS PRODUCTOS EN NUESTRA APP</h1>
+        <button className={styles.btn_agregar} onClick={openModal1}>
+          Agregar
+        </button>
 
-      <Modal isOpenModal={isOpenModal1} closeModal={closeModal1}>
-        <div>
-          <FormProducts products={products} setProducts={setProducts} />
-        </div>
-      </Modal>
+        <Modal isOpenModal={isOpenModal1} closeModal={closeModal1}>
+          <div>
+            <FormProducts products={products} setProducts={setProducts} />
+          </div>
+        </Modal>
 
-      <Modal isOpenModal={isOpenModal2} closeModal={closeModal2}>
-        <div>
-          <FormEditProduct
-            productEdit={productEdit}
-            updateProduct={updateProduct}
+        <Modal isOpenModal={isOpenModal2} closeModal={closeModal2}>
+          <div>
+            <FormEditProduct
+              productEdit={productEdit}
+              updateProduct={updateProduct}
+            />
+          </div>
+        </Modal>
+
+        <div className={styles.container_table}>
+          <Table
+            openModal2={openModal2}
+            products={products}
+            deleteProduct={deleteProduct}
+            setProductEdit={setProductEdit}
           />
         </div>
-      </Modal>
-
-      <div>
-        <Table
-          openModal2={openModal2}
-          products={products}
-          deleteProduct={deleteProduct}
-          setProductEdit={setProductEdit}
-        />
       </div>
     </div>
   );
