@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import "styled-components";
-// import styles from './Table.module.css'
+import styles from './Table.module.css'
 
 
 const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
@@ -22,12 +22,12 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
   
 
   const columns = [
-    {
-      name: "ID",
-      selector: (row) => row._id,
-      sortable: true,
-      grow: 0,
-    },
+    // {
+    //   name: "ID",
+    //   selector: (row) => row._id,
+    //   sortable: true,
+    //   grow: 0,
+    // },
     {
       name: "NOMBRE",
       selector: (row) => row.title,
@@ -93,7 +93,7 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
     {
       name: "UPDATE",
       grow: 0,
-      cell: (row) => <button onClick={()=>{
+      cell: (row) => <button className={styles.update} onClick={()=>{
         const selecRow = setProductEdit(row)
         const open = openModal2()
         selecRow()
@@ -104,7 +104,7 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
     {
       name: "DELETE",
       grow: 0,
-      cell: (row) => <button onClick={()=>deleteProduct(row._id)} >DELETE</button>
+      cell: (row) => <button className={styles.delete} onClick={()=>deleteProduct(row._id)} >DELETE</button>
     },
   ];
 
