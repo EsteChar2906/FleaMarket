@@ -1,22 +1,39 @@
-import mongoose from 'mongoose';
-import Users from './users.js';
-import Products from './products.js'
+import mongoose, { Schema } from 'mongoose';
+import users from './users.js';
 
 const orderschema = new mongoose.Schema({
-	amount: {type: Number, required: true},
+	price: {
+		type: Number, 
+		required: true
+	},
 	user: {
-		type: mongoose.Schema.Types.ObjectId,
+		type: Schema.Types.ObjectId,
         require: true,
-        ref: Users
+        ref: users
 	},
 	product: {
-		type: mongoose.Schema.Types.ObjectId,
-        require: true,
-        ref: Products
+		type: Array,
+        require: true
 	},
-	address: {type: String, requires: true},
-	status: {type: String, default: "pending"}
-
+	totalProducts: {
+		type: Number
+	},
+	via: {
+		type: String, 
+		require: true
+	},
+	status: {
+		type: String, 
+		required: true
+	},
+	orderId: {
+		type: String,
+		require: true
+	},
+	payerId: {
+		type: String,
+		require: true
+	}
 })
 
 export default mongoose.model("Orders", orderschema);

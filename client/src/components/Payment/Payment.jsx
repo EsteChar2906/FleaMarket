@@ -1,6 +1,6 @@
 import React from 'react'
 import  ReactDOM  from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
 import s from "./estiloPay.css";
@@ -10,15 +10,19 @@ const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 function Payment( props ){
   const dispatch = useDispatch();
 
-  let totalPrice = totalPrice + props.price;
-  let totalSales = totalSales + 1;
+  const productsCarrito = useSelector((state) => state.shoping)
+
+  /*let totalPrice = totalPrice + props.price;
+  let totalSales = totalSales + 1;*/
   const [error, setError] = useState({});
   // const [savePrice, setSavePrice] = useState(0);
-  const [acumularPrice, setAcumularPrice] = useState(totalPrice)
+ /* const [acumularPrice, setAcumularPrice] = useState(totalPrice)*/
   const [input, setInput] = useState({
     lastName: '',
     firstName: '',
     email: '',
+    price: '',
+    carrito: []
   });
 
   // let totalPrice = props.price
@@ -34,9 +38,12 @@ function Payment( props ){
     });
   };
   const onApprove = (data, actions) => {
-    dispatch(postFormPay(input));
-    localStorage.setItem("totalPrice",acumularPrice);
-    localStorage.setItem("totalSales",totalSales);
+
+    console.log(input)
+    
+    dispatch(postFormPay({input, data}));
+    /*localStorage.setItem("totalPrice",acumularPrice);
+    localStorage.setItem("totalSales",totalSales);*/
     return actions.order.capture(alert("El pago ha si exioto"));
   };
   
@@ -44,7 +51,9 @@ function Payment( props ){
   const handleInput = (e) => {
     setInput({
       ...input,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      carrito: productsCarrito,
+      price: props.price
     });
     setError(Validation({
       ...input,
