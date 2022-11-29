@@ -14,12 +14,32 @@ code {
     monospace;
 } 
 
+.rdt_TableCol{
+  background: #243b55;
+  color:white;
+  font-weight: bold;
+  font-size:15px;
+  text-transform: uppercase;
+}
+
+.rdt_TableCell{
+ color:#243b55;
+ font-size:17px;
+ font-weight: bold;
+ text-transform: uppercase;
+}
+
 :root {
   --font-one: rgb(228, 148, 0);
   --gray-border:rgb(240, 240, 240);
   --gray-one: rgb(245, 247, 248); 
  --blue-light-birder:rgb(230, 240, 250);
  --bg-hover-register-login:rgba(198, 198, 202, 0.2);
+ 
+ --font-size-tittle-grandes:20px;
+ --font-size-title:16px;
+ --font-size-normal:12px;
+ --font-size-button:15px;
  
  --header-margin-top-bottom: 0.6rem;
  --header-margin-right-left: 2rem;
@@ -33,13 +53,7 @@ code {
  --main-size-font: 12px;
  --main-width-font:bold;
  --main-font-color-general: #ffffff ;
- --main-font-color-naranja: rgb(228, 148, 0);
-
- --boder-color: rgb(228, 148, 0);
- --border-general: 1px solid;
- --border-radius-general: 5px;
- --border-radius-general-buttons: 10px;
- --border-color: rgb(240, 240, 240,0.2);
+ --main-font-color-naranja: rgb(228, 148, 0); 
 
  --pagination-bg-color: rgb(223, 223, 227);
 
@@ -60,19 +74,17 @@ code {
  --form-inputs-border-color: rgb(193, 213, 241);
  --form-inputs-border-radius-general: 5px;
  --form-inputs-width: 18rem;
- --form-inputs-height: 2rem;
+ --form-inputs-height: 1.8rem;
  --form-input-font-size: 0.7rem;
  --forms-input-margin: 0.4rem 0rem 0rem 0rem; 
  --forms-max-font-size-welcome-login:2rem; 
  --form-header-font-color-general: #ffffff ;
  --form-inputs-bg-color:rgb(229, 239, 253);
- --form-header-bg-color: linear-gradient(to right, #243b55, #141e30);
- --form-button-max-height: 3rem;
- --form-button-max-width: 10rem;
+ --form-header-bg-color: linear-gradient(to right, #243b55, #141e30); 
  --form-button-border-general: 1px solid;
- --form-button-border-radius-general: 50px;
- 
- 
+ --form-button-border-radius-general: 50px;  
  --forms-errors-max-font-size: 0.7rem;
  --forms-errors-color:rgba(8, 82, 255, 0.667);
+ --footer-font-size:14px;
 }
+

@@ -37,9 +37,10 @@
   text-align: center;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  font-size: var(--font-size-tittle-grandes);
 }
 
-@media (max-width: 740px) {
+@media (max-width: 730px) {
   .container_form {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -62,10 +63,12 @@
   border: transparent;
   background-color: var(--form-inputs-bg-color);
   margin: var(--forms-input-margin);
+  padding-left: 0.5rem;
 }
 .title_new_here {
+  font-size: var(--font-size-tittle-grandes);
   color: white;
-  margin: 2rem 7.8rem 2rem 7.9rem;
+  margin: 1rem 8.4rem 1rem 8.4rem;
 }
 
 .subtitle_Sign_up {
@@ -74,10 +77,13 @@
   align-items: center;
   color: #243b55;
   font-weight: bold;
+  
+  font-size: var( --font-size-title);
   background-color: #ffff;
   border-radius: var(--form-button-border-radius-general);
-  width: 100px;
-  height: 40px;
+  width: 90px;
+  height: 30px;
+  margin: 0rem 0rem 1rem 0rem;
 }
 .subtitle_Sign_up:hover {
   display: flex;
@@ -98,18 +104,20 @@
   padding: 2rem;
 }
 .form_title{
-  font-weight: 500;
+  font-size: var(--font-size-tittle-grandes);
+  font-weight:bold;
+  color: #243b55;
 
 }
 .green_btn {
   background-color: #e65c00;
-  height: 3rem;
-  width: 95%;
+  height: 2rem;
+  width: 85%;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: var(--font-size-button);
   margin: 1rem;
   border: 0;
   border-radius: var(--form-button-border-radius-general);

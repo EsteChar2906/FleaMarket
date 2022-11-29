@@ -72,7 +72,7 @@ const Login = () => {
             </form>
             <div>
               <button onClick={loginWithRedirect} className={styles.green_btn} >
-              Sing In with Auth0 and Google
+              Sing In with Google
               </button>
             </div>
            

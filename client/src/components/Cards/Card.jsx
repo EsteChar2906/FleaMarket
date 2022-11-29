@@ -9,7 +9,7 @@ const Card = (props) => {
   const dispatch = useDispatch()
 
   function addToCar() {
-    console.log('In SHOPPING CAR')
+    alert("product in car shopping")
     dispatch(shopingCar('ADD', props.allProduct))
   }
 

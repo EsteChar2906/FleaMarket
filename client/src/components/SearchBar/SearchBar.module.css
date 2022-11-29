@@ -12,10 +12,10 @@
   width: var(--inputs-max-width);
   background-color: transparent;
   color: var(--font-one);
+  padding-left: 0.5rem;
 }
  
-.contenedor_search_button {
-  filter: opacity(45%);
+.contenedor_search_button {  
   margin-left: -2rem;
   position: absolute;
   background-color: transparent;

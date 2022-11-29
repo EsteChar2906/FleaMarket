@@ -1,16 +1,20 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import Users from "../users/Users";
+
 import Admin from "../AdminDash/AdminDash";
-import Products from "../products/Products";
+
+import Products from "../products/products/Products";
+
 import Categories from "../categories/Categories";
 import Orders from "../orders/Orders";
 import styles from "../Dashboard/Dashboard.module.css"
-
-
+import Profile from "../profile/Profile";
+import logousers from "../../../assets/users.png"
+import logoprofile from "../../../assets/profile.png"
 const Dashboard = () => {
   return (
-    <div >
+    <div className={styles.container} >
       <header className={styles.header}>
         <nav>
           <ul className={styles.ul}>
@@ -24,28 +28,45 @@ const Dashboard = () => {
 
       <main className={styles.main} >
         <aside className={styles.aside}>
+
           <Link to='/admin'>
             <h1>Dashboard</h1>
           </Link>
-          <Link to="/users">
-            <h1>users</h1>
+          
+          
+
+          <div className={styles.asides_div}>
+            <Link to="/users"><img className={styles.logo_users} src={logousers}/></Link>
+            <Link to="/users"><label  className={styles.aside_labels}>users</label></Link>
+          </div>
+          <div className={styles.asides_div}>
+          <Link to="/products"><img className={styles.logo_users} src={logoprofile}/></Link>
+            <Link to="/products">
+            <label className={styles.aside_labels}>products</label>
+
           </Link>
-          <Link to="/products">
-            <h1>products</h1>
-          </Link>
+          </div>
+          
           <Link to="/orders">
             <h1>orders</h1>
           </Link>
           <Link to="/categories">
             <h1>categories</h1>
           </Link>
+          <Link to="/upDateProfile">
+            <h1>profile</h1>
+          </Link>
         </aside>
-        <section>
+
+         
+
+        <section className={styles.section}>
           <Route exact path="/admin" component={Admin}/>
           <Route exact path="/users" component={Users} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/orders" component={Orders} />
           <Route exact path="/categories" component={Categories} />
+          <Route exact path="/upDateProfile" component={Profile} />
         </section>
       </main>
     </div>

@@ -1,0 +1,29 @@
+.container_products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aling-items: center;
+  margin: 30px 30px 0 30px;
+}
+
+.title {
+  margin: 0;
+}
+
+.btn_agregar {
+  width: 100px;
+  heigth: 20px;
+  background: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 1200px;
+}
+
+.container_table {
+  max-width: 1300px;
+}

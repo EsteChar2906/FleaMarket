@@ -8,13 +8,14 @@ const Card = (props) => {
   const [prices, setPrices] = useState(JSON.parse(sessionStorage.getItem("prices")))
 
   const dispatch = useDispatch()
+  useEffect(() => dispatch(shopingCar("")), []);
 
   function deletToCar() {
-    dispatch(shopingCar("DEL", props.id))
     const copyPrices = JSON.parse(sessionStorage.getItem("prices"))
     copyPrices.splice(props.index, 1)
     sessionStorage.setItem("prices", JSON.stringify(copyPrices))
     setPrices(JSON.parse(sessionStorage.getItem("prices")))
+    dispatch(shopingCar("DEL", props.id))
   }
 
   function plus() {
@@ -41,10 +42,11 @@ const Card = (props) => {
 
       <div className={styles.block__shopingcontendorcuatro}>
 
-        <img src={props.image} alt="not found" height="170px" />
+        <img src={props.image} alt="not found" height="170px" width="230px" />
         <div>
           <h2> {props.title}</h2>
-          <button styles={{ outline: `none` }} onClick={deletToCar}>Delete</button>
+          <h4>$ {props.price} und </h4>
+          <button style={{ border: "0px" }}onClick={deletToCar}>Delete</button>
 
         </div>
 
@@ -52,10 +54,10 @@ const Card = (props) => {
       </div>
 
       <div className={styles.block__shopingcontendorcinco}>
-        <h4>$ {props.price} und </h4>
-        <button styles={{ outline: "none" }} onClick={less}>-</button>
-        <button styles={{ outline: "none" }} >{prices[props.index] / props.price}</button>
-        <button styles={{ outline: "none" }} onClick={plus}>+</button>
+        
+        <button style={{ border: "0px" }} onClick={less}>-</button>
+        <button style={{ border: "0px" }} >{prices[props.index] / props.price}</button>
+        <button style={{ border: "0px" }} onClick={plus}>+</button>
 
       </div>
 

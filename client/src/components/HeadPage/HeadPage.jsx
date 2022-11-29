@@ -18,7 +18,7 @@ const HeadPage = () => {
 
       <div>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <p className={styles.link_home}>Back to Home</p>
+          <p className={styles.link_home}>Back</p>
         </Link>
       </div>
      </div>

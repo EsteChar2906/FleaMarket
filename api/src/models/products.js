@@ -35,7 +35,7 @@ const productschema = new mongoose.Schema(
     },
     user: {
       type: Schema.Types.ObjectId,
-      require: true,
+      // require: true,
       ref: Users,
     },
     category: {
@@ -56,7 +56,8 @@ const productschema = new mongoose.Schema(
       type: Number
     },
     bluetooth: {
-      type: Boolean
+      type: String,
+      enum: ["Si", "No"],
     }
   }
 );
