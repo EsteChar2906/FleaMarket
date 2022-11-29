@@ -38,13 +38,7 @@ code {
  --main-size-font: 12px;
  --main-width-font:bold;
  --main-font-color-general: #ffffff ;
- --main-font-color-naranja: rgb(228, 148, 0);
-
- --boder-color: rgb(228, 148, 0);
- --border-general: 1px solid;
- --border-radius-general: 5px;
- --border-radius-general-buttons: 10px;
- --border-color: rgb(240, 240, 240,0.2);
+ --main-font-color-naranja: rgb(228, 148, 0); 
 
  --pagination-bg-color: rgb(223, 223, 227);
 
@@ -71,14 +65,11 @@ code {
  --forms-max-font-size-welcome-login:2rem; 
  --form-header-font-color-general: #ffffff ;
  --form-inputs-bg-color:rgb(229, 239, 253);
- --form-header-bg-color: linear-gradient(to right, #243b55, #141e30);
- 
+ --form-header-bg-color: linear-gradient(to right, #243b55, #141e30); 
  --form-button-border-general: 1px solid;
- --form-button-border-radius-general: 50px; 
- 
+ --form-button-border-radius-general: 50px;  
  --forms-errors-max-font-size: 0.7rem;
  --forms-errors-color:rgba(8, 82, 255, 0.667);
-
  --footer-font-size:14px;
 }
 
