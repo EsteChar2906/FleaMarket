@@ -20,8 +20,31 @@
 
 .aside {
   border-right: 1px solid black;
+  background-color: #243b55 ;
 }
 
-.section{
-  /* max-width: 1300px */
+.asides_div{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content:flex-start;
+  
 }
+.asides_div:hover{
+  display: flex;
+ justify-items: center;
+  background-color: #c2c3c525;
+}
+.aside_labels{
+  margin-left: 0.5rem;
+  color: aliceblue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo_users {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+ 
+

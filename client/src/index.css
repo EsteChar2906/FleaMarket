@@ -89,10 +89,11 @@ code {
  --form-header-bg-color: linear-gradient(to right, #243b55, #141e30);
  
  --form-button-border-general: 1px solid;
- --form-button-border-radius-general: 50px;
- 
+ --form-button-border-radius-general: 50px; 
  
  --forms-errors-max-font-size: 0.7rem;
  --forms-errors-color:rgba(8, 82, 255, 0.667);
+
+ --footer-font-size:14px;
 }
 

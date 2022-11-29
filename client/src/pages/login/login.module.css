@@ -40,7 +40,7 @@
   font-size: var(--font-size-tittle-grandes);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 730px) {
   .container_form {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -63,6 +63,7 @@
   border: transparent;
   background-color: var(--form-inputs-bg-color);
   margin: var(--forms-input-margin);
+  padding-left: 0.5rem;
 }
 .title_new_here {
   font-size: var(--font-size-tittle-grandes);
@@ -78,8 +79,8 @@
   font-weight: bold;
   background-color: #ffff;
   border-radius: var(--form-button-border-radius-general);
-  width: 100px;
-  height: 40px;
+  width: 90px;
+  height: 30px;
   margin: 0rem 0rem 1rem 0rem;
 }
 .subtitle_Sign_up:hover {

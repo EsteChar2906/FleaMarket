@@ -101,6 +101,7 @@
   border: transparent;
   background-color: var(--form-inputs-bg-color);
   margin: var(--forms-input-margin);
+  padding-left: 0.5rem;
 }
 
 .green_btn {
