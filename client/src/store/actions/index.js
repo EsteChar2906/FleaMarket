@@ -20,6 +20,17 @@ export function loadProduct(id) {
   }
 };
 
+export function getProducts(){
+  return async function(dispatch){
+    try {
+      const products = await axios.get(`${host}/api/products`);
+      return dispatch({type: "GET_PRODUCTS", payload: products.data})
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
 export const postFormPay = (payload) => {
   return async function () {
     try {

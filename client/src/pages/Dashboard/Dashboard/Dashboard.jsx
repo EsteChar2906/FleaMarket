@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import Users from "../users/Users";
+import Admin from "../AdminDash/AdminDash";
 import Products from "../products/Products";
 import Categories from "../categories/Categories";
 import Orders from "../orders/Orders";
@@ -23,6 +24,9 @@ const Dashboard = () => {
 
       <main className={styles.main} >
         <aside className={styles.aside}>
+          <Link to='/admin'>
+            <h1>Dashboard</h1>
+          </Link>
           <Link to="/users">
             <h1>users</h1>
           </Link>
@@ -37,6 +41,7 @@ const Dashboard = () => {
           </Link>
         </aside>
         <section>
+          <Route exact path="/admin" component={Admin}/>
           <Route exact path="/users" component={Users} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/orders" component={Orders} />
