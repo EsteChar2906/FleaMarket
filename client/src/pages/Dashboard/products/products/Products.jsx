@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BACK_DOMINIO } from "../../../config";
+import { BACK_DOMINIO } from "../../../../config";
 // import styles from "./Products.module.css";
-import Table from "./Table";
-import FormProducts from "./FormProducts";
-import FormEditProduct from "./FormEditProduct";
-import Modal from "../../../components/modal/Modal";
-import { useModal } from "../../../Hooks/useModal";
+import Table from "../table/Table";
+import FormProducts from "../FormProducts";
+import FormEditProduct from "../FormEditProduct";
+import Modal from "../../../../components/modal/Modal";
+import { useModal } from "../../../../Hooks/useModal";
 
 const Products = () => {
   //guarda todos los productos
@@ -62,7 +62,7 @@ const Products = () => {
 
   return (
     <div>
-      <button onClick={openModal1}>Agregar</button>
+      <button onClick={openModal1}>Agregar un Producto</button>
 
       <Modal isOpenModal={isOpenModal1} closeModal={closeModal1}>
         <div>

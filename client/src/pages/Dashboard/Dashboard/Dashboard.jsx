@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import Users from "../users/Users";
-import Products from "../products/Products";
+import Products from "../products/products/Products";
 import Categories from "../categories/Categories";
 import Orders from "../orders/Orders";
 import styles from "../Dashboard/Dashboard.module.css"
@@ -40,7 +40,7 @@ const Dashboard = () => {
             <h1>profile</h1>
           </Link>
         </aside>
-        <section>
+        <section className={styles.section}>
           <Route exact path="/users" component={Users} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/orders" component={Orders} />
