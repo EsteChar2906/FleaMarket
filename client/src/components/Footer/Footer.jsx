@@ -20,9 +20,15 @@ const Footer = () => {
             <div>
               <h5>Seguridad de principio a fin </h5>
               <p>
-                 En FleaMarket, no hay nada que no
-                puedas hacer, porque estás siempre protegido.
+                En FleaMarket, no hay nada que no puedas hacer, porque estás
+                siempre protegido.
               </p>
+            </div>
+          </section>
+          <section className={styles.sub_sections}>
+            <div>
+              <h5>Terminos y condiciones </h5>
+              <p> Flea Market</p>
             </div>
           </section>
           <section className={styles.sub_sections}>
@@ -32,13 +38,10 @@ const Footer = () => {
               <p>Ingresar</p>
             </div>
           </section>
+          
         </section>
 
         <section className={styles.sub_sections}>
-          <div className={styles.section_terminos}>
-            <h5>Terminos y condiciones - </h5>
-            <h5>  Flea Market</h5>
-          </div>
           <div>
             <h5>Copyrigth@ 2022 FleaMarket</h5>
           </div>
