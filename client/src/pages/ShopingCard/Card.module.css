@@ -22,15 +22,15 @@
 
 }
 .block__shopingcontendorcinco{
-
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 .block__shopingcontendorcinco button{
     width: 20%;
-    height: 30px;
+    height: 40px;
     color: rgb(85, 79, 79);
     background-color: rgb(224, 224, 224);
     font-size: 0.8rem;
