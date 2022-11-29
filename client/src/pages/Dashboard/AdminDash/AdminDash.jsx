@@ -52,19 +52,15 @@ export default function Admin(){
   const dispatch = useDispatch();
   const products = useSelector(state => state.products); //tener la cantidad de productis 
   const users = useSelector(state => state.users);
-  const [info, setInfo] = useState(0)
-  // const [infoSale, setInfoSale] = useState(0);
   
   
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getUsers())
-    setInfo(getPrice());
   },[dispatch])
 
-  const getPrice = () => {
-    return localStorage.getItem('totalPrice');
-  }
+  const totalPrice = localStorage.getItem("total_price");
+  console.log()
   
   const allUsers = users.length; //para tener la cantidad de usuarios 
   
@@ -73,7 +69,7 @@ export default function Admin(){
     return{
       datasets: [
         {
-          label: "Ganancias",
+          label: "Sales",
           data: scores,
           tension: 0.2,
           borderColor: "rgb(75,192,192)", //color 
@@ -88,10 +84,10 @@ export default function Admin(){
   return(
     <div className="container_admin">
       <div className="widget_box">
-        <Widget type="earning" value={0}/>
+        <Widget type="earning" value={totalPrice}/>
         <Widget type="users" value={allUsers}/>
         <Widget type="products" value={products.limit} />
-        <Widget type="sales" value={0}/>
+        <Widget type="sales" value={10}/>
       </div>
       <div className="container_bar">
         <Bar data={data} options={options}
