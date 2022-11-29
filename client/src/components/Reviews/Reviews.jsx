@@ -69,6 +69,7 @@ export default function Review(){ //por props recibe el nombre del producto para
   return(
     <div className="container_all" >
       <div className="container_content">
+        <h2>Reviews</h2>
         <p>Rating stars: {currentValue}</p>
         <div style={style.stars}>
           {stars.map((_, index) =>{

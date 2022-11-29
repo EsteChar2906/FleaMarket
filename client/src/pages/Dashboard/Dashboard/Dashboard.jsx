@@ -1,7 +1,11 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import Users from "../users/Users";
+
+import Admin from "../AdminDash/AdminDash";
+
 import Products from "../products/products/Products";
+
 import Categories from "../categories/Categories";
 import Orders from "../orders/Orders";
 import styles from "../Dashboard/Dashboard.module.css"
@@ -24,6 +28,13 @@ const Dashboard = () => {
 
       <main className={styles.main} >
         <aside className={styles.aside}>
+
+          <Link to='/admin'>
+            <h1>Dashboard</h1>
+          </Link>
+          
+          
+
           <div className={styles.asides_div}>
             <Link to="/users"><img className={styles.logo_users} src={logousers}/></Link>
             <Link to="/users"><label  className={styles.aside_labels}>users</label></Link>
@@ -32,6 +43,7 @@ const Dashboard = () => {
           <Link to="/products"><img className={styles.logo_users} src={logoprofile}/></Link>
             <Link to="/products">
             <label className={styles.aside_labels}>products</label>
+
           </Link>
           </div>
           
@@ -45,7 +57,11 @@ const Dashboard = () => {
             <h1>profile</h1>
           </Link>
         </aside>
+
+         
+
         <section className={styles.section}>
+          <Route exact path="/admin" component={Admin}/>
           <Route exact path="/users" component={Users} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/orders" component={Orders} />

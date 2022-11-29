@@ -10,14 +10,18 @@ const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 function Payment( props ){
   const dispatch = useDispatch();
 
+  let totalPrice = totalPrice + props.price;
+  let totalSales = totalSales + 1;
   const [error, setError] = useState({});
-
+  // const [savePrice, setSavePrice] = useState(0);
+  const [acumularPrice, setAcumularPrice] = useState(totalPrice)
   const [input, setInput] = useState({
     lastName: '',
     firstName: '',
     email: '',
   });
 
+  // let totalPrice = props.price
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
@@ -31,7 +35,8 @@ function Payment( props ){
   };
   const onApprove = (data, actions) => {
     dispatch(postFormPay(input));
-    console.log(data);
+    localStorage.setItem("totalPrice",acumularPrice);
+    localStorage.setItem("totalSales",totalSales);
     return actions.order.capture(alert("El pago ha si exioto"));
   };
   
