@@ -1,10 +1,25 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import "styled-components";
 // import styles from './Table.module.css'
 
 
-const Table = ({products, deleteProduct}) => {
+const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
+
+  // const [search, setSearch] = useState('')
+
+  // const [fiteredProducts, setFiteredProducts] = useState([])
+  
+  // setFiteredProducts(products)
+
+//   useEffect(() => {
+//  const result = products.filter(p=>{
+//   return p.title.toLowerCase().match(search.toLowerCase())
+//  })
+//  setFiteredProducts(result)
+//   }, [search])
+  
 
   const columns = [
     {
@@ -78,7 +93,12 @@ const Table = ({products, deleteProduct}) => {
     {
       name: "UPDATE",
       grow: 0,
-      cell: (row) => <button onClick={()=>alert(row._id)} >UPDATE</button>
+      cell: (row) => <button onClick={()=>{
+        const selecRow = setProductEdit(row)
+        const open = openModal2()
+        selecRow()
+        open()
+      } } >UPDATE</button>
     },
 
     {
@@ -96,6 +116,19 @@ const Table = ({products, deleteProduct}) => {
         data={products}
         title="Lista de productos en FleaMarket"
         pagination
+        fixedHeader
+        fixedHeaderScrollHeight="400px"
+        highlightOnHover
+        // subHeader
+        // subHeaderComponent={
+        //   <input
+        //   type ='text'
+        //   placeholder="Search"
+        //   value={'search'}
+        //   onChange={(e)=>setSearch(e.target.value)}
+        //   />
+          
+        // }
       />
     </>
   );

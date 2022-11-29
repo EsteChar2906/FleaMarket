@@ -35,7 +35,7 @@ const productschema = new mongoose.Schema(
     },
     user: {
       type: Schema.Types.ObjectId,
-      require: true,
+      // require: true,
       ref: Users,
     },
     category: {

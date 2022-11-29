@@ -3,87 +3,75 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../config";
 
+const initialForm = {
+  id: null,
+  title: "",
+  price: "",
+  description: "",
+  image: "",
+  rating: "",
+  stock: "",
+  condition: "",
+  user: "",
+  category: "",
+  brand: "",
+  ram: "",
+  processor: "",
+  battery: "",
+  bluetooth: "",
+};
+
 const FormProducts = ({ products, setProducts }) => {
-  // estados locales
+  // guarda todas las categorias
   const [categories, setCategories] = useState("");
+
+  // guarda los usuuarios
   const [users, setUsers] = useState("");
 
-  const [data, setData] = useState({
-    title: "",
-    price: "",
-    description: "",
-    image: "",
-    rating: "",
-    stock: "",
-    condition: "",
-    user: "",
-    category: "",
-    brand: "",
-    ram: "",
-    processor: "",
-    battery: "",
-    bluetooth: "",
-  });
-  console.log(data)
+  // guarda los datos de los inputs
+  const [data, setData] = useState(initialForm);
 
+  // captura los errores del axios
   const [error, setError] = useState("");
 
-  // llamados al back
+  //  trae todas las categorias
   const getCategory = async () => {
     const url = `${BACK_DOMINIO}/api/category`;
     const res = await axios.get(url, data);
-    console.log(res.data)
     setCategories(...categories, res.data);
   };
-
+  // trae todos los usuarios
   const getUsers = async () => {
     const url = `${BACK_DOMINIO}/api/users`;
     const res = await axios.get(url, data);
     setUsers(...users, res.data);
   };
 
-  // registra cambios en los input
+  // carga las categorias y los usuarios 
+  useEffect(() => {
+    getCategory();
+    getUsers();
+  }, []);
+
+  //FORMULARIO: registra los cambios en los inputs
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
 
-  // envia datps del form al back, actualiza y resetea estado y captura errores.
+  // FORMULARIO: envia datos del form al back, actualiza y resetea estado y captura errores.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = `${BACK_DOMINIO}/api/product`;
       await axios.post(url, data);
       setProducts(products.concat(data));
-      setData({
-        title: "",
-        price: "",
-        description: "",
-        image: "",
-        rating: "",
-        stock: "",
-        condition: "",
-        user: "",
-        category: "",
-        brand: "",
-        ram: "",
-        processor: "",
-        battery: "",
-        bluetooth: "",
-      });
+      setData(initialForm);
     } catch (error) {
       setError(error.response.data.message);
     }
   };
 
-  console.log(error);
-
-  // carga los datos del back
-  useEffect(() => {
-    getCategory();
-    getUsers();
-  }, []);
-
-  //captura datos de los selects y los inserta en cada propiedad
+  // FORMULARIO: las siguientes funciones registran los values de los selects
   const handleSelectCategories = (e) => {
     e.preventDefault();
     setData({
@@ -118,8 +106,9 @@ const FormProducts = ({ products, setProducts }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} >
-        <div >
+      <h1>Agregar Productos</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
           <label htmlFor="title">Nombre del producto</label>
           <input
             type="title"
@@ -132,7 +121,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="price">Precio del producto</label>
           <input
             type="text"
@@ -145,7 +134,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="image">Iserte una url de imagen</label>
           <input
             type="text"
@@ -158,7 +147,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="rating">Califique el producto</label>
           <input
             type="text"
@@ -171,7 +160,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="stock">Stock:</label>
           <input
             type="text"
@@ -184,7 +173,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="categories">Asigne una categoria</label>
           {
             <select onChange={handleSelectCategories}>
@@ -216,7 +205,7 @@ const FormProducts = ({ products, setProducts }) => {
           }
         </div>
 
-        <div >
+        <div>
           <label htmlFor="condition">Cual es la condicion del producto?</label>
           <select onChange={handleSelectConditions}>
             <option value="Nuevo">New</option>
@@ -224,7 +213,7 @@ const FormProducts = ({ products, setProducts }) => {
           </select>
         </div>
 
-        <div >
+        <div>
           <label htmlFor="bluetooth">El producto tiene bluetooth?</label>
           <select onChange={handleSelectBluetooth}>
             <option value="Si">Si</option>
@@ -232,7 +221,7 @@ const FormProducts = ({ products, setProducts }) => {
           </select>
         </div>
 
-        <div >
+        <div>
           <label htmlFor="marca">Marca:</label>
           <input
             type="text"
@@ -245,7 +234,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="ram">Memoria ram:</label>
           <input
             type="text"
@@ -258,7 +247,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="processor">Procesador:</label>
           <input
             type="text"
@@ -271,7 +260,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="battery">Bateria:</label>
           <input
             type="text"
@@ -284,7 +273,7 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
-        <div >
+        <div>
           <label htmlFor="description">Descripcion:</label>
           <textarea
             name="description"
@@ -294,7 +283,7 @@ const FormProducts = ({ products, setProducts }) => {
             value={data.description}
           ></textarea>
         </div>
-        <div>{<img src={data.image} alt="imagen" />}</div>
+        <div>{<img src={data.image} width='150px' height='150px' alt="imagen" />}</div>
         <button type="submit">Add</button>
       </form>
     </>
