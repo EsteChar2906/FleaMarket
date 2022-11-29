@@ -7,12 +7,12 @@ const access = () => {
     return(
         <div>
             <HeadPage />
-            <h3>¡Hola! Para ingresar al carrito, ingresa a tu cuenta</h3>
+            <h3>¡Ho! To enter the shopping car, log in to your account</h3>
             <Link to="/register">
-                <button style={{cursor: "pointer"}}>Crear cuenta</button>
+                <button style={{cursor: "pointer"}}>Create account</button>
             </Link>
             <Link to="/login" >
-                <button style={{cursor: "pointer"}}>Ingresar</button>
+                <button style={{cursor: "pointer"}}>Sing in</button>
             </Link>
         </div>
     )
