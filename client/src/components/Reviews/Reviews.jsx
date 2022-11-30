@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
 import { getReview, postReviews } from "../../store/actions/index.js";
+import swal from 'sweetalert'; //npm i sweetalert 
 import './reviewStyle.css';
 
 const colors = {
@@ -56,10 +57,15 @@ export default function Review(){ //por props recibe el nombre del producto para
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Se envio el feedback del cliente");
     const dataPost = {star: currentValue, comment:input}
     dispatch(postReviews(dataPost));
     setInput('');
+    swal({
+      title:"Review",
+      text: "Your review has been sended",
+      icon: "success",
+      button: "Ok"
+    })
   }
   const handleCambio = (e) => {
     e.preventDefault();
@@ -104,7 +110,6 @@ export default function Review(){ //por props recibe el nombre del producto para
                 <div key={e._id}>
                   <div className="container_image">
                     <img className="image_user" src={imgLink} alt="image user"/>
-
                   </div>
                   <FaStar
                     key={e}
@@ -114,7 +119,7 @@ export default function Review(){ //por props recibe el nombre del producto para
                       display: "inline-block"
                     }}
                     color={colors.orange}
-                    />
+                  />
                   <p className="star_user">{e.star} stars</p>
                   <p className="comentario">{e.comment}</p>
                   <hr />

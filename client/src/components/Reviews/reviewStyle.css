@@ -8,8 +8,9 @@
   width: 90%;
   max-width: 900px;
   padding: 4em 3em;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+  box-shadow: 2px 4px 10px 1px rgba(172, 168, 168, 0.47);
   border-radius: 10px;
-  box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
   text-align: center;
   
   
@@ -63,9 +64,12 @@
 
 .container_image{
   background-color:transparent;
-  max-width: 50%;
-  min-width: 50%;
+  max-width: 10%;
+  min-width: 8%;
   margin-bottom: -20px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+  box-shadow: 2px 4px 10px 1px rgba(172, 168, 168, 0.47);
+  border-radius: 10px;
 }
 
 .image_user{
@@ -73,13 +77,18 @@
   min-width: 50px;
   display: inline-block;
   position: relative;
-  bottom: 5px;
+  
 }
 
 .comentario{
   display: block;
   margin: 1px;
+  height: 40px;
   padding-left:5px ;
+  background-color: #d4e4f5;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+  box-shadow: 2px 4px 10px 1px rgba(172, 168, 168, 0.47);
+  border-radius: 10px;
 }
 
 /* .text_box::placeholder{ 
