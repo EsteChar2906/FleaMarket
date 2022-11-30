@@ -4,12 +4,24 @@ import { Link } from 'react-router-dom'
 import styles from './Card.module.css'
 import car from '../../assets/carrito3.png'
 import { shopingCar } from '../../store/actions/index.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Card = (props) => {
   const dispatch = useDispatch()
 
   function addToCar() {
-    alert("product in car shopping")
+    // alert("product in car shopping")
+    toast.success('Added to car!', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     dispatch(shopingCar('ADD', props.allProduct))
   }
 
@@ -42,6 +54,7 @@ const Card = (props) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }
