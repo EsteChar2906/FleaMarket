@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../config";
+import styles from "./FormProducts.module.css"
 
 const initialForm = {
   id: null,
@@ -106,10 +107,10 @@ const FormProducts = ({ products, setProducts }) => {
 
   return (
     <>
-      <h1>Agregar Productos</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.form_title}>Agregar Productos</h1>
         <div>
-          <label htmlFor="title">Nombre del producto</label>
+          <label htmlFor="title">Name </label>
           <input
             type="title"
             placeholder="Title"
@@ -117,12 +118,12 @@ const FormProducts = ({ products, setProducts }) => {
             onChange={handleChange}
             value={data.title}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="price">Precio del producto</label>
+          <label htmlFor="price">Price </label>
           <input
             type="text"
             placeholder="Price"
@@ -130,53 +131,54 @@ const FormProducts = ({ products, setProducts }) => {
             onChange={handleChange}
             value={data.price}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="image">Iserte una url de imagen</label>
+          <label htmlFor="image">Add image url </label>
           <input
             type="text"
-            placeholder="image"
+            placeholder="Image"
             name="image"
             onChange={handleChange}
             value={data.image}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="rating">Califique el producto</label>
+          <label htmlFor="rating">Rating </label>
           <input
             type="text"
-            placeholder="rating"
+            placeholder="Rating"
             name="rating"
             onChange={handleChange}
             value={data.rating}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+       
         <div>
-          <label htmlFor="stock">Stock:</label>
+          <label htmlFor="stock">Stock </label>
           <input
             type="text"
-            placeholder="stock"
+            placeholder="Stock"
             name="stock"
             onChange={handleChange}
             value={data.stock}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
-
-        <div>
-          <label htmlFor="categories">Asigne una categoria</label>
+      <section>   
+     <div>
+          <label htmlFor="categories">Add category </label>
           {
-            <select onChange={handleSelectCategories}>
+            <select className={styles.selects} onChange={handleSelectCategories}>
               {categories &&
                 categories.map((item, i) => {
                   return (
@@ -187,12 +189,12 @@ const FormProducts = ({ products, setProducts }) => {
                 })}
             </select>
           }
-        </div>
+        </div>  
 
         <div>
-          <label htmlFor="user">Creador por:</label>
+          <label htmlFor="user">Created By </label>
           {
-            <select onChange={handleSelectUsers}>
+            <select className={styles.selects} onChange={handleSelectUsers}>
               {users &&
                 users.map((item, i) => {
                   return (
@@ -203,78 +205,78 @@ const FormProducts = ({ products, setProducts }) => {
                 })}
             </select>
           }
-        </div>
+        </div>  
 
         <div>
-          <label htmlFor="condition">Cual es la condicion del producto?</label>
-          <select onChange={handleSelectConditions}>
+          <label htmlFor="condition">Condition of the product?</label>
+          <select  className={styles.selects} onChange={handleSelectConditions}>
             <option value="Nuevo">New</option>
             <option value="Usado">Used</option>
           </select>
-        </div>
+        </div> 
 
         <div>
-          <label htmlFor="bluetooth">El producto tiene bluetooth?</label>
-          <select onChange={handleSelectBluetooth}>
+          <label htmlFor="bluetooth">Does the product have bluetooth?</label>
+          <select  className={styles.selects} onChange={handleSelectBluetooth}>
             <option value="Si">Si</option>
             <option value="No">No</option>
           </select>
-        </div>
-
+        </div>  
+        </section>
         <div>
           <label htmlFor="marca">Marca:</label>
           <input
             type="text"
-            placeholder="brand"
+            placeholder="Brand"
             name="brand"
             onChange={handleChange}
             value={data.brand}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="ram">Memoria ram:</label>
+          <label htmlFor="ram">Memory ram </label>
           <input
             type="text"
-            placeholder="ram"
+            placeholder="Ram"
             name="ram"
             onChange={handleChange}
             value={data.ram}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="processor">Procesador:</label>
+          <label htmlFor="processor">Processor </label>
           <input
             type="text"
-            placeholder="processor"
+            placeholder="Processor"
             name="processor"
             onChange={handleChange}
             value={data.processor}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label htmlFor="battery">Bateria:</label>
+          <label htmlFor="battery">Battery</label>
           <input
             type="text"
-            placeholder="battery"
+            placeholder="Battery"
             name="battery"
             onChange={handleChange}
             value={data.battery}
             required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
-        <div>
-          <label htmlFor="description">Descripcion:</label>
+        <div className={styles.description}>
+          <label htmlFor="description">Description</label>
           <textarea
             name="description"
             rows="5"
@@ -283,8 +285,8 @@ const FormProducts = ({ products, setProducts }) => {
             value={data.description}
           ></textarea>
         </div>
-        <div>{<img src={data.image} width='150px' height='150px' alt="imagen" />}</div>
-        <button type="submit">Add</button>
+        <div className={styles.image}>{<img src={data.image} alt="imagen" />}</div>
+        <button type="submit" className={styles.green_btn}>Add</button>
       </form>
     </>
   );
