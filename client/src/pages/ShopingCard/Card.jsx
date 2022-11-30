@@ -42,27 +42,33 @@ const Card = (props) => {
 
       <div className={styles.block__shopingcontendorcuatro}>
 
-        <img src={props.image} alt="not found" height="170px" width="230px" />
-        <div>
-          <h2> {props.title}</h2>
-          <h4>$ {props.price} und </h4>
-          <button style={{ border: "0px" }}onClick={deletToCar}>Delete</button>
-
-        </div>
+        
+        
 
 
       </div>
 
       <div className={styles.block__shopingcontendorcinco}>
+      <img src={props.image} alt="not found" height="10%" width="20%" />
+        <div className={styles.block__shopingcontendorseis}>
+            <h2> {props.title}</h2>
+            <h4>$ {props.price} und </h4>
+            <button style={{ border: "0px" }}onClick={deletToCar}>Delete</button>
+
+        </div>
+        <div className={styles.block__shopingcontendorsiete}>
+          <button style={{ border: "0px" }} onClick={less}>-</button>
+          <button style={{ border: "0px" }} >{prices[props.index] / props.price}</button>
+          <button style={{ border: "0px" }} onClick={plus}>+</button>
+
+        </div>
         
-        <button style={{ border: "0px" }} onClick={less}>-</button>
-        <button style={{ border: "0px" }} >{prices[props.index] / props.price}</button>
-        <button style={{ border: "0px" }} onClick={plus}>+</button>
+        <h3 className={styles.block__shopingprecio}>${prices[props.index]}</h3>
 
       </div>
 
 
-      <h3 className={styles.block__shopingprecio}>${prices[props.index]}</h3>
+      
 
 
     </div>
