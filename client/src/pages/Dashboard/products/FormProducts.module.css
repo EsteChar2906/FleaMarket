@@ -11,8 +11,8 @@
   margin: 1rem;
   border: var(--form-inputs-border-general);
   border-color:var(--form-inputs-border-color);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
+  
   font-size: var(--font-size-normal);
 }
  
@@ -72,6 +72,16 @@
   .description{
     margin-bottom: 0;
   }
+  .labels{
+     
+    font-size: 12px;
+    font-weight: bold;
+    color:  #2e7bd3;
+  }
+  .text_area{
+    border-color:#2e7bd381 ;
+    border-radius: 5px;
+}
 .errors {
   font-size: var(--forms-errors-max-font-size);
   font-weight: bold;

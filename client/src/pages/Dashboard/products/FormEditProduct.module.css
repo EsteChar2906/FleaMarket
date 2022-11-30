@@ -1,0 +1,93 @@
+@import '../../../index.css';
+ 
+ 
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: var(--form-inputs-width);
+    padding: 1rem 2rem 0rem 2rem;
+    margin: 1rem;
+    border: var(--form-inputs-border-general);
+    border-color:var(--form-inputs-border-color);
+    border-radius: 10px;
+    
+    font-size: var(--font-size-normal);
+  }
+   
+  
+  .form_title {
+    font-size: var(--font-size-tittle-grandes);
+    font-weight:bold;
+    color: #243b55;
+    
+  }
+  
+  .input {
+    font-size: var(--form-input-font-size);
+    width: var(--form-inputs-width);
+    height: var(--form-inputs-height);
+    border-radius: var(--inputs-border-radius-general);
+    border: transparent;
+    background-color: var(--form-inputs-bg-color);
+    margin: var(--forms-input-margin);
+    padding-left: 0.5rem;
+    margin: 0.2rem;
+     color: var(--font-one);
+  }
+  
+  .green_btn {
+    background-color: #e65c00;
+    height: 2rem;
+    width: 60%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-button);
+    margin: 1rem;
+    border: 0;
+    border-radius: var(--form-button-border-radius-general);
+    cursor: pointer;
+  }
+  
+  .green_btn:hover {
+    transition: 0.2s;
+    background-color: #f9d423;
+  }
+  .selects {
+      margin: 0.3rem;
+      color: var(--selects-font-color);
+      border-color: transparent;
+      border-radius: 5px;
+      height: var(--inputs-max-height);
+      width: var(--selects-max-width);
+      background-color: var(--inputs-selects-color);
+    }
+    .image{
+      width:150px;
+      height:150px;
+    }
+    .description{
+      margin-bottom: 0;
+    }
+    .labels{
+       
+      font-size: 12px;
+      font-weight: bold;
+      color:  #2e7bd3;
+    }
+    .text_area{
+        border-color:#2e7bd381 ;
+        border-radius: 5px;
+    }
+  .errors {
+    font-size: var(--forms-errors-max-font-size);
+    font-weight: bold;
+    color: var(--forms-errors-color);
+    margin: 0;
+    padding: 0;
+  }
+  
