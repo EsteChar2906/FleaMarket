@@ -1,8 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
-import "style-components";
 
-const TableOrders = ({ orders, deleteOrder, setOrderEdit, openModal2 }) => {
+const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 
 	const columns = [
 	{
@@ -39,7 +38,7 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit, openModal2 }) => {
 		selector: (row) => row.status,
 		sortable: true
 	},
-	{
+	/*{
 		name: "UPDATE",
 		grow: 0,
 		cell: (row) => <button onClick={() =>{
@@ -48,12 +47,28 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit, openModal2 }) => {
 			selecRow()
 			open()
 		}}>UPDATE</button>
-	},
+	},*/
 	{
 		name: "DELETE",
 		grow: 0,
 		cell: (row) => <button onClick={() => deleteOrder(row._id)}>DELETE</button>
-	} 
-	]
+	}
+	];
+
+	return (
+		<>
+		<DataTable 
+		  columns={columns}
+		  data={orders}
+		  title="List of Orders in FleaMarket"
+		  pagination
+		  fixedHeader
+		  fixedHeaderScrollHeight="400px"
+		  highlightOnHover
+		/>
+		</>
+		);
 
 };
+
+export default TableOrders;
