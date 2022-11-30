@@ -10,14 +10,13 @@ const Categories = () => {
 
 	const getAllCategories = async () => {
 		const response = await axios.get(`${BACK_DOMINIO}/api/category`)
-		const categoriesAll = response.data.map((c, i) => {
+		setCategories(response.data.map((c, i) => {
 			return {
 				_id: c._id,
 				name: c.name,
 				idC: i
 			}
-		})
-		setCategories(response.data)
+		}))
 
 	}
 
@@ -38,7 +37,7 @@ const Categories = () => {
 
 	return (
 		<div>
-		<TableOrders 
+		<TableCategories
 		categories={categories}
 		deleteCategory={deleteCategory} 
 		/>

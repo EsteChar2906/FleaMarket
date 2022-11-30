@@ -6,7 +6,7 @@ import Admin from "../AdminDash/AdminDash";
 
 import Products from "../products/products/Products";
 
-import Categories from "../categories/Categories";
+import Categories from "../categories/categories/categories.jsx";
 import Orders from "../orders/orders/orders.jsx";
 import styles from "../Dashboard/Dashboard.module.css"
 import Profile from "../profile/Profile";
