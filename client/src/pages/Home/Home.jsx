@@ -4,10 +4,11 @@ import Footer from '../../components/Footer/Footer.jsx';
 import Carousel from "../../components/Carousel/Carousel.jsx";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import ProductsState from "../../context/products/productsState.js";
+import styles from "./Home.module.css"
 
 function Home() {
   return (
-    <main>
+    <main >
     <ProductsState>
       <section>
         <div>
@@ -17,9 +18,9 @@ function Home() {
       <section>
         <Carousel />
       </section>
-      <section>
-        <div>
-          <Cards />
+      <section className={styles.contenedor_cardshome}>
+        <div className={styles.contenedor_cardshome}>
+          <Cards/>
         </div>
       </section>
       <section>
