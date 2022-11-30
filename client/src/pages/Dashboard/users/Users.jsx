@@ -33,7 +33,8 @@ const columnas = [
   {
     name: "Email",
     selector:"email",
-    sortable: true
+    sortable: true,
+    grow: 3
   },
   {
     name: "Country",
@@ -54,15 +55,33 @@ const Users = () => {
   
   const allUsers = useSelector(state => state.users);
   
-  const [input, setInput] = useState('');
+  // const [input, setInput] = useState('');
   const [user, setUser] = useState([]);
   const dispatch = useDispatch()
   
+  
   useEffect(() => {
-    // createIndex()
-    dispatch(getUsers());
-    setUser(usersData)
+    const dispGetUser = async () => {
+      const users = await dispatch(getUsers())
+      let index = 0;
+      setUser(users.payload.map(e => {
+        index++
+        return {
+          id: index,
+          firstName: e.firstname,
+          lastName: e.lastname,
+          userName: e.username,
+          email: e.email,
+          country: e.country,
+          telephone: e.telephone
+        }
+      }));
+    }
+    dispGetUser()
+    
   },[dispatch])
+  
+  const usersState = user;
   
   let index = 0;
   const usersData = allUsers.map(e => {
@@ -74,11 +93,10 @@ const Users = () => {
       userName: e.username,
       email: e.email,
       country: e.country,
-      telephone: e.telephone
+      telephone: e.telephone,
+      // role: e.role
     }
   });
-  
-  
   
 
   // const filterName = () => {
@@ -94,39 +112,49 @@ const Users = () => {
   //   }
   // };
 
-  const handleChange = (e) => {
-    
-    setInput(e.target.value)
-    console.log(input)
-    if(!input) {
-      setUser(usersData);
-    }
-  };
-  const handleClick = () => {
-    if(!input){
-      setUser(usersData)
-    }else{
-      var search = usersData.filter(e => {
-        if(e.firstName.includes(input)){
-          setUser(e)
-        }
-      });
+  // const handleChange = (e) => {
+  //   setInput(e.target.value)
+  // };
+  // const handleClick = () => {
+  //   // if(!input){
+  //   //   // setUser(usersData)
+  //   // }else{
+  //   //   var search = usersData.filter(e => {
+  //   //     if(e.firstName.includes(input)){
+  //   //       setUser(e)
+  //   //     }
+  //   //   });
       
-    }
-  }
-
-  // const createIndex = () => {
-  //   var contador = 1;
-  //   usersData.map(e => {
-  //     e['id']=contador;
-  //     contador++;
-  //   })
+  //   // }
+  //   if(!input){
+  //     setUser(usersData)
+  //   }else{
+  //     var search = usersData.filter(e => {
+  //       if(e.firstName.includes(input)){
+  //         setUser(e);
+  //       }
+  //     })
+  //     return search
+  //   }
   // }
-  
 
+  // const filterData = () => {
+  //   if(!input) {
+  //     setUser(usersData);
+  //   }else{
+  //     var search = usersData.filter(e => {
+  //       if(e.firstName.includes(input)){
+  //         setUser(e)
+  //       }
+  //     })
+      
+  //   }
+  // }
+
+  
   return (
     <div className='container_box'>
-      <div className='barraSearch'>
+      {/* <div className='barraSearch'>
       <input 
         type="text"
         placeholder='Search'
@@ -134,14 +162,14 @@ const Users = () => {
         value={input}
         onChange={handleChange}
       />
-      <button className='btnSearch' onClick={handleClick}>
+      <button className='btnSearch' >
         {' '}
         <FontAwesomeIcon icon={faSearch} />
       </button>
-      </div>
+      </div> */}
       <DataTable
         columns={columnas}
-        data={usersData}
+        data={user}  
         title={"Custromers"}
         pagination
         fixedHeader
