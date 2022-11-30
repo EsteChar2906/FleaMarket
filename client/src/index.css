@@ -30,6 +30,7 @@ code {
 }
 
 :root {
+  --bg-color-dead:#243b55;
   --font-one: rgb(228, 148, 0);
   --gray-border:rgb(240, 240, 240);
   --gray-one: rgb(245, 247, 248); 

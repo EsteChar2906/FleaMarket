@@ -57,7 +57,7 @@ const Profile = () => {
         <input type="text" placeholder={user.email} name="email" onChange={handleChanges} />
         <br />
         <label>password</label>
-        <input type="text" placeholder="new password" name="password" onChage={handleChanges} />
+        <input type="text" placeholder="new password" name="password" onChange={handleChanges} />
         <br />
         <label>country</label>
         <input type="text" placeholder={user.country} name="country" onChange={handleChanges} />
