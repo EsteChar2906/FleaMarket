@@ -5,3 +5,10 @@
     align-items: center;
     justify-content: center;
 } */
+
+.contenedor_cardshome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
