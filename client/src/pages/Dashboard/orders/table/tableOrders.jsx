@@ -2,7 +2,7 @@ import React from "react";
 import DataTable from "react-data-table-component";
 import "style-components";
 
-const TableOrders = ({ orders, deleteOrder }) => {
+const TableOrders = ({ orders, deleteOrder, setOrderEdit, openModal2 }) => {
 
 	const columns = [
 	{
