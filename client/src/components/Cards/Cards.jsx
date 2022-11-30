@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux'
+import loadings from "../../assets/loading.gif"
 import Card from './Card.jsx'
 import styles from './Cards.module.css'
 import { loadProduct } from '../../store/actions/index.js'
@@ -7,7 +8,7 @@ import ProductsContext from "../../context/products/productsContext.js";
 
 const Cards = () => {
 
-  const { products, error } = useContext(ProductsContext);
+  const { products, error, loading } = useContext(ProductsContext);
 
   console.log(error)
   
@@ -20,7 +21,7 @@ const Cards = () => {
    return (
     <div className={styles.contenedor_cardscero}>
       <div className={styles.contenedor_cards}>
-        {error.length > 0 ? (<p>{error}</p>) : (productCard && productCard.map((e, i) => {
+        {loading ? (<img src={loadings} alt="Loading..." />) : (error.length > 0 ? (<p>{error}</p>) : (productCard && productCard.map((e, i) => {
           return (
             <Card
               key={i}
@@ -31,7 +32,7 @@ const Cards = () => {
               allProduct={e}
             />
           )
-        }))}
+        })))}
       </div>
     </div>
   )

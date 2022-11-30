@@ -7,7 +7,8 @@ export default (state, action) => {
 		return {
 			...state,
 			products: payload,
-			error: {}
+			error: {},
+			loading: false
 		}
 		case "GET_CATEGORIES":
 		return {
@@ -17,7 +18,15 @@ export default (state, action) => {
 		case "ERROR":
 		return {
 			...state,
-			error: payload 
+			error: payload,
+			loading: false 
 		}
+		case "LOADING":
+		return {
+			...state,
+			loading: true
+		}
+		default:
+		return state;
 	}
 }

@@ -9,7 +9,8 @@ const ProductsState = ({ children }) => {
 	const initialState = {
 		products: {},
 		categories: [],
-		error: {}
+		error: {},
+		loading: false
 	};
 
 
@@ -22,9 +23,16 @@ const ProductsState = ({ children }) => {
 	const [sort, setSort] = useState('');
 
 	useEffect(() => {
+		loadingProducts()
 		getProducts(category, condition, name, page, sort);
 		getCategories()
 	}, [category, condition, name, page, sort]);
+
+	const loadingProducts = () => {
+		return dispatch({
+			type: "LOADING"
+		})
+	};
 
     const getProducts = async () => {
     	const response = await axios(`${BACK_DOMINIO}/api/products?category=${category}&condition=${condition}&name=${name}&page=${page}&sort=${sort}`)
@@ -55,6 +63,7 @@ const ProductsState = ({ children }) => {
     		products: state.products,
     		categories: state.categories,
     		error: state.error,
+    		loading: state.loading,
     		setCategory,
     		setCondition,
     		setName,
