@@ -2,27 +2,27 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../../config.js";
 import TableOrders from "../table/tableOrders.jsx";
-import { getOrders } from "../../../../store/actions/index.js";
-import { useDispatch, useSelector } from "react-redux"
+
 const Orders = () => {
 
+	const [ orders, setOrders ] = useState([])
 	const [ orderEdit, setOrderEdit ] = useState(null);
-
-	const dispatch = useDispatch()
+	
+	const getAllOrders = async() => {
+		const response = await axios.get(`${BACK_DOMINIO}/api/orders`)
+		setOrders(response.data)
+	}
 
 	useEffect(() => {
-		dispatch(getOrders())
-	})
-
-	const orders = useSelector((state) => state.orders)
-
-	const orderState = orders;
+		getAllOrders()
+	}, [])
 
 	const deleteOrder = async (id) => {
 		try{
 			alert('are you sure to delete this purchase order?');
 			/*await axios.delete(`${BACK_DOMINIO}/api/orders/${id}`);*/
-			orderState = orders.filter((o) => o._id !== id);
+			const newOrders = orders.filter((o) => o._id !== id);
+			setOrders(newOrders);
 		} catch(error){
 			return { error: error.message };
 		}
@@ -31,7 +31,7 @@ const Orders = () => {
 	return (
 		<div>
 		<TableOrders 
-		orders={orderState}
+		orders={orders}
 		deleteOrder={deleteOrder} 
 		/>
 		</div>
