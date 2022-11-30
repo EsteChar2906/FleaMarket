@@ -108,9 +108,9 @@ const FormProducts = ({ products, setProducts }) => {
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
-      <h1 className={styles.form_title}>Agregar Productos</h1>
+      <h1 className={styles.form_title}>Add Products</h1>
+        <label className={styles.labels} htmlFor="title">Name </label>
         <div>
-          <label htmlFor="title">Name </label>
           <input
             type="title"
             placeholder="Title"
@@ -122,8 +122,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="price">Price </label>
         <div>
-          <label htmlFor="price">Price </label>
           <input
             type="text"
             placeholder="Price"
@@ -135,8 +135,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="image">Add image url </label>
         <div>
-          <label htmlFor="image">Add image url </label>
           <input
             type="text"
             placeholder="Image"
@@ -148,8 +148,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="rating">Rating </label>
         <div>
-          <label htmlFor="rating">Rating </label>
           <input
             type="text"
             placeholder="Rating"
@@ -162,8 +162,8 @@ const FormProducts = ({ products, setProducts }) => {
         </div>
 
        
+        <label className={styles.labels}  htmlFor="stock">Stock </label>
         <div>
-          <label htmlFor="stock">Stock </label>
           <input
             type="text"
             placeholder="Stock"
@@ -176,7 +176,7 @@ const FormProducts = ({ products, setProducts }) => {
         </div>
       <section>   
      <div>
-          <label htmlFor="categories">Add category </label>
+          <label className={styles.labels}  htmlFor="categories">Add category </label>
           {
             <select className={styles.selects} onChange={handleSelectCategories}>
               {categories &&
@@ -192,7 +192,7 @@ const FormProducts = ({ products, setProducts }) => {
         </div>  
 
         <div>
-          <label htmlFor="user">Created By </label>
+          <label className={styles.labels}  htmlFor="user">Created By </label>
           {
             <select className={styles.selects} onChange={handleSelectUsers}>
               {users &&
@@ -208,7 +208,7 @@ const FormProducts = ({ products, setProducts }) => {
         </div>  
 
         <div>
-          <label htmlFor="condition">Condition of the product?</label>
+          <label className={styles.labels}  htmlFor="condition">Condition of the product?</label>
           <select  className={styles.selects} onChange={handleSelectConditions}>
             <option value="Nuevo">New</option>
             <option value="Usado">Used</option>
@@ -216,15 +216,16 @@ const FormProducts = ({ products, setProducts }) => {
         </div> 
 
         <div>
-          <label htmlFor="bluetooth">Does the product have bluetooth?</label>
+          <label className={styles.labels}  htmlFor="bluetooth">Does the product have bluetooth?</label>
           <select  className={styles.selects} onChange={handleSelectBluetooth}>
-            <option value="Si">Si</option>
+            <option value="Si">Yes</option>
             <option value="No">No</option>
           </select>
         </div>  
         </section>
+          
+        <label className={styles.labels}  htmlFor="marca">Marca:</label>
         <div>
-          <label htmlFor="marca">Marca:</label>
           <input
             type="text"
             placeholder="Brand"
@@ -236,8 +237,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="ram">Memory Ram </label>
         <div>
-          <label htmlFor="ram">Memory ram </label>
           <input
             type="text"
             placeholder="Ram"
@@ -249,8 +250,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="processor">Processor </label>
         <div>
-          <label htmlFor="processor">Processor </label>
           <input
             type="text"
             placeholder="Processor"
@@ -262,8 +263,8 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="battery">Battery</label>
         <div>
-          <label htmlFor="battery">Battery</label>
           <input
             type="text"
             placeholder="Battery"
@@ -275,14 +276,15 @@ const FormProducts = ({ products, setProducts }) => {
           />
         </div>
 
+        <label className={styles.labels}  htmlFor="description">Description</label>
         <div className={styles.description}>
-          <label htmlFor="description">Description</label>
           <textarea
             name="description"
             rows="5"
             cols="33"
             onChange={handleChange}
             value={data.description}
+            className={styles.text_area}
           ></textarea>
         </div>
         <div className={styles.image}>{<img src={data.image} alt="imagen" />}</div>

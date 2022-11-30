@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import styles from "./FormEditProduct.module.css"
 
 const initialForm = {
   id: null,
@@ -45,10 +46,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
 
   return (
     <>
-      <h1>Actualizar Productos</h1>
-      <form onSubmit={handleSubmit}>
+  
+      <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.form_title}>Update Product</h1>
+          
+        <label className={styles.labels} htmlFor="title">Name</label>
         <div>
-          <label htmlFor="title">Nombre del producto</label>
           <input
             type="title"
             placeholder="Title"
@@ -56,12 +59,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.title || ""}
             // required
-            // className={styles.input}
+             className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="price">Price</label>
         <div>
-          <label htmlFor="price">Precio del producto</label>
           <input
             type="text"
             placeholder="Price"
@@ -69,12 +72,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.price || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="image">Add image url </label>
         <div>
-          <label htmlFor="image">Iserte una url de imagen</label>
           <input
             type="text"
             placeholder="image"
@@ -82,12 +85,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.image || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="rating">Rating</label>
         <div>
-          <label htmlFor="rating">Califique el producto</label>
           <input
             type="text"
             placeholder="rating"
@@ -95,12 +98,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.rating || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="stock">Stock</label>
         <div>
-          <label htmlFor="stock">Stock:</label>
           <input
             type="text"
             placeholder="stock"
@@ -108,7 +111,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.stock || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
@@ -138,21 +141,21 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
           />
         </div> */}
 
+        <label className={styles.labels} htmlFor="condition">Condition</label>
         <div>
-          <label htmlFor="condition">Condicion:</label>
           <input
             type="text"
-            placeholder="condicion"
+            placeholder="condition"
             name="condition"
             onChange={handleChange}
             value={dataEdit.condition || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="bluetooth">Bluetooth</label>
         <div>
-          <label htmlFor="bluetooth">Bluetooth:</label>
           <input
             type="text"
             placeholder="bluetooth"
@@ -160,12 +163,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.bluetooth || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="marca">Brand</label>
         <div>
-          <label htmlFor="marca">Marca:</label>
           <input
             type="text"
             placeholder="brand"
@@ -173,12 +176,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.brand || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="ram">Memory Ram</label>
         <div>
-          <label htmlFor="ram">Memoria ram:</label>
           <input
             type="text"
             placeholder="ram"
@@ -186,12 +189,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.ram || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="processor">Processor</label>
         <div>
-          <label htmlFor="processor">Procesador:</label>
           <input
             type="text"
             placeholder="processor"
@@ -199,12 +202,12 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.processor || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="battery">Battery</label>
         <div>
-          <label htmlFor="battery">Bateria:</label>
           <input
             type="text"
             placeholder="battery"
@@ -212,23 +215,24 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             onChange={handleChange}
             value={dataEdit.battery || ""}
             // required
-            // className={styles.input}
+            className={styles.input}
           />
         </div>
 
+        <label className={styles.labels} htmlFor="description">Description</label>
         <div>
-          <label htmlFor="description">Descripcion:</label>
           <textarea
             name="description"
             rows="5"
             cols="33"
             onChange={handleChange}
             value={dataEdit.description || ""}
+            className={styles.text_area}
           ></textarea>
         </div>
 
         <div>{<img src={dataEdit.image} width='150px' height='150' alt="imagen" />}</div>
-        <button type="submit">UPDATE</button>
+        <button className={styles.green_btn} type="submit">Update</button>
       </form>
     </>
   );
