@@ -6,14 +6,16 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color:  #eaebee;
 
 }
 .block__detail_contenedorcero{
   width: 100%;
-  max-width: 700px;
+  max-width: 1500px;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 
 }
 .block__detail_contenedor{
@@ -22,61 +24,44 @@
   flex-direction:column;
   display: flex;
   width: 90%;
-  max-width: 700px;
-  background-color:  #eaebee;
-  border-radius: 10px;
+  background-color: white;
+  flex-direction: row;
 
 }
 
 
 .block__detail_product{
-  width: 80%;
+  width:100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 40px;
-  box-shadow: #141e305f  6px 6px 20px;
-
-
-
 }
+
 .block__detail_productfoto{
-  width: 50%;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-
-
+  width: 100%;
 }
+
 .block__detail_info{
-  background-color:  #eaebee;
+
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  width: 100%;
+  justify-content: space-between;
+  width: 50%;
+  height: 650px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+
 }
-.block__detail_contenedortitulo{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
-}
+
 .block__detail_titulo{
   font-size: 1.5rem;
   color: rgb(0, 0, 0);
   font-weight: 800;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-   
-
 }
 
 .block__detail_precio{
@@ -85,9 +70,10 @@
   font-weight: 600;
   margin-bottom: 0.7rem;
 
+
 }
 .block__detail_estrellas{
-  width: 30%;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -95,16 +81,12 @@
   color:   #e65c00;
 }
 .block__detail_caracteristicas{
+
+  height: auto;
   font-size: 1rem;
   color: black;
   width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 
-}
-.block__detail_caracteristicas div{
-  z-index: 1;
 }
 
 
