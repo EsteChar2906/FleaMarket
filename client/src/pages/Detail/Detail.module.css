@@ -1,3 +1,5 @@
+@import '../../index.css';
+
 .block__detail{
   width: 100vw;
   height: 100vh;
@@ -8,6 +10,7 @@
 }
 .block__detail_contenedorcero{
   width: 100%;
+  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +21,8 @@
   align-items: center;
   flex-direction:column;
   display: flex;
-  width: 40vw;
+  width: 90%;
+  max-width: 700px;
   background-color:  #eaebee;
   border-radius: 10px;
 
@@ -55,27 +59,35 @@
   border-top-right-radius: 10px;
   width: 100%;
 }
-
+.block__detail_contenedortitulo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+}
 .block__detail_titulo{
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: rgb(0, 0, 0);
   font-weight: 800;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+  
+   
 
 }
 
 .block__detail_precio{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color:#000000;
   font-weight: 600;
   margin-bottom: 0.7rem;
 
 }
 .block__detail_estrellas{
-  width: 40%;
+  width: 30%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -83,7 +95,7 @@
   color:   #e65c00;
 }
 .block__detail_caracteristicas{
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: black;
   width: 100%;
   display: flex;
@@ -99,12 +111,12 @@
 .green_btn {
   background-color: #e65c00;
   height: 3rem;
-  width: 10rem;
+  width: 8rem;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-top: 30px;
   margin-bottom: 15px;

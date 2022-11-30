@@ -39,7 +39,11 @@ export function Detail() {
          
       </div>
       <div className={styles.block__detail_info}>
-      <div className={styles.block__detail_titulo}>{p.title}</div>
+        <div className={styles.block__detail_contenedortitulo}>
+          <div className={styles.block__detail_titulo}>{p.title}</div>
+
+        </div>
+      
         
 
           
