@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../config";
 import styles from "./FormProducts.module.css"
+import { validateCreateProduct } from "../../../Helpers/Validations.js";
 
 const initialForm = {
   id: null,
@@ -35,6 +36,9 @@ const FormProducts = ({ products, setProducts }) => {
   // captura los errores del axios
   const [error, setError] = useState("");
 
+   //errores validations
+   const [errors, setErrors] = useState({});
+
   //  trae todas las categorias
   const getCategory = async () => {
     const url = `${BACK_DOMINIO}/api/category`;
@@ -57,6 +61,7 @@ const FormProducts = ({ products, setProducts }) => {
   //FORMULARIO: registra los cambios en los inputs
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+    setErrors(validateCreateProduct({ ...data, [input.name]: input.value }));
   };
 
   // FORMULARIO: envia datos del form al back, actualiza y resetea estado y captura errores.
@@ -109,6 +114,7 @@ const FormProducts = ({ products, setProducts }) => {
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
       <h1 className={styles.form_title}>Add Products</h1>
+        
         <label className={styles.labels} htmlFor="title">Name </label>
         <div>
           <input
@@ -121,6 +127,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.title && (<div className={styles.errors}>{errors.title}</div>)}
 
         <label className={styles.labels}  htmlFor="price">Price </label>
         <div>
@@ -134,6 +141,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.price && (<div className={styles.errors}>{errors.price}</div>)}
 
         <label className={styles.labels}  htmlFor="image">Add image url </label>
         <div>
@@ -147,6 +155,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.image && (<div className={styles.errors}>{errors.image}</div>)}
 
         <label className={styles.labels}  htmlFor="rating">Rating </label>
         <div>
@@ -160,6 +169,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.rating && (<div className={styles.errors}>{errors.rating}</div>)}
 
        
         <label className={styles.labels}  htmlFor="stock">Stock </label>
@@ -174,6 +184,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.stock && (<div className={styles.errors}>{errors.stock}</div>)}
       <section>   
      <div>
           <label className={styles.labels}  htmlFor="categories">Add category </label>
@@ -236,6 +247,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+        {errors.brand && (<div className={styles.errors}>{errors.brand}</div>)}
 
         <label className={styles.labels}  htmlFor="ram">Memory Ram </label>
         <div>
@@ -248,7 +260,7 @@ const FormProducts = ({ products, setProducts }) => {
             required
             className={styles.input}
           />
-        </div>
+        </div> {errors.ram && (<div className={styles.errors}>{errors.ram}</div>)}
 
         <label className={styles.labels}  htmlFor="processor">Processor </label>
         <div>
@@ -261,7 +273,7 @@ const FormProducts = ({ products, setProducts }) => {
             required
             className={styles.input}
           />
-        </div>
+        </div> {errors.processor && (<div className={styles.errors}>{errors.processor}</div>)}
 
         <label className={styles.labels}  htmlFor="battery">Battery</label>
         <div>
@@ -275,6 +287,7 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.input}
           />
         </div>
+         {errors.battery && (<div className={styles.errors}>{errors.battery}</div>)}
 
         <label className={styles.labels}  htmlFor="description">Description</label>
         <div className={styles.description}>
@@ -287,6 +300,8 @@ const FormProducts = ({ products, setProducts }) => {
             className={styles.text_area}
           ></textarea>
         </div>
+        {errors.description && (<div className={styles.errors}>{errors.description}</div>)}
+
         <div className={styles.image}>{<img src={data.image} alt="imagen" />}</div>
         <button type="submit" className={styles.green_btn}>Add</button>
       </form>

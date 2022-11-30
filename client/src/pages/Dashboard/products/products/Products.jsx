@@ -63,9 +63,9 @@ const Products = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_products}>
-        <h1 className={styles.title}>ADMINISTRA TODOS LOS PRODUCTOS EN NUESTRA APP</h1>
+        <h1 className={styles.title}>MANAGE ALL THE PRODUCTS IN OUR APP.</h1>
         <button className={styles.btn_agregar} onClick={openModal1}>
-          Agregar
+          Add new product
         </button>
 
         <Modal isOpenModal={isOpenModal1} closeModal={closeModal1}>

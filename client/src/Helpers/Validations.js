@@ -112,3 +112,58 @@ export const validateLogin = (data) =>{
     
     return errors;
 }; 
+
+
+export const validateCreateProduct = (data) => {
+  let errors = {};
+  let RegExInputUsersressionUrl =
+    /^httInputUserss?:\/\/(?:www.)?[-a-zA-Z0-9@:%.+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%+.~#?&/=]*)$/;
+  let RegExInputUsersressionText = /^[a-zA-Z\s]*$/;
+  let RegExInputUsersressionNum = /^[0-9,$]*$/;
+  let RegExInputUsersressionEmail =
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  //*TITTLE
+  if (!RegExInputUsersressionText.test(data.title)) errors.title = "Numbers and special characters are not allowed";
+  if (RegExInputUsersressionNum.test(data.title))   errors.title = "Numbers are not allowed";
+  if (!data.title) errors.title = "Title name is required";
+  if (data.title.length < 1) errors.title = "The title must have more than one character";
+  if (data.title.length > 10) errors.title = "The title must have less than ten characters";
+  
+   //*PRICE
+   if (!RegExInputUsersressionNum.test(data.price)) errors.price = "Only numbers are allowed";
+   if (!data.price) errors.price = "price is required";
+  
+   //*rating
+   if (!RegExInputUsersressionNum.test(data.rating)) errors.rating = "Only numbers are allowed";
+   if (!data.rating) errors.rating = "rating is required";
+
+   //*stock
+   if (!RegExInputUsersressionNum.test(data.stock)) errors.stock = "Only numbers are allowed";
+   if (!data.stock) errors.stock = "Stock is required";
+
+    //*brand
+  if (!RegExInputUsersressionText.test(data.brand)) errors.brand = "Numbers and special characters are not allowed";
+  if (RegExInputUsersressionNum.test(data.brand))   errors.brand = "Numbers are not allowed";
+  if (!data.brand) errors.brand = "Brand is required";
+  if (data.brand.length < 1) errors.brand = "The brand must have more than one character";
+  if (data.brand.length > 15) errors.brand = "The brand must have less than 15 characters";
+  
+  //*ram 
+  if (!data.ram) errors.ram = "Ram is required";
+  if (data.ram.length > 8) errors.ram = "The Ram must have less than 8 characters";
+  
+  //*processor 
+  if (!data.processor) errors.processor = "Processor is required";
+  if (data.processor.length > 8) errors.processor = "The processor must have less than 8 characters";
+  
+  //*Battery 
+  if (!data.battery) errors.battery = "Battery is required";
+  if (data.battery.length > 15) errors.battery = "The battery  must have less than 15 characters";
+  
+  //*Battery 
+  if (!data.description) errors.description = "Description is required";
+  if (data.description.length >  200) errors.description = "The description  must have less than 200 characters";
+  
+  return errors;
+}
