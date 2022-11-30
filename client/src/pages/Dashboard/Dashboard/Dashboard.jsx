@@ -7,7 +7,7 @@ import Admin from "../AdminDash/AdminDash";
 import Products from "../products/products/Products";
 
 import Categories from "../categories/Categories";
-import Orders from "../orders/Orders";
+import Orders from "../orders/orders/orders.jsx";
 import styles from "../Dashboard/Dashboard.module.css"
 import Profile from "../profile/Profile";
 import logousers from "../../../assets/users.png"
