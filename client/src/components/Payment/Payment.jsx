@@ -5,24 +5,26 @@ import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
 import s from "./estiloPay.css";
 import { Validation } from '../../Helpers/Validations.js';
+import { useEffect } from 'react';
+import swal from 'sweetalert'; //npm i sweetalert 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 function Payment( props ){
+
   const dispatch = useDispatch();
 
-  const productsCarrito = useSelector((state) => state.shoping)
+  const productsCarrito = useSelector((state) => state.shoping);
+  // let sales;
+  // const sumSales = () => {
 
-  /*let totalPrice = totalPrice + props.price;
-  let totalSales = totalSales + 1;*/
+  // }
+  console.log(productsCarrito)
   const [error, setError] = useState({});
-  // const [savePrice, setSavePrice] = useState(0);
- /* const [acumularPrice, setAcumularPrice] = useState(totalPrice)*/
+  
   const [input, setInput] = useState({
-    lastName: '',
     firstName: '',
+    lastName: '',
     email: '',
-    price: '',
-    carrito: []
   });
 
   // let totalPrice = props.price
@@ -37,23 +39,26 @@ function Payment( props ){
       ],
     });
   };
-  const onApprove = (data, actions) => {
 
-    console.log(input)
-    
-    dispatch(postFormPay({input, data}));
-    /*localStorage.setItem("totalPrice",acumularPrice);
-    localStorage.setItem("totalSales",totalSales);*/
-    return actions.order.capture(alert("El pago ha si exioto"));
+  let prices = props.price;
+
+  const onApprove = (data, actions) => {
+    console.log(prices, productsCarrito)
+    dispatch(postFormPay({input, data, productsCarrito, prices}));
+    localStorage.setItem("total_price", props.price);
+    return actions.order.capture(swal({
+      title:"Payment",
+      text: "Tha Payment has been successfully",
+      icon: "success",
+      button: "Ok"
+    }));
   };
   
 
   const handleInput = (e) => {
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
-      carrito: productsCarrito,
-      price: props.price
+      [e.target.name]: e.target.value
     });
     setError(Validation({
       ...input,
@@ -95,10 +100,14 @@ function Payment( props ){
           </div>
         </div>
         <br />
-        <PayPalButton disabled={ Object.keys(error).length<1 ? false : true}
-        createOrder={(data, actions) => createOrder(data, actions)}
-        onApprove={(data, actions) => onApprove(data, actions)}
-      />
+        {
+          input.lastName && input.firstName && input.email ? 
+          <PayPalButton disabled={ Object.keys(error).length<1 ? false : true}
+          createOrder={(data, actions) => createOrder(data, actions)}
+          onApprove={(data, actions) => onApprove(data, actions)}
+          />
+          : <div></div>
+        }
       </form>
       
     </div>

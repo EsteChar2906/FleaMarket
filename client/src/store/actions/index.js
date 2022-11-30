@@ -67,7 +67,7 @@ export const getReview = () => {
 export const getUsers = () => {
   return async function(dispatch){
     try {
-      const json = await axios.get(`${host}/api/usersData`);
+      const json = await axios.get(`${host}/api/users`);
       return dispatch({type:"GET_USER", payload: json.data});
     } catch (e) {
       console.log(e)

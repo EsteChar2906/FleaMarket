@@ -21,7 +21,7 @@ const Widget = ({ type,value }) => {
       data={
         title: "EARNING",
         isMoney: true,
-        link: "total",
+        link: "last_pay",
         icon: (
           <FontAwesomeIcon icon={faMoneyBillTrendUp} style={{
             color: "goldenrod",
