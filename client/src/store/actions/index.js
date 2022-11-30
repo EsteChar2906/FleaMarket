@@ -34,7 +34,7 @@ export function getProducts(){
 export const postFormPay = (payload) => {
   return async function () {
     try {
-      const json = await axios.post(`${host}/api/payment`, payload);
+      const json = await axios.post(`${host}/api/orders`, payload);
       return json
     } catch (e) {
       console.log(e);

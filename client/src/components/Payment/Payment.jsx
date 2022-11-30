@@ -1,6 +1,6 @@
 import React from 'react'
 import  ReactDOM  from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postFormPay } from '../../store/actions/index.js';
 import { useState } from "react";
 import s from "./estiloPay.css";
@@ -13,16 +13,17 @@ function Payment( props ){
 
   const dispatch = useDispatch();
 
+  const productsCarrito = useSelector((state) => state.shoping);
   // let sales;
   // const sumSales = () => {
 
   // }
-  
+  console.log(productsCarrito)
   const [error, setError] = useState({});
   
   const [input, setInput] = useState({
-    lastName: '',
     firstName: '',
+    lastName: '',
     email: '',
   });
 
@@ -38,8 +39,12 @@ function Payment( props ){
       ],
     });
   };
+
+  let prices = props.price;
+
   const onApprove = (data, actions) => {
-    dispatch(postFormPay(input));
+    console.log(prices, productsCarrito)
+    dispatch(postFormPay({input, data, productsCarrito, prices}));
     localStorage.setItem("total_price", props.price);
     return actions.order.capture(swal({
       title:"Payment",
