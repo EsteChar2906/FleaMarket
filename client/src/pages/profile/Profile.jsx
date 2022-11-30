@@ -1,15 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import JSONPretty from "react-json-pretty";
+//import JSONPretty from "react-json-pretty";
 import { useContext } from "react";
 import AuthContext from "../../context/authProvider";
 import HeadPage from "../../components/HeadPage/HeadPage";
 import styles from './Profile.module.css'
 import person from "../../img/person.png"
-
+import Modal from "../../components/modal/Modal";
+import Form from "./Form";
 
 const Profile = () => {
+
+  const [ isOpen, setIsOpen ] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   const { user } = useAuth0();
   const { userStorage } = useContext(AuthContext);
 
@@ -42,6 +47,17 @@ const Profile = () => {
             {userStorage && <h1>Role: {userStorage.role}</h1>}
 
           </div>
+
+          <br />
+          {
+            userStorage &&
+            <div>
+              <button onClick={openModal}>Edit Profile</button>
+              <Modal isOpenModal={isOpen} closeModal={closeModal}>
+                <Form closeModal={closeModal}/>
+              </Modal>
+            </div>
+          }
           
         </div>
       
