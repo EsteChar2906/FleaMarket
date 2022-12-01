@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import fileUpload from "express-fileupload"; // modulo subir imagenes
 import { connectDB } from "./db.js";
 import routerProduct from "./src/routes/products.routes.js";
 import routerUsers from "./src/routes/users.routes.js";
@@ -25,6 +26,14 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+// midlleware me permite subir archivos
+app.use(
+  fileUpload({
+    tempFileDir: "./upload", // nombre de las carpeta donde se van a guardar las imagenes
+    useTempFiles: true, // cuando se suna ina imagen no la guardes en memoria sino en una carpeta
+  })
+);
 
 app.use("/api", routerAuth);
 app.use("/api", routerRoles);
