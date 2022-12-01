@@ -1,0 +1,8 @@
+.botton_edit{
+  border:none;
+  background:orange;
+  color:white;
+  cursor:pointer;
+  border-radius:3px;
+  font-weight: bold;
+}

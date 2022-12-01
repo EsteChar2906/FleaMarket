@@ -1,7 +1,6 @@
 import React from "react"
 import DataTable from "react-data-table-component"
-import { useDispatch } from "react-redux"
-import { putUser } from "../../../../store/actions"
+import s from "./tabla.module.css"
 
 
 const TableUser = ({handleClick,users,usersAdmin}) => {
@@ -56,7 +55,7 @@ const TableUser = ({handleClick,users,usersAdmin}) => {
     {
       name: "EDIT",
       grow: 0,
-      cell: (row) => <button className='button_edit' onClick={() => handleClick(row.id[0])}>Edit</button>
+      cell: (row) => <button className={s.botton_edit} onClick={() => handleClick(row.id)}>Edit</button>
     },
   ]
 
