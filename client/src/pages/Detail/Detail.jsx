@@ -133,14 +133,9 @@ export function Detail() {
             </div>
             <Reviews/>
           </div>  
-             
         </div>   
       </div>
-
-
-      <Reviews/>
-    </div>
-    <ToastContainer/>
+      <ToastContainer/>
     </div>
   );
 }
