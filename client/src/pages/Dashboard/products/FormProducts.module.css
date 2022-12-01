@@ -83,6 +83,7 @@
     border-color:#2e7bd381 ;
     border-radius: 5px;
 }
+ 
 .errors {
   font-size: var(--forms-errors-max-font-size);
   font-weight: bold;
