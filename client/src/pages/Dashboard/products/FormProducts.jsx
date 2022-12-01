@@ -67,6 +67,10 @@ const FormProducts = ({ products, setProducts }) => {
   // FORMULARIO: envia datos del form al back, actualiza y resetea estado y captura errores.
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!data.firstname) {
+      alert("Please fill in the registration details.")
+   }
+   else{
     try {
       const url = `${BACK_DOMINIO}/api/product`;
       await axios.post(url, data);
@@ -75,6 +79,7 @@ const FormProducts = ({ products, setProducts }) => {
     } catch (error) {
       setError(error.response.data.message);
     }
+  }
   };
 
   // FORMULARIO: las siguientes funciones registran los values de los selects
@@ -302,7 +307,7 @@ const FormProducts = ({ products, setProducts }) => {
         </div>
         {errors.description && (<div className={styles.errors}>{errors.description}</div>)}
 
-        <div className={styles.image}>{<img src={data.image} alt="imagen" />}</div>
+        <div className={styles.image_form}>{<img src={data.image} alt="imagen" width="250px" height="250px" />}</div>
         <button type="submit" className={styles.green_btn}>Add</button>
       </form>
     </>
