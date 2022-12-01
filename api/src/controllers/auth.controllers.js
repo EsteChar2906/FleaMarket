@@ -64,7 +64,7 @@ export const userRegister = async (req, res) => {
 export const userLogin = async (req, res) => {
   try {
     // se busca el user cuyo email coincida con el email q llega
-    const findUser = await Users.findOne({ email: req.body.email }).populate(
+    const findUser = await Users.findOne({ email: req.body.email, active: true }).populate(
       "roles"
     );
     // sino se encuentra el user arroja un error

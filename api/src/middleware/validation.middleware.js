@@ -11,7 +11,7 @@ export const verifyDuplicateUser = async (req, res, next) => {
         .status(400)
         .json({ message: "El nombre de usuario ya existe" });
 
-    const email = await Users.findOne({ email: req.body.email });
+    const email = await Users.findOne({ email: req.body.email, active: true });
     if (email) return res.status(400).json({ message: "El email ya existe" });
 
     next();

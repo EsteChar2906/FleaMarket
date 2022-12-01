@@ -2,7 +2,7 @@ import Users from '../models/users.js'
 
 export const getUsers = async (req, res) => {
     try {
-      const users = await Users.find().populate("roles");
+      const users = await Users.find({active: true}).populate("roles");
       return res.json(users);
     } catch (error) {
       return res.status(500).json({ message: error.message });
@@ -23,7 +23,7 @@ export const getUsers = async (req, res) => {
 export const getUserByid = async (req, res) => {
   try {
     const { id } = req.params;
-    const found = await Users.findById(id)
+    const found = await Users.findById(id).populate("roles")
   
     if (found) {
       return res.json(found);

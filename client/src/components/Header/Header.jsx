@@ -9,9 +9,12 @@ import car from '../../assets/carrito3.png'
 import { useAuth0 } from '@auth0/auth0-react'
 import LinkAuth0 from './auth0/LinkAuth0.jsx'
 import LinkJwt from './jwt/LinkJwt.jsx'
+import React, { useContext } from "react"
+import AuthContext from "../../context/authProvider.jsx"
 
 const Header = () => {
   const { user } = useAuth0()
+  const { userStorage } = useContext(AuthContext);
 
   return (
     <header className={styles.container}>
@@ -41,6 +44,11 @@ const Header = () => {
 
         <div className={styles.container_register_login}>
           {user ? <LinkAuth0 /> : <LinkJwt />}
+        </div>
+
+        <div>{
+          userStorage && userStorage.role === "admin" && <Link to="/dashboard">Dashboard</Link>
+        }
         </div>
 
       </section>
