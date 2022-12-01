@@ -19,6 +19,7 @@ import categories from "../../../assets/categories.png"
 import order from "../../../assets/order.png"
 import estadisticas from "../../../assets/estadisticas.png"
 import fm from "../../../assets/fm.png"
+
 const Dashboard = () => {
   return (
     <div className={styles.container} >
@@ -74,8 +75,6 @@ const Dashboard = () => {
             <Link to="/upDateProfile" style={{ textDecoration: "none" }}><label  className={styles.aside_labels}>Profile</label></Link>
           </div> 
         </aside>
-
-         
 
         <section className={styles.section}>
           <Route exact path="/admin" component={Admin}/>

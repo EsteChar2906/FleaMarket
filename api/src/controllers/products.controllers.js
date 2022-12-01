@@ -1,8 +1,75 @@
 import Products from "../models/products.js";
 import Category from "../models/category.js";
 import Users from "../models/users.js";
-import { uploadImage, deleteImage } from "../cloudinary/cloudinary.js";
-import fs from "fs-extra";
+// import { uploadImage, deleteImage } from "../cloudinary/cloudinary.js";
+// import fs from "fs-extra";
+
+
+// export const createProduct = async (req, res) => {
+//   try {
+//     const {
+//       title,
+//       price,
+//       description,
+//       image,
+//       rating,
+//       stock,
+//       condition,
+//       user,
+//       category,
+//       brand,
+//       ram,
+//       processor,
+//       battery,
+//       bluetooth,
+//     } = req.body;
+
+//     const newProduct = new Products({
+//       title,
+//       price,
+//       description,
+//       image,
+//       rating,
+//       stock,
+//       condition,
+//       user,
+//       category,
+//       brand,
+//       ram,
+//       processor,
+//       battery,
+//       bluetooth,
+//     });
+//     // si llega una url guardala en cloudinary
+   
+//     if (req.files?.image) {
+//       const result = await uploadImage(req.files.image.tempFilePath);
+   
+//       newProduct.image = {
+//         public_id: result.public_id,
+//         secure_url: result.secure_url,
+//       };
+//     }
+
+//     //si ya se guardo eliminala del direcotrio local
+//     await fs.unlink(req.files.image.tempFilePath);
+
+//     if (category) {
+//       const findCategory = await Category.find({ name: { $in: category } });
+//       newProduct.category = findCategory.map((c) => c._id);
+//     }
+
+//     if (user) {
+//       const findUser = await Users.find({ email: { $in: user } });
+//       newProduct.user = findUser.map((p) => p._id);
+//     }
+//     const saveProduct = await newProduct.save();
+
+//     return res.json(saveProduct);
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
 
 
 export const createProduct = async (req, res) => {
@@ -40,19 +107,6 @@ export const createProduct = async (req, res) => {
       battery,
       bluetooth,
     });
-    // si llega una url guardala en cloudinary
-   
-    if (req.files?.image) {
-      const result = await uploadImage(req.files.image.tempFilePath);
-   
-      newProduct.image = {
-        public_id: result.public_id,
-        secure_url: result.secure_url,
-      };
-    }
-
-    //si ya se guardo eliminala del direcotrio local
-    await fs.unlink(req.files.image.tempFilePath);
 
     if (category) {
       const findCategory = await Category.find({ name: { $in: category } });
@@ -64,12 +118,12 @@ export const createProduct = async (req, res) => {
       newProduct.user = findUser.map((p) => p._id);
     }
     const saveProduct = await newProduct.save();
-
     return res.json(saveProduct);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
+
 
 export const getProductsDashboard = async (req, res) => {
   try {
@@ -194,19 +248,29 @@ export const updateProduct = async (req, res) => {
   }
 };
 
+// export const deleteProduct = async (req, res) => {
+//   try {
+    
+//     const eliminateProduct = await Products.findByIdAndDelete(req.params.id);
+//     // sino existe manda un msj
+//     if (!eliminateProduct) {
+//       return res.status(404).json({ message: "producto no existe" });
+//     }
+//     // si existe elimina el id q tiene la imagen del producto en cloudinary
+//     await deleteImage(eliminateProduct.image.public_id);
+
+//     return res.json('producto eliminado')
+   
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
 export const deleteProduct = async (req, res) => {
   try {
-    
-    const eliminateProduct = await Products.findByIdAndDelete(req.params.id);
-    // sino existe manda un msj
-    if (!eliminateProduct) {
-      return res.status(404).json({ message: "producto no existe" });
-    }
-    // si existe elimina el id q tiene la imagen del producto en cloudinary
-    await deleteImage(eliminateProduct.image.public_id);
-
-    return res.json('producto eliminado')
-   
+    let { id } = req.params;
+    await Products.deleteOne({ _id: id });
+    res.status(200).send("Producto removido!");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

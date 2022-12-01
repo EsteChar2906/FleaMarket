@@ -53,12 +53,14 @@ const Products = () => {
     alert("Update?");
     try {
       const res = await axios.put(`${BACK_DOMINIO}/api/product/${id}`, product);
-      console.log(res.data);
-      setProducts(products.map((p) => (p._id === id ? res.data : p)));
+      const newUpdateProducts = products.map((p) => (p._id === id ? res.data : p))
+      setProducts(newUpdateProducts);
+  
     } catch (error) {
-      console.log(error.message);
+      return { error: error.message };
     }
   };
+
 
   return (
     <div className={styles.container}>

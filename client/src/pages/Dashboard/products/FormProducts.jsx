@@ -6,7 +6,7 @@ import styles from "./FormProducts.module.css"
 import { validateCreateProduct } from "../../../Helpers/Validations.js";
 
 const initialForm = {
-  id: null,
+  id: "",
   title: "",
   price: "",
   description: "",
@@ -67,18 +67,16 @@ const FormProducts = ({ products, setProducts }) => {
   // FORMULARIO: envia datos del form al back, actualiza y resetea estado y captura errores.
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!data.firstname) {
-      alert("Please fill in the registration details.")
-   }
-   else{
+
     try {
       const url = `${BACK_DOMINIO}/api/product`;
-      await axios.post(url, data);
-      setProducts(products.concat(data));
+      const res = await axios.post(url, data);
+      console.log(res.data)
+      setProducts(products.concat(res.data));
       setData(initialForm);
     } catch (error) {
       setError(error.response.data.message);
-    }
+
   }
   };
 

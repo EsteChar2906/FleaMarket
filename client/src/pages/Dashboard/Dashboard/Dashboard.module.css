@@ -1,5 +1,9 @@
 @import '../../../index.css';
 
+.info{
+  margin:30px 
+}
+
 .container {
   width: 100vw;
   height: 100vh;
