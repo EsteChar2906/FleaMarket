@@ -30,7 +30,6 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
   const handleChange = ({ currentTarget: input }) => {
     setDataEdit({ ...dataEdit, [input.name]: input.value });
     setErrors(validateUpdateProduct({ ...dataEdit, [input.name]: input.value }));
-    console.log(dataEdit);
   };
 
   const handleSubmit = async (e) => {
@@ -40,7 +39,6 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
    setErrors(validateUpdateProduct(dataEdit));
   };
 
-  //mapear productedit
 
   useEffect(() => {
     if (productEdit) {
