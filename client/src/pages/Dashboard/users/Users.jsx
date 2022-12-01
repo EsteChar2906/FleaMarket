@@ -5,175 +5,75 @@ import DataTable from 'react-data-table-component';
 //instalar: npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { getUsers } from '../../../store/actions/index.js'; 
+import { getUsers, putUser } from '../../../store/actions/index.js'; 
 import './styleUser.css';
+import TableUser from './table/TableUser.jsx';
+import swal from 'sweetalert';
 
-const columnas = [
-  {
-    name: "Id",
-    selector: "id",
-    sortable: true
-  },
-  {
-    name: "First Name",
-    selector: "firstName",
-    sortable: true,
-    //grow: 3 //incrementar el tamaño 
-  },
-  {
-    name: "LastName",
-    selector: "lastName",
-    sortable: true
-  },
-  {
-    name: "User Name",
-    selector: "userName",
-    sortable: true
-  },
-  {
-    name: "Email",
-    selector:"email",
-    sortable: true,
-    grow: 3
-  },
-  {
-    name: "Country",
-    selector: "country",
-    sortable: true,
-    //right: true // colocar en la derecha
-  },
-  {
-    name: "Telephone",
-    selector: "telephone",
-    sortable: true
-  },
-]
+
 
 
 const Users = () => {
   
   
   const allUsers = useSelector(state => state.users);
-  
-  // const [input, setInput] = useState('');
-  const [user, setUser] = useState([]);
   const dispatch = useDispatch()
   
   
   useEffect(() => {
-    const dispGetUser = async () => {
-      const users = await dispatch(getUsers())
-      let index = 0;
-      setUser(users.payload.map(e => {
-        index++
-        return {
-          id: index,
-          firstName: e.firstname,
-          lastName: e.lastname,
-          userName: e.username,
-          email: e.email,
-          country: e.country,
-          telephone: e.telephone
-        }
-      }));
-    }
-    dispGetUser()
-    
+    dispatch(getUsers());
   },[dispatch])
   
-  const usersState = user;
   
   let index = 0;
   const usersData = allUsers.map(e => {
     index++
     return {
-      id: index,
+      id: e._id,
       firstName: e.firstname,
       lastName: e.lastname,
       userName: e.username,
       email: e.email,
       country: e.country,
       telephone: e.telephone,
-      // role: e.role
+      role: e.roles.map(e => e.name),
     }
   });
+
+  const filterCustomer = usersData.filter(e => e.role[0] === "user");
+  // console.log(usersData);
+  const filterAdmin = usersData.filter(e => e.role[0] === "admin");
+  // console.log(filterAdmin);
+
+  const handleClick = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once changed, you will not be able to change it!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        const role = ["6377ae6f7f823984ff5f5f61"]
+        dispatch(putUser(id, role));
+        swal("Poof! The role has been edited!", {
+          icon: "success",
+        });
+      } else {
+        swal("no se que poner!");
+      }
+    });
+  }
   
-
-  // const filterName = () => {
-  //   let search = usersData.filter(e => {
-  //     if(e.firstName.includes(input)){
-  //       return e ;
-  //     }
-  //   });
-  //   if(!input){
-  //     dispatch(getUsers())
-  //   }else{
-  //     setUser(search);
-  //   }
-  // };
-
-  // const handleChange = (e) => {
-  //   setInput(e.target.value)
-  // };
-  // const handleClick = () => {
-  //   // if(!input){
-  //   //   // setUser(usersData)
-  //   // }else{
-  //   //   var search = usersData.filter(e => {
-  //   //     if(e.firstName.includes(input)){
-  //   //       setUser(e)
-  //   //     }
-  //   //   });
-      
-  //   // }
-  //   if(!input){
-  //     setUser(usersData)
-  //   }else{
-  //     var search = usersData.filter(e => {
-  //       if(e.firstName.includes(input)){
-  //         setUser(e);
-  //       }
-  //     })
-  //     return search
-  //   }
-  // }
-
-  // const filterData = () => {
-  //   if(!input) {
-  //     setUser(usersData);
-  //   }else{
-  //     var search = usersData.filter(e => {
-  //       if(e.firstName.includes(input)){
-  //         setUser(e)
-  //       }
-  //     })
-      
-  //   }
-  // }
 
   
   return (
     <div className='container_box'>
-      {/* <div className='barraSearch'>
-      <input 
-        type="text"
-        placeholder='Search'
-        className='textField'
-        value={input}
-        onChange={handleChange}
-      />
-      <button className='btnSearch' >
-        {' '}
-        <FontAwesomeIcon icon={faSearch} />
-      </button>
-      </div> */}
-      <DataTable
-        columns={columnas}
-        data={user}  
-        title={"Custromers"}
-        pagination
-        fixedHeader
-        fixedHeaderScrollHeight='600px'
+      <TableUser
+        users={filterCustomer}
+        handleClick={handleClick}
+        usersAdmin={filterAdmin}
       />
     </div>
   )
