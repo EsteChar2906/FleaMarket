@@ -20,7 +20,7 @@ router.get("/users",  getUsers);
 router.put("/user/:id", verifyToken, updateUser);
 
 
-router.put("/user/:id", /* verifyToken, */ updateUser);
+router.put("/users/:id", /* verifyToken, */ updateUser);
 
 
 // route que me trae un usuario por iD 

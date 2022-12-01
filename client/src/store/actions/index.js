@@ -78,7 +78,7 @@ export const getUsers = () => {
 export const putUser = (id,payload) => {
   return async function(){
     try {
-      const json = await axios.put(`${host}/api/user/${id}`,payload);
+      const json = await axios.put(`${host}/api/users/${id}`,payload);
       return json
     } catch (e) {
       console.log(e);
