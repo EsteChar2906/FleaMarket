@@ -56,7 +56,7 @@ const Users = () => {
     .then((willDelete) => {
       if (willDelete) {
         console.log(id)
-        const role = ["6377ae6f7f823984ff5f5f61"]
+        const role = {roles:"6377ae6f7f823984ff5f5f61"}
         dispatch(putUser(id, role));
         swal("Poof! The role has been edited!", {
           icon: "success",

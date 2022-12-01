@@ -5,6 +5,7 @@ import userReducer from "./usersReducer";
 import productsReducer from "./productsReducer";
 import {combineReducers} from 'redux';
 import ordersReducer from "./ordersReducer";
+import priceReducer from "./priceReducer";
 
 const allReducers = combineReducers({
   product: productReducer,
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
   reviews: reviewReducer,
   users: userReducer,
   orders: ordersReducer,
+  prices: priceReducer,
 });
 
 export default allReducers;
