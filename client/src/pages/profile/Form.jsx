@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import AuthContext from "../../context/authProvider";
+import { BACK_DOMINIO, FRONT_DOMINIO } from "../../config.js"
 
 
 const Form = ({closeModal}) => {
@@ -14,7 +15,7 @@ const Form = ({closeModal}) => {
     const [changes, setChanges] = useState({});
     console.log("cambios", changes)
     const getUser = () => {
-        axios.get(`http://localhost:3001/api/user/${id}`)
+        axios.get(`${BACK_DOMINIO}/api/user/${id}`)
             .then((data) => { setUser(data.data) })
             .catch((err) => { console.log(err) })
     }
@@ -33,11 +34,11 @@ const Form = ({closeModal}) => {
         try {
             let resp = window.confirm("Updated profile, to see the changes you must log in again")
             if (resp === true) {
-                const resp = await axios.put(`http://localhost:3001/api/user/${id}`, changes);
+                const resp = await axios.put(`${BACK_DOMINIO}/api/user/${id}`, changes);
                 console.log("respuesta", resp.data)
                 handleLogout()
                 closeModal()
-                window.location.href = "http://localhost:3000/login"
+                window.location.href = `${FRONT_DOMINIO}/login`
             }
         } catch (error) {
             console.log(error)
