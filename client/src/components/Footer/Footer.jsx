@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Footer.module.css'
-
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <footer className={styles.footer_contenedor}>
@@ -8,34 +8,31 @@ const Footer = () => {
         <section className={styles.container_sections}>
           <section className={styles.sub_sections}>
             <div>
-              <h5>Paga con targeta o efectivo</h5>
+              <h5>Payment</h5>
               <p>
-                Con Flea Market pago, contamos con exelentes metodos de pago
-                virtuales. !Siempre Seguro!
+              With Flea Market payment, we have excellent virtual payment methods. !Always safe!
               </p>
             </div>
           </section>
 
           <section className={styles.sub_sections}>
             <div>
-              <h5>Seguridad de principio a fin </h5>
+              <h5>End-to-end security</h5>
               <p>
-                En FleaMarket, no hay nada que no puedas hacer, porque estás
-                siempre protegido.
+              At FleaMarket, there is nothing you cannot do, because you are always protected.
               </p>
             </div>
           </section>
           <section className={styles.sub_sections}>
             <div>
-              <h5>Terminos y condiciones </h5>
+              <h5>Terms and Conditions </h5>
               <p> Flea Market</p>
             </div>
           </section>
           <section className={styles.sub_sections}>
             <div>
-              <h5> Mi cuenta</h5>
-              <p>Vender</p>
-              <p>Ingresar</p>
+              <h5> My Account</h5>             
+              <Link to="/login" style={{ textDecoration: "none" }} className={styles.ingresar}>Login</Link> 
             </div>
           </section>
           

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./FormEditProduct.module.css"
-
+import { validateUpdateProduct } from "../../../Helpers/Validations";
 const initialForm = {
   id: null,
   title: "",
@@ -23,15 +23,21 @@ const initialForm = {
 const FormEditProduct = ({ productEdit,updateProduct }) => {
 
   const [dataEdit, setDataEdit] = useState(initialForm);
-  
+
+    //errores validations
+  const [errors, setErrors] = useState({});
+
   const handleChange = ({ currentTarget: input }) => {
     setDataEdit({ ...dataEdit, [input.name]: input.value });
+    setErrors(validateUpdateProduct({ ...dataEdit, [input.name]: input.value }));
+    console.log(dataEdit);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
    updateProduct(dataEdit._id,dataEdit)
    setDataEdit(initialForm)
+   setErrors(validateUpdateProduct(dataEdit));
   };
 
   //mapear productedit
@@ -62,6 +68,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
              className={styles.input}
           />
         </div>
+        {errors.title && (<div className={styles.errors}>{errors.title}</div>)}
 
         <label className={styles.labels} htmlFor="price">Price</label>
         <div>
@@ -75,6 +82,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.price && (<div className={styles.errors}>{errors.price}</div>)}
 
         <label className={styles.labels} htmlFor="image">Add image url </label>
         <div>
@@ -88,6 +96,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.image && (<div className={styles.errors}>{errors.image}</div>)}
 
         <label className={styles.labels} htmlFor="rating">Rating</label>
         <div>
@@ -101,6 +110,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.rating && (<div className={styles.errors}>{errors.rating}</div>)}
 
         <label className={styles.labels} htmlFor="stock">Stock</label>
         <div>
@@ -114,6 +124,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.stock && (<div className={styles.errors}>{errors.stock}</div>)}
 
         {/* <div>
           <label htmlFor="category">Categoria:</label>
@@ -153,6 +164,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.condition && (<div className={styles.errors}>{errors.condition}</div>)}
 
         <label className={styles.labels} htmlFor="bluetooth">Bluetooth</label>
         <div>
@@ -166,6 +178,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.bluetooth && (<div className={styles.errors}>{errors.bluetooth}</div>)}
 
         <label className={styles.labels} htmlFor="marca">Brand</label>
         <div>
@@ -179,6 +192,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.brand && (<div className={styles.errors}>{errors.brand}</div>)}
 
         <label className={styles.labels} htmlFor="ram">Memory Ram</label>
         <div>
@@ -192,6 +206,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+     {/*    {errors.ram && (<div className={styles.errors}>{errors.ram}</div>)} */}
 
         <label className={styles.labels} htmlFor="processor">Processor</label>
         <div>
@@ -205,6 +220,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+      {/*   {errors.processor && (<div className={styles.errors}>{errors.processor}</div>)} */}
 
         <label className={styles.labels} htmlFor="battery">Battery</label>
         <div>
@@ -218,6 +234,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.input}
           />
         </div>
+        {errors.battery && (<div className={styles.errors}>{errors.battery}</div>)}
 
         <label className={styles.labels} htmlFor="description">Description</label>
         <div>
@@ -230,6 +247,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
             className={styles.text_area}
           ></textarea>
         </div>
+        {errors.description && (<div className={styles.errors}>{errors.description}</div>)}
 
         <div>{<img src={dataEdit.image} width='150px' height='150' alt="imagen" />}</div>
         <button className={styles.green_btn} type="submit">Update</button>

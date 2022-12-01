@@ -13,3 +13,7 @@ export const EMAIL =  process.env.EMAIL || 'fleamarket.appservices@gmail.com'
 export const PASS = process.env.PASS || 'lszexysgdylynalk'
 
 export const FRONT_DOMINIO = process.env.FRONT_DOMINIO || "http://localhost:3000"
+
+export const  CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || '538156482951348'
+export const  CLOUDINARY_SECRET = process.env.CLOUDINARY_SECRET || 'mNt54epCDXlRfZUhsEInzboN5O8'
+export const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'dcowegmcn'

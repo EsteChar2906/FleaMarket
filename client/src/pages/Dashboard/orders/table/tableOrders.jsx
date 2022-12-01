@@ -15,9 +15,8 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 		sortable: true
 	},
 	{
-		name: "USER",
-		selector: (row) => row.user.name,
-		sortable: true
+		name: "E-MAIL",
+		selector: (row) => row.user.email
 	},
 	{
 		name: "PRODUCTS",
@@ -63,8 +62,7 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 		  title="List of Orders in FleaMarket"
 		  pagination
 		  fixedHeader
-		  fixedHeaderScrollHeight="400px"
-		  highlightOnHover
+		  fixedHeaderScrollHeight="600px"
 		/>
 		</>
 		);

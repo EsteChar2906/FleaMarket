@@ -6,7 +6,7 @@ import Admin from "../AdminDash/AdminDash";
 
 import Products from "../products/products/Products";
 
-import Categories from "../categories/Categories";
+import Categories from "../categories/categories/categories.jsx";
 import Orders from "../orders/orders/orders.jsx";
 import styles from "../Dashboard/Dashboard.module.css"
 import Profile from "../profile/Profile";
@@ -17,6 +17,7 @@ import email from "../../../assets/email.png"
 import products from "../../../assets/products.png"
 import categories from "../../../assets/categories.png"
 import order from "../../../assets/order.png"
+import estadisticas from "../../../assets/estadisticas.png"
 import fm from "../../../assets/fm.png"
 const Dashboard = () => {
   return (
@@ -49,9 +50,8 @@ const Dashboard = () => {
         <aside className={styles.aside}>
 
           <div className={styles.asides_div}>
-              <Link to='/admin' style={{ textDecoration: "none" }}>
-                <h1>Dashboard</h1>
-              </Link>
+          <Link to="/admin" style={{ textDecoration: "none" }}><img className={styles.logo_users} src={estadisticas}/></Link>
+              <Link to="/admin" style={{ textDecoration: "none" }}><label  className={styles.aside_labels}>Dashboard</label></Link>
           </div> 
            <div className={styles.asides_div}>
             <Link to="/users" style={{ textDecoration: "none" }}><img className={styles.logo_users} src={logousers}/></Link>

@@ -16,11 +16,15 @@ const router = express();
 router.get("/users",  getUsers);
 
 // route que me actualiza los datos de usuarios
+
 router.put("/user/:id", verifyToken, updateUser);
-router.put("/userdos/:id", updateUser);
+
+
+router.put("/user/:id", /* verifyToken, */ updateUser);
+
 
 // route que me trae un usuario por iD 
-router.get("/user/:id", verifyToken, getUserByid);
+router.get("/user/:id", /* verifyToken, */ getUserByid);
 
 //ruta que elimina un usuario
 router.delete("/users/:id", [verifyToken, verifyAdminRole], deleteUser);

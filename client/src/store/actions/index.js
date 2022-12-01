@@ -94,13 +94,3 @@ export function shopingCar(opt, data) {
     })
   }
 };
-
-export function getOrders(){
-  return async function(dispatch){
-    const response = await axios.get(`${BACK_DOMINIO}/api/orders`);
-    dispatch({
-      type: "GET_ORDERS",
-      payload: response.data
-    })
-  }
-}
