@@ -18,7 +18,8 @@ const productschema = new mongoose.Schema(
       maxlength: 500,
     },
     image: {
-      type: String,
+     public_id: String,
+     secure_url: String
     },
     rating: {
       type: Number,
