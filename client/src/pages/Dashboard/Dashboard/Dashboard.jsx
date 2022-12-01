@@ -50,8 +50,8 @@ const Dashboard = () => {
         <aside className={styles.aside}>
 
           <div className={styles.asides_div}>
-          <Link to="/admin" style={{ textDecoration: "none" }}><img className={styles.logo_users} src={estadisticas}/></Link>
-              <Link to="/admin" style={{ textDecoration: "none" }}><label  className={styles.aside_labels}>Dashboard</label></Link>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}><img className={styles.logo_users} src={estadisticas}/></Link>
+              <Link to="/dashboard" style={{ textDecoration: "none" }}><label  className={styles.aside_labels}>Dashboard</label></Link>
           </div> 
            <div className={styles.asides_div}>
             <Link to="/users" style={{ textDecoration: "none" }}><img className={styles.logo_users} src={logousers}/></Link>
@@ -78,7 +78,7 @@ const Dashboard = () => {
          
 
         <section className={styles.section}>
-          <Route exact path="/admin" component={Admin}/>
+          <Route exact path="/dashboard" component={Admin}/>
           <Route exact path="/users" component={Users} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/orders" component={Orders} />

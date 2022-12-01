@@ -7,7 +7,7 @@ import { faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import { faTags } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTrendUp } from "@fortawesome/free-solid-svg-icons";
 // import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import './wid.css';
+import s from './wid.module.css';
 
 const Widget = ({ type,value }) => {
 
@@ -87,14 +87,14 @@ const Widget = ({ type,value }) => {
 
 
   return (
-    <div className="widget">
-      <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">{data.isMoney && "$"}{data.val}</span>
-        <span className="link">{data.link}</span>
+    <div className={s.widget}>
+      <div className={s.left}>
+        <span className={s.title}>{data.title}</span>
+        <span className={s.counter}>{data.isMoney && "$"}{data.val}</span>
+        <span className={s.link}>{data.link}</span>
       </div>
-      <div className="right">
-        <div className="percentage positive"> 
+      <div className={s.right}>
+        <div className={s.percentage }> 
         <FontAwesomeIcon icon={faChevronUp} />
           {diff}%
         </div>

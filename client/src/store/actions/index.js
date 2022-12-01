@@ -95,6 +95,17 @@ export const getOrders = () => {
       console.log(e);
     }
   }
+};
+
+export const getAllPrice = () => {
+  return async function(dispatch){
+    try {
+      const json = await axios.get(`${host}/api/orders`);
+      return dispatch({type:"GET_PRICE",payload: json.data});
+    } catch (e) {
+      console.log(e)
+    }
+  }
 }
 
 export function shopingCar(opt, data) {
