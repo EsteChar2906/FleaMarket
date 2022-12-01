@@ -78,8 +78,19 @@ export const getUsers = () => {
 export const putUser = (id,payload) => {
   return async function(){
     try {
-      const json = await axios.put(`${host}/api/userdos/${id}`,payload);
+      const json = await axios.put(`${host}/api/user/${id}`,payload);
       return json
+    } catch (e) {
+      console.log(e);
+    }
+  }
+};
+
+export const getOrders = () => {
+  return async function(dispatch){
+    try {
+      const json = await axios.get(`${host}/api/orders`);
+      return dispatch({type:"GET_ORDERS",payload: json.data});
     } catch (e) {
       console.log(e);
     }
