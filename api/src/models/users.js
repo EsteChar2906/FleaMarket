@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema(
     telephone: {
       type: Number,
     },
+    active:{
+      type: Boolean,
+      default: true
+    },
     roles: [
       {
         type: mongoose.Schema.Types.ObjectId,

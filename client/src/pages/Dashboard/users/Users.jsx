@@ -55,14 +55,34 @@ const Users = () => {
     })
     .then((willDelete) => {
       if (willDelete) {
-        console.log(id)
-        const role = {roles:"6377ae6f7f823984ff5f5f61"}
+        const role = {roles:["6377ae6f7f823984ff5f5f61"]}
         dispatch(putUser(id, role));
         swal("Poof! The role has been edited!", {
           icon: "success",
         });
       } else {
-        swal("no se que poner!");
+        swal("ERROR!");
+      }
+    });
+  }
+
+  const deleteUser = (id) => {
+      swal({
+      title: "Are you sure?",
+      text: "Delete User?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        const active = {active: false}
+        dispatch(putUser(id, active));
+        swal("Poof! Delete!", {
+          icon: "success",
+        });
+      } else {
+        swal("ERROR!");
       }
     });
   }
@@ -75,6 +95,7 @@ const Users = () => {
         users={filterCustomer}
         handleClick={handleClick}
         usersAdmin={filterAdmin}
+        deleteUser={deleteUser}
       />
     </div>
   )

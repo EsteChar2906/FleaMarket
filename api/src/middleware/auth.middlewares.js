@@ -12,7 +12,7 @@ export const verifyToken = async (req, res, next) => {
     const decoded = jwt.verify(token, SECRET);
     req.userId = decoded.id; // si hay token, de el extraigo el id del usuario
 
-    const user = await Users.findById(req.userId, { password: 0 });
+    const user = await Users.findById(req.userId, { password: 0, active: true });
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" }); // si no hay user...
 
     next(); // si hay...

@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component"
 import s from "./tabla.module.css"
 
 
-const TableUser = ({handleClick,users,usersAdmin}) => {
+const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
 
   const columnas = [
     // {
@@ -57,6 +57,11 @@ const TableUser = ({handleClick,users,usersAdmin}) => {
       grow: 0,
       cell: (row) => <button className={s.botton_edit} onClick={() => handleClick(row.id)}>Edit</button>
     },
+    {
+      name: "DELETE",
+      grow: 0,
+      cell: (row) => <button onClick={() => deleteUser(row.id) }>Delete</button>
+    }
   ]
 
   const tableAdmins = [
