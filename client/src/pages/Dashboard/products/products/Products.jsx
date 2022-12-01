@@ -7,6 +7,7 @@ import FormProducts from "../FormProducts";
 import FormEditProduct from "../FormEditProduct";
 import Modal from "../../../../components/modal/Modal";
 import { useModal } from "../../../../Hooks/useModal";
+import swal from 'sweetalert';
 
 const Products = () => {
   //guarda todos los productos
@@ -38,11 +39,30 @@ const Products = () => {
   // elimina un producto por id
   const deleteProduct = async (id) => {
     try {
-      alert("estas seguro de eliminar este producto?");
-      const url = `${BACK_DOMINIO}/api/product/${id}`;
-      await axios.delete(url);
-      const newListProducts = products.filter((item) => item._id !== id);
-      setProducts(newListProducts);
+      // alert("estas seguro de eliminar este producto?");
+      swal({
+        title: "Are you sure?",
+        text: "Once changed, you will not be able to change it!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          const url = `${BACK_DOMINIO}/api/product/${id}`;
+          const defeteFunct = async () => {
+            await axios.delete(url);
+          }
+          defeteFunct()
+          const newListProducts = products.filter((item) => item._id !== id);
+          setProducts(newListProducts);
+          swal("Poof! The product has been removed!", {
+            icon: "success",
+          });
+        } else {
+          swal("The product was not removed!");
+        }
+      });
     } catch (error) {
       return { error: error.message };
     }
