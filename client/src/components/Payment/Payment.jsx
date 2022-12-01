@@ -14,10 +14,7 @@ function Payment( props ){
   const dispatch = useDispatch();
 
   const productsCarrito = useSelector((state) => state.shoping);
-  // let sales;
-  // const sumSales = () => {
-
-  // }
+  
   console.log(productsCarrito)
   const [error, setError] = useState({});
   
@@ -26,6 +23,8 @@ function Payment( props ){
     lastName: '',
     email: '',
   });
+  const [arrPrice,setArrPrice] = useState(0)
+  
 
   // let totalPrice = props.price
   const createOrder = (data, actions) => {
@@ -45,6 +44,7 @@ function Payment( props ){
   const onApprove = (data, actions) => {
     console.log(prices, productsCarrito)
     dispatch(postFormPay({input, data, productsCarrito, prices}));
+    // setArrPrice(props.price);
     localStorage.setItem("total_price", props.price);
     return actions.order.capture(swal({
       title:"Payment",
@@ -106,7 +106,7 @@ function Payment( props ){
           createOrder={(data, actions) => createOrder(data, actions)}
           onApprove={(data, actions) => onApprove(data, actions)}
           />
-          : <div></div>
+          : <p>Complete the form</p>
         }
       </form>
       

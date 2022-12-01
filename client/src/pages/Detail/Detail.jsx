@@ -8,6 +8,7 @@ import {
 import styles from "./Detail.module.css";
 import HeadPage from "../../components/HeadPage/HeadPage";
 import Reviews from '../../components/Reviews/Reviews';
+import { ToastContainer, toast } from 'react-toastify';
 
 export function Detail() {
   let { id } = useParams();
@@ -21,7 +22,17 @@ export function Detail() {
   }, []);
 
   function addToCar() {
-    alert("product in car shopping")
+    // alert("product in car shopping")
+    toast.success('Added to car!', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     dispatch(shopingCar("ADD", p));
   }
 
@@ -143,6 +154,7 @@ export function Detail() {
 
       <Reviews/>
     </div>
+    <ToastContainer/>
     </div>
   );
 }

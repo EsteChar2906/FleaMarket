@@ -73,6 +73,17 @@ export const getUsers = () => {
       console.log(e)
     }
   }
+};
+
+export const putUser = (id,payload) => {
+  return async function(){
+    try {
+      const json = await axios.put(`${host}/api/userdos/${id}`,payload);
+      return json
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 
 export function shopingCar(opt, data) {

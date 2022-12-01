@@ -47,20 +47,32 @@ const options = {
   },
 };
 
+const arrScore = [];
 export default function Admin(){
 
   const dispatch = useDispatch();
   const products = useSelector(state => state.products); //tener la cantidad de productis 
   const users = useSelector(state => state.users);
   
-  
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getUsers())
+    // arrScore.push(arrPrice)
   },[dispatch])
 
-  const totalPrice = localStorage.getItem("total_price");
-  console.log()
+
+  const arrPrice = localStorage.getItem("total_price");
+  console.log(arrScore);
+  
+  // console.log(arrPrice);
+  // const sumaPrice = () => {
+  //   let priceTotal;
+  //   for(let i = 0 ; i < arrPrice.length; i++){
+  //     priceTotal = priceTotal + arrPrice[i];
+  //   };
+  //   return priceTotal;
+  // }
+  
   
   const allUsers = users.length; //para tener la cantidad de usuarios 
   
@@ -84,7 +96,7 @@ export default function Admin(){
   return(
     <div className="container_admin">
       <div className="widget_box">
-        <Widget type="earning" value={totalPrice}/>
+        <Widget type="earning" value={arrPrice}/>
         <Widget type="users" value={allUsers}/>
         <Widget type="products" value={products.limit} />
         <Widget type="sales" value={10}/>
