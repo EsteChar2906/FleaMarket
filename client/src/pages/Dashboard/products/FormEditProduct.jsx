@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./FormEditProduct.module.css"
 import { validateUpdateProduct } from "../../../Helpers/Validations";
+import swal from 'sweetalert';
 const initialForm = {
   id: null,
   title: "",
@@ -34,9 +35,25 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   updateProduct(dataEdit._id,dataEdit)
-   setDataEdit(initialForm)
-   setErrors(validateUpdateProduct(dataEdit));
+    swal({
+      title: "Are you sure?",
+      text: "!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        updateProduct(dataEdit._id,dataEdit)
+        setDataEdit(initialForm)
+        setErrors(validateUpdateProduct(dataEdit));
+        swal("Poof! The product has been edited!", {
+          icon: "success",
+        });
+      } else {
+        swal("The product wasn´t removed!");
+      }
+    });
   };
 
 

@@ -18,7 +18,6 @@ router.get("/users",  getUsers);
 // route que me actualiza los datos de usuarios
 router.put("/user/:id", /* verifyToken, */ updateUser);
 
-
 // route que me trae un usuario por iD 
 router.get("/user/:id", /* verifyToken, */ getUserByid);
 
