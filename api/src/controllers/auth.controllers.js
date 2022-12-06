@@ -21,10 +21,6 @@ export const userRegister = async (req, res) => {
       roles,
     } = req.body;
 
-    const verify = await Users.find({email: email, active: false})
-    if(verify){
-      res.status(400).json({message: "the user has been removed for breaking the rules"})
-    }else{
     const newUser = new Users({
       firstname,
       lastname,
@@ -36,8 +32,6 @@ export const userRegister = async (req, res) => {
       addres,
       telephone,
     });
-
-
 
     if (roles) {
       //si llega roles busca en el model de Roles el que coincida y asigna al usuario el id de ese role
@@ -59,7 +53,7 @@ export const userRegister = async (req, res) => {
     });
 
     return res.status(200).json({ token });
-  }
+  /*}*/
   } catch (error) {
     return res.status(500).json(error.message);
   }

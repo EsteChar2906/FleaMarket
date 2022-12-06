@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUsers, putUser } from "../../../../store/actions/index.js";
 import TableUser from "../table/TableUser.jsx";
@@ -8,33 +8,38 @@ import axios from "axios";
 import { BACK_DOMINIO } from "../../../../config.js";
 
 const Users = () => {
-  const allUsers = useSelector((state) => state.users);
-  const dispatch = useDispatch();
+  /*const allUsers = useSelector((state) => state.users);*/
+  const dispatch = useDispatch(); 
+
+  const [users, setUsers] = useState([]);
+  const [admin, setAdmin] = useState([])
 
   useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+    getAllUsers();
+  }, []);
 
-  let index = 0;
-  const usersData = allUsers.map((e) => {
-    index++;
-    return {
-      id: e._id,
-      firstName: e.firstname,
-      lastName: e.lastname,
-      userName: e.username,
-      email: e.email,
-      country: e.country,
-      telephone: e.telephone,
-      role: e.roles.map((e) => e.name),
-      active: e.active? "Yes":"No" ,
-    };
-  });
+  const getAllUsers = async () => {
+    const response = await axios.get(`${BACK_DOMINIO}/api/users`)
+    console.log(response)
+    const usersData = response.data.map((e) => {
+      return {
+        id: e._id,
+        firstName: e.firstname,
+        lastName: e.lastname,
+        userName: e.username,
+        email: e.email,
+        country: e.country,
+        telephone: e.telephone,
+        role: e.roles.map((e) => e.name),
+        active: e.active? "Yes":"No" ,
+      };
+    });
+    const filterCustomer = usersData.filter((e) => e.role[0] === "user");
+    setUsers(filterCustomer);
 
-  const filterCustomer = usersData.filter((e) => e.role[0] === "user");
-  // console.log(usersData);
-  const filterAdmin = usersData.filter((e) => e.role[0] === "admin");
-  // console.log(filterAdmin);
+    const filterAdmin = usersData.filter((e) => e.role[0] === "admin");
+    setAdmin(filterAdmin)
+  }
 
   const handleClick = (id) => {
     swal({
@@ -67,7 +72,8 @@ const Users = () => {
       if (willDelete) {
         const active = { active: false };
         dispatch(putUser(id, active));
-        dispatch(getUsers())
+        const filterUser = users.filter((u) => u.id !== id)
+        setUsers(filterUser)
         swal("Poof! Delete!", {
           icon: "success",
         });
@@ -87,7 +93,8 @@ const Users = () => {
     }).then((willDelete) => {
       if (willDelete) {
         axios.delete(`${BACK_DOMINIO}/api/users/${id}`);
-        dispatch(getUsers())
+        const filterUser = users.filter((u) => u.id !== id)
+        setUsers(filterUser)
         swal("Poof! Delete!", {
           icon: "success",
         });
@@ -100,9 +107,9 @@ const Users = () => {
   return (
     <div className="container_box">
       <TableUser
-        users={filterCustomer}
+        users={users}
         handleClick={handleClick}
-        usersAdmin={filterAdmin}
+        usersAdmin={admin}
         deleteUser={deleteUser}
         deleteUserFisico={deleteUserFisico}
       />

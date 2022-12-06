@@ -49,3 +49,13 @@ export const findOrders = async (req, res) => {
 		res.status(500).json({message: error.message})
 	}
 };
+
+export const deleteOrders = async (req, res) => {
+	try{
+		let { id } = req.params;
+		await Orders.deleteOne({_id: id})
+		res.status(200)
+	} catch(error){
+		res.status(500).json({message: error.message})
+	}
+}
