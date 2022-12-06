@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component"
 import s from "./tabla.module.css"
 
 
-const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
+const TableUser = ({handleClick,users,usersAdmin,deleteUser,deleteUserFisico}) => {
 
   const columnas = [
     {
@@ -47,6 +47,11 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
       sortable: true
     },
     {
+      name: "Active",
+      selector: (row) => row.active,
+      sortable: true
+    },
+    {
       name: "EDIT",
       grow: 0,
       cell: (row) => <button className={s.botton_edit} onClick={() => handleClick(row.id)}>Edit</button>
@@ -54,7 +59,7 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
     {
       name: "DELETE",
       grow: 0,
-      cell: (row) => <button className={s.delete} onClick={() => deleteUser(row.id) }>Delete</button>
+      cell: (row) => <button className={s.delete} onClick={() => { row.active === "No"? deleteUserFisico(row.id) : deleteUser(row.id) }}>Delete</button>
     }
   ]
 

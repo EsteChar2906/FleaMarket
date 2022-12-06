@@ -22,6 +22,6 @@ router.put("/user/:id", /* verifyToken, */ updateUser);
 router.get("/user/:id", /* verifyToken, */ getUserByid);
 
 //ruta que elimina un usuario
-router.delete("/users/:id", [verifyToken, verifyAdminRole], deleteUser);
+router.delete("/users/:id", /*[verifyToken, verifyAdminRole],*/ deleteUser);
 
 export default router;

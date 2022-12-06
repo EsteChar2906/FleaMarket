@@ -4,6 +4,8 @@ import { getUsers, putUser } from "../../../../store/actions/index.js";
 import TableUser from "../table/TableUser.jsx";
 import swal from "sweetalert";
 import s from "./Users.module.css";
+import axios from "axios";
+import { BACK_DOMINIO } from "../../../../config.js";
 
 const Users = () => {
   const allUsers = useSelector((state) => state.users);
@@ -25,6 +27,7 @@ const Users = () => {
       country: e.country,
       telephone: e.telephone,
       role: e.roles.map((e) => e.name),
+      active: e.active? "Yes":"No" ,
     };
   });
 
@@ -64,6 +67,27 @@ const Users = () => {
       if (willDelete) {
         const active = { active: false };
         dispatch(putUser(id, active));
+        dispatch(getUsers())
+        swal("Poof! Delete!", {
+          icon: "success",
+        });
+      } else {
+        swal("ERROR!");
+      }
+    });
+  };
+
+  const deleteUserFisico = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "delete user permanently?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(`${BACK_DOMINIO}/api/users/${id}`);
+        dispatch(getUsers())
         swal("Poof! Delete!", {
           icon: "success",
         });
@@ -80,6 +104,7 @@ const Users = () => {
         handleClick={handleClick}
         usersAdmin={filterAdmin}
         deleteUser={deleteUser}
+        deleteUserFisico={deleteUserFisico}
       />
     </div>
   );

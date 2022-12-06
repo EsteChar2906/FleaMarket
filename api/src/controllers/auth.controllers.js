@@ -21,6 +21,10 @@ export const userRegister = async (req, res) => {
       roles,
     } = req.body;
 
+    const verify = await Users.find({email: email, active: false})
+    if(verify){
+      res.status(400).json({message: "the user has been removed for breaking the rules"})
+    }else{
     const newUser = new Users({
       firstname,
       lastname,
@@ -55,6 +59,7 @@ export const userRegister = async (req, res) => {
     });
 
     return res.status(200).json({ token });
+  }
   } catch (error) {
     return res.status(500).json(error.message);
   }
@@ -67,9 +72,16 @@ export const userLogin = async (req, res) => {
     const findUser = await Users.findOne({ email: req.body.email, active: true }).populate(
       "roles"
     );
+
+    const findUserDelete = await Users.findOne({ email: req.body.email, active: false})
+
+    //si el usuario fue borrado arroja un error
+    if(findUserDelete)
+      return res.status(400).json({message: "the user has been removed for breaking the rules"});
+
     // sino se encuentra el user arroja un error
     if (!findUser)
-      return res.status(400).json({ message: "Usuario no encontrado" });
+      return res.status(400).json({ message: "user not found" });
 
     const matchPassword = await Users.comparePassword(
       // se comparan los password
@@ -81,7 +93,7 @@ export const userLogin = async (req, res) => {
       // sino coinciden los password, no le envio un token
       return res.status(401).json({
         token: null,
-        message: "Password no es valido",
+        message: "Password is invalid",
       });
 
     const token = Jwt.sign({ id: findUser._id }, SECRET, {
