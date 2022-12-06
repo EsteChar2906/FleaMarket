@@ -5,6 +5,7 @@ import Card from "./Card";
 import Payment from "../../components/Payment/Payment.jsx";
 import HeadPage from "../../components/HeadPage/HeadPage";
 import styles from './ShoppingCard.module.css'
+import swal from "sweetalert";
 
 const ShopingCard = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,26 @@ const ShopingCard = () => {
   console.log("carrito:", carrito);
 
   function reset() {
-    let resp = window.confirm("Are you sure you want to reset the car ?")
+    swal({
+      title: "Are you sure?",
+      text: "Do you want to reset the shopping car?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((result) => {
+      if(result){
+        dispatch(shopingCar("REST"));
+        setSuiche(false);
+        swal(
+          "Shopping car is void.",
+          {icon: "success"}
+        )
+      }
+    })
+
+    /* let resp = window.confirm("Are you sure you want to reset the car ?")
     if (resp === true) {
-      dispatch(shopingCar("REST"));
-      setSuiche(false)
-    }
+    } */
   }
 
   console.log("prices", JSON.parse(sessionStorage.getItem("prices")))
