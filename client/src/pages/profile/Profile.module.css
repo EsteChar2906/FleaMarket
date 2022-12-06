@@ -10,8 +10,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    max-width: 650px;
+    width: 90%;
+    max-width: 550px;
     height: 60vh;
 }
 .block__profile_contendoruno{
@@ -20,10 +20,11 @@
     justify-content: flex-start;
     width: 100%; 
     background-color: rgb(255, 255, 255);
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px;
+    font-size: 0.7rem;
 }
 
 .block__profile_contendordos{
@@ -35,18 +36,16 @@
     background-color:  rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px;
-    padding: 20px 50px;
+    padding: 10px 30px;
     box-sizing: border-box;
-    
 
-   
 }
 
 .block__profile_contendordos h1{
-    padding-top: 0.875rem ;
-    padding-bottom: 0.875rem ;
+    padding-top: 0.6rem ;
+    padding-bottom: 0.6rem ;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .block__profile_contendoruno_person{
     width: 5rem;
@@ -59,3 +58,28 @@
     width: 100%;
     
 }
+.block__profilebutton{
+    background-color: #e65c00;
+    height: 2.7rem;
+    width: 100%;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border: 0;
+    cursor: pointer;
+    text-decoration:none;
+    outline: 0; 
+    
+    
+    
+}
+
+.block__profilebutton:hover {
+    transition: 0.2s;
+    background-color: #f9d423;
+  }
