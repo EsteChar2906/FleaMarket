@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../../config.js";
 import TableCategories from "../table/tableCategories.jsx";
+import s from './categories.module.css'
 
 const Categories = () => {
 
@@ -36,7 +37,7 @@ const Categories = () => {
 	}
 
 	return (
-		<div>
+		<div className={s.container}>
 		<TableCategories
 		categories={categories}
 		deleteCategory={deleteCategory} 

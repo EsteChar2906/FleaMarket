@@ -14,7 +14,7 @@ import Access from "./components/Access/Access.jsx";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+  <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/detail/:id" component={Detail} />
@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/review" component={Review} />
           <Route exact path="/access" component={Access} />
-
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/payment" component={Payment} />
           <PrivateRoute path="/shoping" component={ShopingCard} />

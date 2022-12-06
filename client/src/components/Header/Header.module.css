@@ -58,3 +58,9 @@
   justify-content: center;
   margin: var(--header-margin-top-bottom);
 }
+
+.dashboard{
+ color:white;
+ padding-left:15px;
+ text-decoration:none;
+}

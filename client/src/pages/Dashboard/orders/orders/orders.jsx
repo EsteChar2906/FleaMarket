@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACK_DOMINIO } from "../../../../config.js";
 import TableOrders from "../table/tableOrders.jsx";
+import s from './orders.module.css'
 
 const Orders = () => {
 
@@ -29,7 +30,7 @@ const Orders = () => {
 	}
 
 	return (
-		<div>
+		<div className={s.container}>
 		<TableOrders 
 		orders={orders}
 		deleteOrder={deleteOrder} 
