@@ -71,7 +71,6 @@ const FormProducts = ({ products, setProducts }) => {
     try {
       const url = `${BACK_DOMINIO}/api/product`;
       const res = await axios.post(url, data);
-      console.log(res.data)
       setProducts(products.concat(res.data));
       setData(initialForm);
     } catch (error) {
@@ -113,9 +112,28 @@ const FormProducts = ({ products, setProducts }) => {
     });
   };
 
+  // el handleImage convierte la imagen en base64
+  const handleImage = (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    setFileToBase(file)
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setData({
+        ...data,
+        image: reader.result
+      })
+
+    }
+  }
+
   return (
     <>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit} encType="multipart/form-data" >
       <h1 className={styles.form_title}>Add Products</h1>
         
         <label className={styles.labels} htmlFor="title">Name </label>
@@ -149,11 +167,10 @@ const FormProducts = ({ products, setProducts }) => {
         <label className={styles.labels}  htmlFor="image">Add image url </label>
         <div>
           <input
-            type="text"
+            type="file"
             placeholder="Image"
             name="image"
-            onChange={handleChange}
-            value={data.image}
+            onChange={handleImage}
             required
             className={styles.input}
           />

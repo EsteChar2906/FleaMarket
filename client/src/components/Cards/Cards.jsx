@@ -26,7 +26,7 @@ const Cards = () => {
             <Card
               key={i}
               title={e.title}
-              image={e.image}
+              image={e.image.secure_url}
               price={e.price}
               id={e._id}
               allProduct={e}
