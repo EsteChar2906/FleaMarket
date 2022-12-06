@@ -49,7 +49,7 @@ const Card = (props) => {
       </div>
 
       <div className={styles.block__shopingcontendorcinco}>
-      <img src={props.image} alt="not found" height="10%" width="20%" />
+      <img src={props.image.secure_url} alt="not found" height="10%" width="20%" />
         <div className={styles.block__shopingcontendorseis}>
             <h2> {props.title}</h2>
             <h4>$ {props.price} und </h4>

@@ -36,10 +36,10 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
     },
     {
       name: "IMAGEN",
-      selector: (row) => row.image,
+      selector: (row) => row.image.secure_url,
       grow: 0,
       cell: (row) => (
-        <img height="60px" width="56px" alt={row.name} src={row.image} />
+        <img height="60px" width="56px" alt={row.name} src={row.image.secure_url} />
       ),
     },
     {

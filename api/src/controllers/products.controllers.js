@@ -1,75 +1,8 @@
 import Products from "../models/products.js";
 import Category from "../models/category.js";
 import Users from "../models/users.js";
-// import { uploadImage, deleteImage } from "../cloudinary/cloudinary.js";
-// import fs from "fs-extra";
-
-
-// export const createProduct = async (req, res) => {
-//   try {
-//     const {
-//       title,
-//       price,
-//       description,
-//       image,
-//       rating,
-//       stock,
-//       condition,
-//       user,
-//       category,
-//       brand,
-//       ram,
-//       processor,
-//       battery,
-//       bluetooth,
-//     } = req.body;
-
-//     const newProduct = new Products({
-//       title,
-//       price,
-//       description,
-//       image,
-//       rating,
-//       stock,
-//       condition,
-//       user,
-//       category,
-//       brand,
-//       ram,
-//       processor,
-//       battery,
-//       bluetooth,
-//     });
-//     // si llega una url guardala en cloudinary
-   
-//     if (req.files?.image) {
-//       const result = await uploadImage(req.files.image.tempFilePath);
-   
-//       newProduct.image = {
-//         public_id: result.public_id,
-//         secure_url: result.secure_url,
-//       };
-//     }
-
-//     //si ya se guardo eliminala del direcotrio local
-//     await fs.unlink(req.files.image.tempFilePath);
-
-//     if (category) {
-//       const findCategory = await Category.find({ name: { $in: category } });
-//       newProduct.category = findCategory.map((c) => c._id);
-//     }
-
-//     if (user) {
-//       const findUser = await Users.find({ email: { $in: user } });
-//       newProduct.user = findUser.map((p) => p._id);
-//     }
-//     const saveProduct = await newProduct.save();
-
-//     return res.json(saveProduct);
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
+import { uploadImage, deleteImage } from "../cloudinary/cloudinary.js";
+import fs from "fs-extra";
 
 
 export const createProduct = async (req, res) => {
@@ -91,11 +24,18 @@ export const createProduct = async (req, res) => {
       bluetooth,
     } = req.body;
 
+    
+    // si llega la image en base64 guardala en cloudinary
+    const result = await uploadImage(image);
+
     const newProduct = new Products({
       title,
       price,
       description,
-      image,
+      image: {
+        public_id: result.public_id,
+        secure_url: result.secure_url
+      },
       rating,
       stock,
       condition,
@@ -118,12 +58,13 @@ export const createProduct = async (req, res) => {
       newProduct.user = findUser.map((p) => p._id);
     }
     const saveProduct = await newProduct.save();
+
     return res.json(saveProduct);
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ message: error.message });
   }
 };
-
 
 export const getProductsDashboard = async (req, res) => {
   try {
@@ -237,12 +178,31 @@ export const getProductById = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
+    if(req.body.image){
+      const id = req.params
+      const result = await uploadImage(req.body.image);
+
+      const updateOneImage = await Products.findByIdAndUpdate({
+        _id: id.id},
+        { 
+          image:
+          {
+            public_id: result.public_id,
+            secure_url: result.secure_url
+          }
+        },
+        {new: true}
+      )
+
+      res.status(200).send(updateOneImage)
+    } else {
     const updateOneProduct = await Products.findByIdAndUpdate(
-      req.params.id,
+      req.params.id.id,
       req.body,
       { new: true }
     );
     res.status(200).send(updateOneProduct);
+  }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

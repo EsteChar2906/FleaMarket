@@ -46,7 +46,7 @@ export function Detail() {
             <div className={styles.block__detail_contenedorimgdatos}>
 
               <div className={styles.block__detail_product}>
-                <img className={styles.block__detail_productfoto}src={p.image} alt="" />    
+                <img className={styles.block__detail_productfoto}src={p.image.secure_url} alt="" />    
               </div>
 
               <div className={styles.block__detail_info}>

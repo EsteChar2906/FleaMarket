@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import styles from "./FormEditProduct.module.css"
 import { validateUpdateProduct } from "../../../Helpers/Validations";
 import swal from 'sweetalert';
+import { BACK_DOMINIO } from "../../../config.js";
+import axios from "axios";
+
 const initialForm = {
   id: null,
   title: "",
@@ -44,7 +47,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
     })
     .then((willDelete) => {
       if (willDelete) {
-        updateProduct(dataEdit._id,dataEdit)
+        axios.put(`${BACK_DOMINIO}/api/product/${dataEdit._id}`, dataEdit)
         setDataEdit(initialForm)
         setErrors(validateUpdateProduct(dataEdit));
         swal("Poof! The product has been edited!", {
@@ -55,6 +58,34 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
       }
     });
   };
+
+  // el handleImage convierte la imagen en base64
+  const handleImage = (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    setFileToBase(file)
+  };
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setDataEdit({
+        ...dataEdit,
+        image: reader.result
+      })
+
+    }
+  };
+
+  const handleBluetooth = (e) => {
+    e.preventDefault();
+
+    setDataEdit({
+      ...dataEdit,
+      bluetooth: e.target.value
+    })
+  }
 
 
   useEffect(() => {
@@ -68,7 +99,7 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
   return (
     <>
   
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit} encType="multipart/form-data">
       <h1 className={styles.form_title}>Update Product</h1>
           
         <label className={styles.labels} htmlFor="title">Name</label>
@@ -102,12 +133,11 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
         <label className={styles.labels} htmlFor="image">Add image url </label>
         <div>
           <input
-            type="text"
+            type="file"
             placeholder="image"
             name="image"
-            onChange={handleChange}
-            value={dataEdit.image || ""}
-            // required
+            onChange={handleImage}
+            required
             className={styles.input}
           />
         </div>
@@ -183,15 +213,11 @@ const FormEditProduct = ({ productEdit,updateProduct }) => {
 
         <label className={styles.labels} htmlFor="bluetooth">Bluetooth</label>
         <div>
-          <input
-            type="text"
-            placeholder="bluetooth"
-            name="bluetooth"
-            onChange={handleChange}
-            value={dataEdit.bluetooth || ""}
-            // required
-            className={styles.input}
-          />
+          <select name="bluetooth" id="bluetooth" onChange={handleBluetooth}>
+          <option value="">  </option>
+          <option value="No">No</option>
+          <option value="Si">Si</option> 
+          </select>
         </div>
         {errors.bluetooth && (<div className={styles.errors}>{errors.bluetooth}</div>)}
 
