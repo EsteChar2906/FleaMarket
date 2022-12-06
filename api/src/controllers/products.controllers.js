@@ -193,7 +193,7 @@ export const updateProduct = async (req, res) => {
         },
         {new: true}
       )
-
+      updateOneImage.save();
       res.status(200).send(updateOneImage)
     } else {
     const updateOneProduct = await Products.findByIdAndUpdate(

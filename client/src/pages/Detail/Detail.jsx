@@ -10,12 +10,12 @@ import HeadPage from "../../components/HeadPage/HeadPage";
 import Reviews from '../../components/Reviews/Reviews';
 import { ToastContainer, toast } from 'react-toastify';
 
+
 export function Detail() {
   let { id } = useParams();
 
   const dispatch = useDispatch();
   const p = useSelector((state) => state.product);
-
 
   useEffect(() => {
     dispatch(loadProduct(id));
@@ -46,7 +46,7 @@ export function Detail() {
             <div className={styles.block__detail_contenedorimgdatos}>
 
               <div className={styles.block__detail_product}>
-                <img className={styles.block__detail_productfoto}src={p.image.secure_url} alt="" />    
+                <img className={styles.block__detail_productfoto} src={p.image && p.image.secure_url} alt="" />    
               </div>
 
               <div className={styles.block__detail_info}>
