@@ -52,7 +52,7 @@ const Profile = () => {
           {
             userStorage &&
             <div>
-              <button onClick={openModal}>Edit Profile</button>
+              <button  className={styles.block__profilebutton} onClick={openModal}>Edit Profile</button>
               <Modal isOpenModal={isOpen} closeModal={closeModal}>
                 <Form closeModal={closeModal}/>
               </Modal>
