@@ -6,3 +6,18 @@
   border-radius:3px;
   font-weight: bold;
 }
+
+.delete{
+  border:none;
+  background:red;
+  color:white;
+  cursor:pointer;
+  border-radius:3px;
+  font-weight: bold;
+}
+
+.container_table{
+  max-width:1300px;
+  margin:0 30px;
+}
+

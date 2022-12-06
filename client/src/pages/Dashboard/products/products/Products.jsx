@@ -85,7 +85,6 @@ const Products = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_products}>
-        <h1 className={styles.title}>MANAGE ALL THE PRODUCTS IN OUR APP.</h1>
         <button className={styles.btn_agregar} onClick={openModal1}>
           Add new product
         </button>

@@ -92,7 +92,7 @@ export default function Admin(){
           borderColor: "rgb(75,192,192)", //color 
           //pointRadius: 6, //tamaño del punto
           // pointBackgroundColor: "rgb(75,192,192)",
-          backgroundColor: "rgb(75,192,192,0.3)",
+          backgroundColor: "#243b55",
         }
       ],
       labels

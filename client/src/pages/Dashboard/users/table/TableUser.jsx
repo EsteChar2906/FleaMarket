@@ -6,12 +6,6 @@ import s from "./tabla.module.css"
 const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
 
   const columnas = [
-    // {
-    //   name: "Id",
-    //   selector: "id",
-    //   sortable: true,
-    //   grow: 0
-    // },
     {
       name: "First Name",
       selector: (row) => row.firstName,
@@ -23,12 +17,12 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
       sortable: true,
       grow:2
     },
-    {
-      name: "User Name",
-      selector: (row) => row.userName,
-      sortable: true,
-      grow: 1.3
-    },
+    // {
+    //   name: "User Name",
+    //   selector: (row) => row.userName,
+    //   sortable: true,
+    //   grow: 1.3
+    // },
     {
       name: "Email",
       selector:(row) => row.email,
@@ -60,17 +54,11 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
     {
       name: "DELETE",
       grow: 0,
-      cell: (row) => <button onClick={() => deleteUser(row.id) }>Delete</button>
+      cell: (row) => <button className={s.delete} onClick={() => deleteUser(row.id) }>Delete</button>
     }
   ]
 
   const tableAdmins = [
-    // {
-    //   name: "Id",
-    //   selector: "id",
-    //   sortable: true,
-    //   grow: 0
-    // },
     {
       name: "First Name",
       selector: (row) => row.firstName,
@@ -82,12 +70,12 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
       sortable: true,
       grow:2
     },
-    {
-      name: "User Name",
-      selector: (row) => row.userName,
-      sortable: true,
-      grow: 1.3
-    },
+    // {
+    //   name: "User Name",
+    //   selector: (row) => row.userName,
+    //   sortable: true,
+    //   grow: 1.3
+    // },
     {
       name: "Email",
       selector:(row) => row.email,
@@ -114,14 +102,14 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
   ]
 
   return (
-  <div className='container_box'>
+  <div className={s.container_table}>
     <DataTable
       columns={columnas}
       data={users}  
-      title={"Custromers"}
+      title={"Customers"}
       pagination
       fixedHeader
-      fixedHeaderScrollHeight='600px'
+      fixedHeaderScrollHeight='200px'
     />
     <DataTable
       columns={tableAdmins}
@@ -129,7 +117,7 @@ const TableUser = ({handleClick,users,usersAdmin,deleteUser}) => {
       title={"Admins"}
       pagination
       fixedHeader
-      fixedHeaderScrollHeight='600px'
+      fixedHeaderScrollHeight='200px'
     />
     
   </div>

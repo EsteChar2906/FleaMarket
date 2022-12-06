@@ -1,5 +1,6 @@
 import React from "react";
 import DataTable from "react-data-table-component";
+import s from './tableCategories.module.css'
 
 const TableCategories = ({ categories, deleteCategory, setCategoryEdit }) => {
 
@@ -27,7 +28,7 @@ const TableCategories = ({ categories, deleteCategory, setCategoryEdit }) => {
 	{
 		name: "DELETE",
 		grow: 0,
-		cell: (row) => <button onClick={() => deleteCategory(row._id)}>DELETE</button>
+		cell: (row) => <button className={s.delete} onClick={() => deleteCategory(row._id)}>DELETE</button>
 	},
 	];
 

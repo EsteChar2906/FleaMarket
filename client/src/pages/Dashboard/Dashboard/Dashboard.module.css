@@ -1,7 +1,5 @@
-@import '../../../index.css';
-
-.info{
-  margin:30px 
+.info {
+  margin: 30px;
 }
 
 .container {
@@ -19,20 +17,21 @@
 }
 
 .main {
-  height: calc(100vh - 91px);
   display: flex;
   flex-wrap: wrap;
 }
 
 .aside {
-  border-right: 1px solid black;
+  border-right: 1px solid gray;
+  box-shadow: 0.5px 1px 1px grey;
+  height: calc(100vh - 61.51px);
 }
 
 .asides_div {
   display: flex;
   align-items: center;
   align-content: center;
-  padding: 0.2rem;
+  padding: 20px 30px;
 }
 .asides_div:hover {
   display: flex;

@@ -46,8 +46,8 @@ const Header = () => {
           {user ? <LinkAuth0 /> : <LinkJwt />}
         </div>
 
-        <div>{
-          userStorage && userStorage.role === "admin" && <Link to="/dashboard">Dashboard</Link>
+        <div >{
+          userStorage && userStorage.role === "admin" && <Link className={styles.dashboard} to="/dashboard">Dashboard</Link>
         }
         </div>
 

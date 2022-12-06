@@ -1,5 +1,6 @@
 import React from "react";
 import DataTable from "react-data-table-component";
+import s from './tableOrders.module.css'
 
 const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 
@@ -7,35 +8,43 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 	{
 		name: "ORDERID",
 		selector: (row) => row.orderId,
-		sortable: true
+		sortable: true,
+		grow: 0,
+	
 	},
 	{
 		name: "PAYERID",
 		selector: (row) => row.payerId,
-		sortable: true
+		sortable: true,
+		grow: 0,
 	},
 	{
 		name: "E-MAIL",
-		selector: (row) => row.user.email
+		selector: (row) => row.user.email,
+		grow: 0,
 	},
 	{
 		name: "PRODUCTS",
-		selector: (row) => row.product.map((p) => p.title)
+		selector: (row) => row.product.map((p) => p.title),
+		grow: 0.5,
 	},
 	{
 		name: "METODO DE PAGO",
 		selector: (row) => row.via,
-		sortable: true
+		sortable: true,
+		grow: 0,
 	},
 	{
 		name: "PRICE",
 		selector: (row) => row.price,
-		sortable: true
+		sortable: true,
+		grow: 0,
 	},
 	{
 		name: "STATUS",
 		selector: (row) => row.status,
-		sortable: true
+		sortable: true,
+		grow: 0,
 	},
 	/*{
 		name: "UPDATE",
@@ -50,7 +59,7 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 	{
 		name: "DELETE",
 		grow: 0,
-		cell: (row) => <button onClick={() => deleteOrder(row._id)}>DELETE</button>
+		cell: (row) => <button className={s.delete} onClick={() => deleteOrder(row._id)}>DELETE</button>
 	}
 	];
 
@@ -62,7 +71,7 @@ const TableOrders = ({ orders, deleteOrder, setOrderEdit }) => {
 		  title="List of Orders in FleaMarket"
 		  pagination
 		  fixedHeader
-		  fixedHeaderScrollHeight="600px"
+		  fixedHeaderScrollHeight="400px"
 		/>
 		</>
 		);

@@ -22,12 +22,12 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
   
 
   const columns = [
-    {
-      name: "ID",
-      selector: (row) => row._id,
-      sortable: true,
-      grow: 0,
-    },
+    // {
+    //   name: "ID",
+    //   selector: (row) => row._id,
+    //   sortable: true,
+    //   grow: 0,
+    // },
     {
       name: "NOMBRE",
       selector: (row) => row.title,
@@ -114,7 +114,7 @@ const Table = ({products, deleteProduct,setProductEdit,openModal2}) => {
       <DataTable
         columns={columns}
         data={products}
-        title="Lista de productos en FleaMarket"
+        title="Products list"
         pagination
         fixedHeader
         fixedHeaderScrollHeight="400px"
