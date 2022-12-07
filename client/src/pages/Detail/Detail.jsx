@@ -17,6 +17,9 @@ export function Detail() {
   const dispatch = useDispatch();
   const p = useSelector((state) => state.product);
 
+  const image = p.image
+  const imageCloudinary = p.image && p.image.secure_url
+
   useEffect(() => {
     dispatch(loadProduct(id));
   }, []);
@@ -46,7 +49,7 @@ export function Detail() {
             <div className={styles.block__detail_contenedorimgdatos}>
 
               <div className={styles.block__detail_product}>
-                <img className={styles.block__detail_productfoto} src={p.image && p.image.secure_url} alt="" />    
+                <img className={styles.block__detail_productfoto} src={imageCloudinary? imageCloudinary : image} alt="" />    
               </div>
 
               <div className={styles.block__detail_info}>
